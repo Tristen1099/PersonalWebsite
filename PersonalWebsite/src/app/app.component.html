@@ -1,25 +1,60 @@
 <div class="page-container">
-  <nav>
+  <nav class="navbar navbar-expand-lg">
     <div class="container">
       <div class="row">
         <div class="col">
-          <h4 class="text-left">Welcome!</h4>
+          <a class="navbar-brand text-left" href="#">
+            <h4>Welcome!</h4>
+          </a>
         </div>
         <div class="col"></div>
-        <div class="col">
-          <h5>Education</h5>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <div class="col">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">
+                  <h5>Education</h5>
+                </a>
+              </li>
+            </div>
+            <div class="col mobile-dropdown">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <h5>Projects</h5>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Pro1</a>
+                  <a class="dropdown-item" href="#">Pro2</a>
+                  <a class="dropdown-item" href="#">Pro3</a>
+                  <a class="dropdown-item" href="#">Pro4</a>
+                  <a class="dropdown-item" href="#">Pro5</a>
+                </div>
+              </li>
+            </div>
+            <div class="col">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <h5>Work Experience</h5>
+                </a>
+              </li>
+            </div>
+            <div class="col">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <h5>Contact</h5>
+                </a>
+              </li>
+            </div>
+          </ul>
         </div>
-        <div class="col">
-          <h5>Projects</h5>
-        </div>
-        <div class="col">
-          <h5>Work Experience</h5>
-        </div>
-        <div class="col">
-          <h5>Contact</h5>
-        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
       </div>
     </div>
   </nav>
+  <app-hero-intro></app-hero-intro>
   <app-hero-intro></app-hero-intro>
 </div>

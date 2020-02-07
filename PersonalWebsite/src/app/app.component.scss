@@ -1,32 +1,68 @@
 .page-container {
-    position: relative;
-    z-index: 1;
-    width: 100vw;
-    height: 100%;
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  height: 100%;
 
-    nav {
-        top: 0;
-        width: 80%;
-        height: 5%;
-        margin: 0 10%;
-        border-style: solid;
-        border-width: 0 0 3px 0;
-        border-color: green;
-        color: white;
-        padding: 1em;
-        font-family: monospace;
-        text-align: center;
+  nav {
+    top: 0;
+    height: 5%;
+    width: 80%;
+    margin: 0 10%;
+    border-style: solid;
+    border-width: 0 0 2px 0;
+    border-color: rgb(0, 50, 0);
+    padding: 1em;
+    font-family: monospace;
+    text-align: center;
+    position: sticky;
+    z-index: 100;
 
-        .container {
-            padding: 0;
+    .container {
+      padding: 0;
 
-            .row {
-                
-                h4, h5 {
-                    margin: 0 auto;
-                }
-                
-            }
+      .row {
+        width: 100%;
+
+        h4 {
+          margin: 0 auto;
+          font-size: 2.5em;
+          color: white;
         }
+        h5 {
+          margin: 0 auto;
+          font-size: 2em;
+          color: white;
+        }
+        .navbar-toggler {
+          right: 0 !important;
+          position: absolute;
+        }
+        .col {
+          white-space: nowrap;
+
+          .dropdown-toggle h5 {
+            float: left;
+          }
+          .dropdown-toggle::after {
+            margin: 1em 0.2em;
+            color: white;
+          }
+        }
+      }
     }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .page-container {
+    .container {
+      .row {
+        .mobile-dropdown {
+          max-width: 11em;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
 }
