@@ -1,0 +1,27 @@
+.hero-container {
+  height: 95vh;
+
+  .container {
+    height: 100%;
+    .row {
+      height: 100%;
+      .hero-text {
+        color: white;
+        text-align: center;
+        margin: auto;
+
+        .hero-title {
+          padding: 1em 0;
+          font-size: 5em;
+        }
+        .hero-description {
+            font-size: 3em;
+        }
+      }
+      .hero-image {
+        background-image: url("../../assets/test.png");
+        background-size: cover;
+      }
+    }
+  }
+}
