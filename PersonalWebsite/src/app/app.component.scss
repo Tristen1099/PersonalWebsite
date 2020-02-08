@@ -37,6 +37,10 @@
         .navbar-toggler {
           right: 0 !important;
           position: absolute;
+          border: 1px solid green;
+          border-radius: .5em;
+          margin-top: .3em;
+
         }
         .col {
           white-space: nowrap;
