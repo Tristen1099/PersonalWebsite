@@ -24,6 +24,12 @@
       .row {
         width: 100%;
 
+        li .active, a:hover {
+          h4, h5 {
+            color: #9DFF9D;
+          }
+        }
+
         h4 {
           margin: 0 auto;
           font-size: 2.5em;

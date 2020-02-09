@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <a class="navbar-brand text-left" href="#">
+          <a class="navbar-brand text-left" href="#heroIntro">
             <h4>Welcome!</h4>
           </a>
         </div>
@@ -12,36 +12,28 @@
           <ul class="navbar-nav">
             <div class="col">
               <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="#educationSection">
                   <h5>Education</h5>
                 </a>
               </li>
             </div>
             <div class="col mobile-dropdown">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="#projectSection">
                   <h5>Projects</h5>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Pro1</a>
-                  <a class="dropdown-item" href="#">Pro2</a>
-                  <a class="dropdown-item" href="#">Pro3</a>
-                  <a class="dropdown-item" href="#">Pro4</a>
-                  <a class="dropdown-item" href="#">Pro5</a>
-                </div>
               </li>
             </div>
             <div class="col">
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="#workExperienceSection">
                   <h5>Work Experience</h5>
                 </a>
               </li>
             </div>
             <div class="col">
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="#contactSection">
                   <h5>Contact</h5>
                 </a>
               </li>
@@ -58,6 +50,12 @@
       </div>
     </div>
   </nav>
-  <app-hero-intro></app-hero-intro>
-  <app-project-portfolio></app-project-portfolio>
+
+  <div data-spy="scroll" data-target=".navbar" data-offset="0">
+    <app-hero-intro id="heroIntro"></app-hero-intro>
+    <app-hero-intro id="educationSection"></app-hero-intro>
+    <app-project-portfolio id="projectSection"></app-project-portfolio>
+    <app-hero-intro id="workExperienceSection"></app-hero-intro>
+    <app-hero-intro id="contactSection"></app-hero-intro>
+  </div>
 </div>
