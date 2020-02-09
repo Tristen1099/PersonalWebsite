@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
 
 @Component({
@@ -9,11 +9,13 @@ import * as $ from 'jquery';
 export class AppComponent {
   title = 'PersonalWebsite';
 
-  hamburgerClick(event: any) {
-    if(document.getElementById('hamburger-image').getAttribute('src') === '../assets/Hamburger.png') {
-      document.getElementById('hamburger-image').setAttribute('src','../assets/CloseHamburger.png');
+  hamburgerClick() {
+    const element = document.getElementById("hamburgerIcon");
+    console.log(element);
+    if (element.classList.contains("is-active")) {
+      element.classList.remove("is-active");
     } else {
-      document.getElementById('hamburger-image').setAttribute('src','../assets/Hamburger.png');
+      element.classList.add("is-active");
     }
   }
 }

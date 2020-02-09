@@ -48,9 +48,12 @@
             </div>
           </ul>
         </div>
-        <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" (click)='hamburgerClick()'>
-          <img id="hamburger-image" src="../assets/Hamburger.png" >
+        <button class="hamburger hamburger--collapse navbar-toggler navbar-dark" type="button" data-toggle="collapse"
+          data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+          aria-label="Toggle navigation" (click)="hamburgerClick()" id="hamburgerIcon">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
         </button>
       </div>
     </div>

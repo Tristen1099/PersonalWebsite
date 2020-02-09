@@ -41,6 +41,9 @@
           border-radius: .5em;
           margin-top: .3em;
 
+          .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+            background-color: white;
+          }
         }
         .col {
           white-space: nowrap;

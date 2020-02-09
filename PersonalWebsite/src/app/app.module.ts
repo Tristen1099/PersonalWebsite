@@ -19,4 +19,6 @@ import { ProjectPortfolioComponent } from './project-portfolio/project-portfolio
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
+
+
