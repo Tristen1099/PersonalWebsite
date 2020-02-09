@@ -29,7 +29,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/hamburgers-master/dist/hamburgers.css"
+              "src/assets/hamburgers/dist/hamburgers.css"
             ],
             "scripts": []
           },
@@ -95,7 +95,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/hamburgers-master/dist/hamburgers.css"
+              "src/assets/hamburgers/dist/hamburgers.css"
             ],
             "scripts": []
           }

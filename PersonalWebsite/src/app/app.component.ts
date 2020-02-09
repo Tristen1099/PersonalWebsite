@@ -1,5 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import * as $ from 'jquery';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +10,7 @@ export class AppComponent {
 
   hamburgerClick() {
     const element = document.getElementById("hamburgerIcon");
-    console.log(element);
+    
     if (element.classList.contains("is-active")) {
       element.classList.remove("is-active");
     } else {
