@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import * as $ from 'jquery';
 
 @Component({
@@ -19,7 +19,22 @@ export class AppComponent {
     }
   }
 
+  @HostListener('window:load', ['$event'])
+  onLoadHandler(event) {
+    [].map.call(
+      document.querySelectorAll('nav-link'),
+      ((item: Element) => {
+        if (item.classList.contains('active')) {
+          item.classList.remove('active')
+        }
+      })
+    )
+  }
 
+  @HostListener('window:unload', ['$event'])
+  unloadHandler(event) {
+    window.scrollTo(0, 0);
+  }
 
 }
 
