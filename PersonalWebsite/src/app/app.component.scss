@@ -24,9 +24,17 @@
       .row {
         width: 100%;
 
-        li .active, a:hover {
-          h4, h5 {
-            color: #9DFF9D;
+        li .active,
+        a:hover {
+          h4,
+          h5 {
+            color: #9dff9d;
+          }
+        }
+
+        .active, a:hover {
+          h4 {
+            color: #9dff9d;
           }
         }
 
@@ -35,6 +43,7 @@
           font-size: 2.5em;
           color: white;
         }
+
         h5 {
           margin: 0 auto;
           font-size: 2em;
@@ -44,10 +53,12 @@
           right: 0 !important;
           position: absolute;
           border: 1px solid green;
-          border-radius: .5em;
-          margin-top: .3em;
+          border-radius: 0.5em;
+          margin-top: 0.3em;
 
-          .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+          .hamburger-inner,
+          .hamburger-inner::before,
+          .hamburger-inner::after {
             background-color: white;
           }
         }
