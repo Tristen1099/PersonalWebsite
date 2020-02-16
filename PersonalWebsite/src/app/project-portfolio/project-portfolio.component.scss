@@ -1,13 +1,11 @@
 .project-container {
     
   .carousel {
-    height: 95vh;
     margin-top: 5%;
 
     .carousel-inner {
       height: 100%;
       .carousel-item {
-        height: 80%;
 
         .project-item {
           width: 80%;
@@ -15,6 +13,29 @@
           background-color: #7a897a;
           border-radius: 1em;
           margin: 5% 10% 5% 10%;
+
+          .container {
+            margin: 0;
+            max-width: 100%;
+
+            .left {
+              overflow-x: scroll;
+              margin: 1em;
+
+              .project-image-container {
+                max-height: 45em;
+                overflow: hidden;
+                min-width: max-content;
+                border-radius: 1em;
+
+                .col {
+                  float: left;
+                  margin: 0;
+                  padding: 0;
+                }
+              }
+            }
+          }
         }
       }
     }
