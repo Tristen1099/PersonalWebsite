@@ -1,12 +1,27 @@
 .project-container {
-    
+  .header {
+    padding: 1em 0;
+
+    h2 {
+      text-align: center;
+      font-family: monospace;
+      font-weight: 600;
+      font-size: 3.5em;
+      color: white;
+
+      .fas {
+        font-size: 0.7em;
+        color: #4a974a;
+        margin: 0.5em;
+      }
+    }
+  }
+
   .carousel {
-    margin-top: 5%;
 
     .carousel-inner {
       height: 100%;
       .carousel-item {
-
         .project-item {
           width: 80%;
           height: 80%;
