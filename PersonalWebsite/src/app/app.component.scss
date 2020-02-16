@@ -68,19 +68,6 @@
             font-size: 2em;
             color: white;
           }
-          .navbar-toggler {
-            right: 0 !important;
-            position: absolute;
-            border: 1px solid green;
-            border-radius: 0.5em;
-            margin-top: 0.3em;
-
-            .hamburger-inner,
-            .hamburger-inner::before,
-            .hamburger-inner::after {
-              background-color: white;
-            }
-          }
 
           .dropdown-toggle h5 {
             float: left;
@@ -88,6 +75,20 @@
           .dropdown-toggle::after {
             margin: 1em 0.2em;
             color: white;
+          }
+        }
+
+        .navbar-toggler {
+          right: 0 !important;
+          position: absolute;
+          border: 1px solid green;
+          border-radius: 0.5em;
+          margin-top: 0.3em;
+
+          .hamburger-inner,
+          .hamburger-inner::before,
+          .hamburger-inner::after {
+            background-color: white;
           }
         }
       }
