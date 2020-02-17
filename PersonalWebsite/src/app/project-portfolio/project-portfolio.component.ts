@@ -19,7 +19,9 @@ export class ProjectPortfolioComponent implements OnInit {
       description: "Homework Tracker lets the user add multiple classes depending on their" +
         " schedule. The user can then apply a priority based on the need in which the tasks " +
         "need to be completed. The user can also add or remove tasks at ease. With the ability " +
-        "to save and load files, this application can also be applied to other tasks as well.",
+        "to save and load files, the application data can be eaisly transfered. It is not just " +
+        " limited to homework, this application can also be applied to other tasks as well since " +
+        "all text input is free text.",
       images: [{
         src: "../../assets/Projects/HomeworkTracker-1.png",
         title: "Homework Tracker 1"
