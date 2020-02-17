@@ -17,6 +17,7 @@
     text-align: center;
     position: sticky;
     z-index: 100;
+    backdrop-filter: blur(5px);
 
     .container {
       padding: 0;
