@@ -60,7 +60,13 @@ export class ProjectPortfolioComponent implements OnInit {
       name: "Password Manager",
       language: "Java",
       date: "April, 2019",
-      description: "Description for Password Manager",
+      description: "The Password Manager allows the user to keep track of " +
+      "multiple accounts and their associated passwords. It has multiple search " +
+      " methods such as category and free text search. Paired with a passsword " +
+      "generator and analyzer, this application can produce strong passwords, as " +
+      "well as inform the user of how strong their password is. All accounts with " +
+      "their associated passwords can be saved to an AES encrypted text file for " +
+      "easy transfer to other machines.",
       images: [{
         src: "../../assets/Projects/PasswordManager-1.png",
         title: "Password Manager 1"
