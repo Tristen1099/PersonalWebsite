@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeroIntroComponent } from './hero-intro/hero-intro.component';
 import { ProjectPortfolioComponent } from './project-portfolio/project-portfolio.component';
 import { EducationHistoryComponent } from './education-history/education-history.component';
+import { WorkHistoryComponent } from './work-history/work-history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroIntroComponent,
     ProjectPortfolioComponent,
-    EducationHistoryComponent
+    EducationHistoryComponent,
+    WorkHistoryComponent
   ],
   imports: [
     BrowserModule,

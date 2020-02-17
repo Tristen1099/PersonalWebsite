@@ -7,8 +7,6 @@
   nav {
     top: 0;
     height: 5%;
-    width: 80%;
-    margin: 0 10%;
     border-style: solid;
     border-width: 0 0 2px 0;
     border-color: rgb(0, 50, 0);
@@ -85,6 +83,7 @@
           border: 1px solid green;
           border-radius: 0.5em;
           margin-top: 0.3em;
+          margin-right: 2em;
 
           .hamburger-inner,
           .hamburger-inner::before,
