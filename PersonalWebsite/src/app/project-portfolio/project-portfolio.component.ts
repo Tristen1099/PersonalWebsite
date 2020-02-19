@@ -63,12 +63,12 @@ export class ProjectPortfolioComponent implements OnInit {
       language: "Java",
       date: "April, 2019",
       description: "The Password Manager allows the user to keep track of " +
-      "multiple accounts and their associated passwords. It has multiple search " +
-      " methods such as category and free text search. Paired with a passsword " +
-      "generator and analyzer, this application can produce strong passwords, as " +
-      "well as inform the user of how strong their password is. All accounts with " +
-      "their associated passwords can be saved to an AES encrypted text file for " +
-      "easy transfer to other machines.",
+        "multiple accounts and their associated passwords. It has multiple search " +
+        " methods such as category and free text search. Paired with a passsword " +
+        "generator and analyzer, this application can produce strong passwords, as " +
+        "well as inform the user of how strong their password is. All accounts with " +
+        "their associated passwords can be saved to an AES encrypted text file for " +
+        "easy transfer to other machines.",
       images: [{
         src: "../../assets/Projects/PasswordManager-1.png",
         title: "Password Manager 1"
@@ -133,6 +133,40 @@ export class ProjectPortfolioComponent implements OnInit {
   ngAfterViewInit() {
 
     document.getElementById("project-carousel").children[0].classList.add("active");
+
+
+    [].map.call(
+      document.querySelectorAll('.left'),
+      ((slider: HTMLElement) => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+          isDown = true;
+          slider.classList.add('active');
+          startX = e.pageX - slider.offsetLeft;
+          scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+          isDown = false;
+          slider.classList.remove('active');
+        });
+        slider.addEventListener('mouseup', () => {
+          isDown = false;
+          slider.classList.remove('active');
+        });
+        slider.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - slider.offsetLeft;
+          const walk = (x - startX) * 3; //scroll-fast
+          slider.scrollLeft = scrollLeft - walk;
+        });
+      })
+    )
+
+
   }
 
 }
