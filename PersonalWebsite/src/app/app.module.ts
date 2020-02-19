@@ -7,6 +7,7 @@ import { HeroIntroComponent } from './hero-intro/hero-intro.component';
 import { ProjectPortfolioComponent } from './project-portfolio/project-portfolio.component';
 import { EducationHistoryComponent } from './education-history/education-history.component';
 import { WorkHistoryComponent } from './work-history/work-history.component';
+import { ContactMeComponent } from './contact-me/contact-me.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { WorkHistoryComponent } from './work-history/work-history.component';
     HeroIntroComponent,
     ProjectPortfolioComponent,
     EducationHistoryComponent,
-    WorkHistoryComponent
+    WorkHistoryComponent,
+    ContactMeComponent
   ],
   imports: [
     BrowserModule,
