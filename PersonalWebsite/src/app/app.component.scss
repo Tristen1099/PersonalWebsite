@@ -37,6 +37,39 @@
             h5 {
               color: #9dff9d;
             }
+
+            h5:before,
+            h5:after {
+              opacity: 1;
+            }
+
+            h5:before {
+              transform: translateX(-5px);
+            }
+  
+            h5:after {
+              transform: translateX(5px);
+            }
+          }
+
+          h5:before {
+            content: "</";
+            left: 0;
+          }
+
+          h5:after {
+            content: ">";
+            right: 12px;
+          }
+
+          h5:before,
+          h5:after {
+            position: absolute;
+            opacity: 0;
+            font-size: 25px;
+            color: white;
+            transition: all 0.3s;
+            bottom: 10px;
           }
 
           .active,
