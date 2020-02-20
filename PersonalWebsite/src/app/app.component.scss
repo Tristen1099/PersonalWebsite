@@ -46,7 +46,7 @@
             h5:before {
               transform: translateX(-5px);
             }
-  
+
             h5:after {
               transform: translateX(5px);
             }
@@ -98,14 +98,6 @@
           h5 {
             margin: 0 auto;
             font-size: 2em;
-            color: white;
-          }
-
-          .dropdown-toggle h5 {
-            float: left;
-          }
-          .dropdown-toggle::after {
-            margin: 1em 0.2em;
             color: white;
           }
         }
