@@ -73,11 +73,15 @@
         }
 
         .inputError {
-          color: #ab1e1e;
+          color: #931818;
           font-family: monospace;
           font-size: 18px;
           padding-top: 0.5em;
-          visibility: hidden;
+          font-weight: 700;
+
+          label {
+            visibility: hidden;
+          }
         }
 
         button {

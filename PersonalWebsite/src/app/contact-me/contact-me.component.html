@@ -21,27 +21,31 @@
                         <div class="inputHeader">
                             <label><i class="fas fa-signature"></i>Name</label>
                         </div>
-                        <input type="text" name="name" id="formName">
+                        <input type="text" name="name" id="formName" autocomplete="off"
+                            (input)="nameValidation($event)">
                         <div class="inputError">
-                            <label>Please fill out name.</label>
+                            <label id="nameError">Please fill out name.</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="inputHeader">
                             <label><i class="fas fa-at"></i>Email</label>
                         </div>
-                        <input type="email" name="email" id="formEmail">
+                        <input type="email" name="email" id="formEmail" autocomplete="off"
+                            (input)="emailValidation()">
                         <div class="inputError">
-                            <label>Please fill out email.</label>
+                            <label id="emailErrorBlank">Please fill out email.</label>
+                            <label id="emailErrorWrongFormat" style="display: none; visibility: visible;">Email is not in the correct format.</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="inputHeader">
                             <label><i class="fas fa-comment"></i>Message</label>
                         </div>
-                        <textarea type="text" name="message" id="formMessage"></textarea>
+                        <textarea type="text" name="message" id="formMessage" autocomplete="off"
+                            (input)="messageValidation()"></textarea>
                         <div class="inputError">
-                            <label>Please fill out message.</label>
+                            <label id="messageError">Please fill out message.</label>
                         </div>
                     </div>
                     <div class="row">
