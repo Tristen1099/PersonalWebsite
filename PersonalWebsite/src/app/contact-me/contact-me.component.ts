@@ -7,6 +7,9 @@ import * as $ from 'jquery';
   styleUrls: ['./contact-me.component.scss']
 })
 export class ContactMeComponent implements OnInit {
+  nameError = false;
+  emailError = false;
+  messageError  = false;
 
   constructor() { }
 

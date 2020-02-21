@@ -20,8 +20,142 @@
     background-color: #7a897a;
     box-shadow: 0.5em 0.2em 1em 0.3em #2a3e25;
     border-radius: 1em;
-    height: 25em;
     width: 30%;
     margin: 3em 35%;
+
+    .formHeader {
+      p {
+        width: 100%;
+        font-family: monospace;
+        font-size: 25px;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        font-weight: 700;
+      }
+
+      .formHeaderSubDetails {
+        font-size: 21px;
+        font-weight: 600;
+      }
+    }
+
+    #contactForm {
+      color: black;
+      .row {
+        margin: 0;
+        padding: 0.5em 0;
+
+        .inputHeader {
+          font-family: monospace;
+          font-size: 25px;
+
+          .fas {
+            margin-right: 7px;
+          }
+        }
+
+        input,
+        textarea {
+          border-color: black;
+          background-color: #677767;
+          border-radius: 5px;
+          border-width: 1px;
+          width: 100%;
+          font-family: monospace;
+          font-size: 22px;
+          color: unset;
+          min-height: 40px;
+        }
+
+        textarea {
+          height: 100px;
+        }
+
+        .inputError {
+          color: #ab1e1e;
+          font-family: monospace;
+          font-size: 18px;
+          padding-top: 0.5em;
+          visibility: hidden;
+        }
+
+        button {
+          color: white;
+          width: 20%;
+          margin: 1em auto 1em 40%;
+          animation-name: bouncy;
+          animation-duration: 5s;
+          animation-iteration-count: infinite;
+          position: relative;
+          background-color: #3e593e;
+          border-width: 0;
+          border-color: black;
+          border-radius: 5px;
+          transition: 0.5s;
+          position: relative;
+          vertical-align: middle;
+          height: 40px;
+        }
+
+        .center {
+          &::before,
+          &::after {
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            transform-origin: center;
+            box-sizing: inherit;
+            content: "";
+            position: absolute;
+          }
+
+          &::before {
+            border-radius: 5px;
+            border-top: 3px solid #38a123;
+            border-bottom: 3px solid #38a123;
+            transform: scale3d(0, 1, 1);
+          }
+
+          &::after {
+            border-radius: 5px;
+            border-left: 3px solid #38a123;
+            border-right: 3px solid #38a123;
+            transform: scale3d(1, 0, 1);
+          }
+
+          &:hover::before,
+          &:hover::after {
+            transform: scale3d(1, 1, 1);
+            transition: transform 1s;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes bouncy {
+  0% {
+    top: 0em;
+  }
+  40% {
+    top: 0em;
+  }
+  43% {
+    top: -0.9em;
+  }
+  46% {
+    top: 0em;
+  }
+  48% {
+    top: -0.4em;
+  }
+  50% {
+    top: 0em;
+  }
+  100% {
+    top: 0em;
   }
 }
