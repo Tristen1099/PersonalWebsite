@@ -35,7 +35,7 @@
       border-color: #687668;
       border-style: solid;
       margin-bottom: 1em;
-      transition: transform .4s ease;
+      transition: transform 0.4s ease;
 
       p {
         margin: 0.5em 0;
@@ -63,6 +63,81 @@
   }
 
   .educationContent:hover {
-      transform: scale(1.02);
+    transform: scale(1.02);
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .education-container {
+    .educationContent {
+      width: 65%;
+      margin: 0 17.5%;
+
+      article {
+        h2 {
+          font-size: 1.8em;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .education-container {
+    .educationContent {
+      width: 70%;
+      margin: 0 15%;
+
+      article {
+        h2 {
+          font-size: 1.6em;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 800px) {
+  .education-container {
+    .educationContent {
+      width: 75%;
+      margin: 0 12.5%;
+
+      article {
+        h2 {
+          font-size: 1.4em;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 600px) {
+  .education-container {
+    .educationContent {
+      width: 80%;
+      margin: 0 10%;
+
+      article {
+        h2 {
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 400px) {
+  .education-container {
+    .educationContent {
+      width: 85%;
+      margin: 0 7.5%;
+
+      article {
+        h2 {
+          font-size: 1em;
+        }
+      }
+    }
   }
 }
