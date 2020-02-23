@@ -69,6 +69,11 @@
 
 @media all and (max-width: 1200px) {
   .education-container {
+    .header {
+      h2 {
+        font-size: 3.3em;
+      }
+    }
     .educationContent {
       width: 65%;
       margin: 0 17.5%;
@@ -84,6 +89,11 @@
 
 @media all and (max-width: 1000px) {
   .education-container {
+    .header {
+      h2 {
+        font-size: 3.1em;
+      }
+    }
     .educationContent {
       width: 70%;
       margin: 0 15%;
@@ -99,6 +109,11 @@
 
 @media all and (max-width: 800px) {
   .education-container {
+    .header {
+      h2 {
+        font-size: 2.9em;
+      }
+    }
     .educationContent {
       width: 75%;
       margin: 0 12.5%;
@@ -114,6 +129,11 @@
 
 @media all and (max-width: 600px) {
   .education-container {
+    .header {
+      h2 {
+        font-size: 2.6em;
+      }
+    }
     .educationContent {
       width: 80%;
       margin: 0 10%;
@@ -129,6 +149,11 @@
 
 @media all and (max-width: 400px) {
   .education-container {
+    .header {
+      h2 {
+        font-size: 2.3em;
+      }
+    }
     .educationContent {
       width: 85%;
       margin: 0 7.5%;

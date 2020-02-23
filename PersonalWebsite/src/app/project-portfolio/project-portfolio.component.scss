@@ -103,3 +103,232 @@
     }
   }
 }
+
+@media all and (max-width: 1400px) {
+  .project-container {
+    .carousel {
+      .carousel-inner {
+        .carousel-item {
+          .project-item {
+            .container {
+              .left {
+                .project-image-container {
+                  .col {
+                    img {
+                      height: 575px;
+                    }
+                  }
+                }
+              }
+              .right {
+                .project-details-container {
+                  h1 {
+                    font-size: 2.3em;
+                  }
+                  h3 {
+                    font-size: 1.6em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .project-container {
+    .header {
+      h2 {
+        font-size: 3.3em;
+      }
+    }
+    .carousel {
+      .carousel-inner {
+        .carousel-item {
+          .project-item {
+            .container {
+              .left {
+                .project-image-container {
+                  .col {
+                    img {
+                      height: 550px;
+                    }
+                  }
+                }
+              }
+              .right {
+                .project-details-container {
+                  h1 {
+                    font-size: 2.1em;
+                  }
+                  h3 {
+                    font-size: 1.5em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .project-container {
+    .header {
+      h2 {
+        font-size: 3.1em;
+      }
+    }
+    .carousel {
+      .carousel-inner {
+        .carousel-item {
+          .project-item {
+            .container {
+              .left {
+                .project-image-container {
+                  .col {
+                    img {
+                      height: 525px;
+                    }
+                  }
+                }
+              }
+              .right {
+                .project-details-container {
+                  h1 {
+                    font-size: 1.9em;
+                  }
+                  h3 {
+                    font-size: 1.4em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 800px) {
+  .project-container {
+    .header {
+      h2 {
+        font-size: 2.9em;
+      }
+    }
+    .carousel {
+      .carousel-inner {
+        .carousel-item {
+          .project-item {
+            .container {
+              .left {
+                .project-image-container {
+                  .col {
+                    img {
+                      height: 500px;
+                    }
+                  }
+                }
+              }
+              .right {
+                .project-details-container {
+                  h1 {
+                    font-size: 1.7em;
+                  }
+                  h3 {
+                    font-size: 1.3em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 600px) {
+  .project-container {
+    .header {
+      h2 {
+        font-size: 2.6em;
+      }
+    }
+    .carousel {
+      .carousel-inner {
+        .carousel-item {
+          .project-item {
+            .container {
+              .left {
+                .project-image-container {
+                  .col {
+                    img {
+                      height: 475px;
+                    }
+                  }
+                }
+              }
+              .right {
+                .project-details-container {
+                  h1 {
+                    font-size: 1.5em;
+                  }
+                  h3 {
+                    font-size: 1.2em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 400px) {
+  .project-container {
+    .header {
+      h2 {
+        font-size: 2.3em;
+      }
+    }
+    .carousel {
+      .carousel-inner {
+        .carousel-item {
+          .project-item {
+            .container {
+              .left {
+                .project-image-container {
+                  .col {
+                    img {
+                      height: 450px;
+                    }
+                  }
+                }
+              }
+              .right {
+                .project-details-container {
+                  h1 {
+                    font-size: 1.3em;
+                  }
+                  h3 {
+                    font-size: 1.1em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
