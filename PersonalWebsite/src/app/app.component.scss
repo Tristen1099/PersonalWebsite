@@ -19,17 +19,13 @@
 
     .container {
       padding: 0;
+      max-width: 85% !important;
 
       .row {
         width: 100%;
 
         .col {
           white-space: nowrap;
-
-          // .nav-link {
-          //   box-shadow: inset 0 0 30px #868686a8;
-          //   border-radius: 2em;
-          // }
 
           li .active,
           a:hover {
@@ -150,6 +146,7 @@
   .page-container {
     nav {
       .container {
+        max-width: 90% !important;
         .row {
           .col {
             h5 {
@@ -170,6 +167,7 @@
   .page-container {
     nav {
       .container {
+        max-width: 92% !important;
         .row {
           .col {
             h5 {
@@ -190,6 +188,7 @@
   .page-container {
     nav {
       .container {
+        max-width: 94% !important;
         .row {
           .col {
             h5 {
@@ -210,6 +209,7 @@
   .page-container {
     nav {
       .container {
+        max-width: 96% !important;
         .row {
           .col {
             h5 {
@@ -230,7 +230,14 @@
   .page-container {
     nav {
       .container {
+        max-width: 98% !important;
         .row {
+          .spacer {
+            width: 50% !important;
+            max-width: 50% !important;
+            margin: 0;
+            padding: 0;
+          }
           .col {
             h5 {
               font-size: 1.4em;
@@ -250,6 +257,7 @@
   .page-container {
     nav {
       .container {
+        max-width: 100% !important;
         .row {
           .col {
             h5 {
