@@ -24,6 +24,10 @@
       .row {
         width: 100%;
 
+        .navbar-nav {
+          margin: 0 0 0 auto;
+        }
+
         .col {
           white-space: nowrap;
 
