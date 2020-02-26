@@ -131,6 +131,23 @@
     text-align: center;
     z-index: 100;
     backdrop-filter: blur(5px);
+
+    .text {
+      left: 0;
+      p {
+        color: white;
+      }
+    }
+
+    .icons {
+      right: 0;
+
+      .fab {
+        font-size: 2.5em;
+        padding: 0.5em;
+        color: white;
+      }
+    }
   }
 }
 
