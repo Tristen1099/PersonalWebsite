@@ -188,6 +188,8 @@
       .carousel-inner {
         .carousel-item {
           .project-item {
+            min-height: 1000px;
+            max-height: max-content;
             .container {
               .left {
                 flex: 0 0 100% !important;
@@ -216,6 +218,9 @@
                   }
                   h3 {
                     font-size: 1.4em;
+                  }
+                  p {
+                    line-height: 1.8em;
                   }
                 }
               }
@@ -256,6 +261,9 @@
                   h3 {
                     font-size: 1.3em;
                   }
+                  p {
+                    line-height: 1.6em;
+                  }
                 }
               }
             }
@@ -295,6 +303,9 @@
                   h3 {
                     font-size: 1.2em;
                   }
+                  p {
+                    line-height: 1.4em;
+                  }
                 }
               }
             }
@@ -333,6 +344,9 @@
                   }
                   h3 {
                     font-size: 1.1em;
+                  }
+                  p {
+                    line-height: 1.2em;
                   }
                 }
               }
