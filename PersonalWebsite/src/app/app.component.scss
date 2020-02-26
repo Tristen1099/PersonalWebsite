@@ -19,7 +19,7 @@
 
     .container {
       padding: 0;
-      max-width: 85% !important;
+      max-width: 85%;
 
       .row {
         width: 100%;
@@ -146,11 +146,36 @@
   }
 }
 
-@media all and (max-width: 1500px) {
+@supports (-moz-appearance: none) {
+  .page-container {
+    .navbar {
+      background-color: rgba(6, 26, 6, 0.51);
+      .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        .row {
+          .navbar-title {
+            padding: 0 0 0 1em !important;
+            max-width: max-content;
+            .navbar-brand {
+              padding: 0;
+              margin-right: 0 !important;
+            }
+          }
+          .spacer {
+            display: none !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1450px) {
   .page-container {
     nav {
       .container {
-        max-width: 90% !important;
+        max-width: 90%;
         .row {
           .col {
             h5 {
@@ -167,11 +192,11 @@
   }
 }
 
-@media all and (max-width: 1400px) {
+@media all and (max-width: 1350px) {
   .page-container {
     nav {
       .container {
-        max-width: 92% !important;
+        max-width: 92%;
         .row {
           .col {
             h5 {
@@ -188,11 +213,11 @@
   }
 }
 
-@media all and (max-width: 1300px) {
+@media all and (max-width: 1250px) {
   .page-container {
     nav {
       .container {
-        max-width: 94% !important;
+        max-width: 94%;
         .row {
           .col {
             h5 {
@@ -209,11 +234,11 @@
   }
 }
 
-@media all and (max-width: 1200px) {
+@media all and (max-width: 1150px) {
   .page-container {
     nav {
       .container {
-        max-width: 96% !important;
+        max-width: 96%;
         .row {
           .col {
             h5 {
@@ -230,11 +255,11 @@
   }
 }
 
-@media all and (max-width: 1100px) {
+@media all and (max-width: 1050px) {
   .page-container {
     nav {
       .container {
-        max-width: 98% !important;
+        max-width: 98%;
         .row {
           .spacer {
             width: 50% !important;
@@ -261,7 +286,7 @@
   .page-container {
     nav {
       .container {
-        max-width: 100% !important;
+        max-width: 100%;
         .row {
           .col {
             h5 {
