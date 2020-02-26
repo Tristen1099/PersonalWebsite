@@ -37,7 +37,15 @@ export class ProjectPortfolioComponent implements OnInit {
       name: "Mosaic Maker",
       language: "C#",
       date: "December, 2018",
-      description: "Description for Mosaic Maker",
+      description: "This application allows for the creation of beautiful " +
+      "mosaic style images. Using a user input image and a user specified " +
+      "block size the application will average the color of the pixels within " +
+      "a block to then paste the averaged color into the new mosaic image. " +
+      "Options include a block size specifier, square or triangle blocks, " +
+      "black and white conversion, and even a picture mosaic. With the picture " +
+      "mosaic, a folder of input images can be used to take place of the average " +
+      "color of a block to create a beautiful image created from other images. All " +
+      "created images can then be saved to the machine in any picture format." ,
       images: [{
         src: "../../assets/Projects/MosaicMaker-1.png",
         title: "Mosaic Maker 1"
@@ -99,7 +107,12 @@ export class ProjectPortfolioComponent implements OnInit {
       name: "Weather Data Analysis",
       language: "C#",
       date: "November, 2018",
-      description: "Description for Weather Analysis",
+      description: "Weather Data Analysis allows a csv to be loaded or saved to display " +
+        "monthly and yearly weather statistics. Yearly statistics display the highest and " +
+        "lowest temperatures and precipitations with the corresponding day. Output is formatted " +
+        "with yearly statistics first, then by a monthly breakdown for each year. Options " +
+        "include a histogram output, displaying days above or below a threshold, adding or removing days, " +
+        "editing inconsistant data, and file export.",
       images: [{
         src: "../../assets/Projects/WeatherAnalysis-1.png",
         title: "Weather Analysis 1"
@@ -115,7 +128,12 @@ export class ProjectPortfolioComponent implements OnInit {
       name: "Word Scramble",
       language: "C++",
       date: "May, 2019",
-      description: "Description for Word Scramble.",
+      description: "Word Scramble is a game created in C++ to challenge the user. " +
+      "With options for a time limit and a letter count, the user can make the game " +
+      "as difficult as they want. The program chooses a random letter up to the " + 
+      "user specified letter count. Then using the letters, it checks against a pre-" +
+      "defined dictionary to ensure only valid words are displayed. High Scores are " +
+      "tracked to give the user the incentive to get the best score possible.",
       images: [{
         src: "../../assets/Projects/WordScramble-1.png",
         title: "Word Scramble 1"
