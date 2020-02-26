@@ -165,8 +165,5 @@ export class ProjectPortfolioComponent implements OnInit {
         });
       })
     )
-
-
   }
-
 }

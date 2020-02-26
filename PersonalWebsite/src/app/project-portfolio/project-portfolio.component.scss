@@ -190,15 +190,26 @@
           .project-item {
             .container {
               .left {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+                margin: 0;
+                padding: 1em;
                 .project-image-container {
+                  border-radius: unset;
                   .col {
                     img {
                       height: 525px;
+                    }
+
+                    img:last-of-type {
+                      margin-right: 30px;
                     }
                   }
                 }
               }
               .right {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
                 .project-details-container {
                   h1 {
                     font-size: 1.9em;
