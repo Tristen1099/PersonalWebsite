@@ -16,6 +16,10 @@ export class ContactMeComponent implements OnInit {
   ngOnInit() {
   }
 
+  closeOverlay() {
+    document.getElementById("formSubmitOverlay").style.display = "none";
+  }
+
   submitForm(event: any) {
 
     this.checkName();
@@ -36,9 +40,19 @@ export class ContactMeComponent implements OnInit {
       email: contactEmail,
       message: contactMessage
     }).done(function () {
-      console.log("Success");
+      const overlay = document.getElementById("formSubmitOverlay");
+      overlay.style.display = "block";
+      overlay.children[0].children[0].innerHTML = "Form submitted";
+      overlay.children[0].children[1].innerHTML = "Submitted successfully! Thank you, I will respond as soon as possible at the provided email!";
+      (document.getElementById('formName') as HTMLInputElement).value = '';
+      (document.getElementById('formEmail') as HTMLInputElement).value = '';
+      (document.getElementById('formMessage') as HTMLInputElement).value = '';
     }).fail(function () {
-      console.log("Fail")
+      const overlay = document.getElementById("formSubmitOverlay");
+      overlay.style.display = "block";
+      overlay.children[0].children[0].innerHTML = "Form not submitted";
+      overlay.children[0].children[1].innerHTML = "Form submittion failed. Unfortunately the form has failed to submit. Please try again later.";
+
     });
   }
 

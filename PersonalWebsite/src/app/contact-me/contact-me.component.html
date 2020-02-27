@@ -31,11 +31,11 @@
                         <div class="inputHeader">
                             <label><i class="fas fa-at"></i>Email</label>
                         </div>
-                        <input type="email" name="email" id="formEmail" autocomplete="off"
-                            (input)="emailValidation()">
+                        <input type="email" name="email" id="formEmail" autocomplete="off" (input)="emailValidation()">
                         <div class="inputError">
                             <label id="emailErrorBlank">Please fill out email.</label>
-                            <label id="emailErrorWrongFormat" style="display: none; visibility: visible;">Email is not in the correct format.</label>
+                            <label id="emailErrorWrongFormat" style="display: none; visibility: visible;">Email is not
+                                in the correct format.</label>
                         </div>
                     </div>
                     <div class="row">
@@ -55,5 +55,15 @@
                 </form>
             </div>
         </div>
+    </div>
+</div>
+
+<div id="formSubmitOverlay">
+    <div id="text">
+        <h2>Submitting Form</h2>
+        <h3>Processing form submittion...</h3>
+        <button (click)="closeOverlay()">
+            <p>Close</p>
+        </button>
     </div>
 </div>
