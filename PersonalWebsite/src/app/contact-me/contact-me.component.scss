@@ -156,7 +156,15 @@
     text-align: center;
     background-color: #166024;
     padding: 1em;
-    border-radius: .5em;
+    border-radius: 0.5em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    
     button {
       color: white;
       width: 30%;
@@ -167,20 +175,10 @@
       vertical-align: middle;
       height: 40px;
       p {
-        font-size: .5em;
+        font-size: 0.5em;
       }
     }
   }
-}
-
-#text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 50px;
-  color: white;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
 }
 
 @keyframes bouncy {
