@@ -3,8 +3,12 @@
 
   .container {
     height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+
     .row {
       height: 100%;
+
       .hero-text {
         color: white;
         text-align: center;
@@ -15,13 +19,101 @@
           font-size: 5em;
         }
         .hero-description {
-            font-size: 3em;
-            height: 9em;
+          font-size: 3em;
+          height: 9em;
         }
       }
       .hero-image {
-        background-image: url("../../assets/test.png");
+        background-image: url("../../assets/hero-image.png");
         background-size: cover;
+        filter: grayscale(100%);
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .hero-container {
+    .container {
+      .row {
+        .col{
+          .hero-title {
+            font-size: 4.6em;
+          }
+          .hero-description {
+            font-size: 2.6em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .hero-container {
+    .container {
+      .row {
+        position: relative;
+
+        .hero-text {
+          position: absolute;
+          z-index: 10;
+          bottom: 0;
+
+          .hero-title {
+            font-size: 4.3em;
+            padding: .5em 0;
+          }
+          .hero-description {
+            font-size: 2.3em;
+            height: 2.3em;
+            padding-bottom: 5em;
+          }
+        }
+        .hero-image {
+          flex-basis: unset;
+          flex-grow: unset;
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 800px) {
+  .hero-container {
+    .container {
+      .row {
+        .hero-text {
+        }
+        .hero-image {
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 600px) {
+  .hero-container {
+    .container {
+      .row {
+        .hero-text {
+        }
+        .hero-image {
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 400px) {
+  .hero-container {
+    .container {
+      .row {
+        .hero-text {
+        }
+        .hero-image {
+        }
       }
     }
   }
