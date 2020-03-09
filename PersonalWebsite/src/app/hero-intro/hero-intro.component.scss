@@ -36,7 +36,7 @@
   .hero-container {
     .container {
       .row {
-        .col{
+        .col {
           .hero-title {
             font-size: 4.6em;
           }
@@ -62,7 +62,7 @@
 
           .hero-title {
             font-size: 4.3em;
-            padding: .5em 0;
+            padding: 0.5em 0;
           }
           .hero-description {
             font-size: 2.3em;
@@ -85,8 +85,12 @@
     .container {
       .row {
         .hero-text {
-        }
-        .hero-image {
+          .hero-title {
+            font-size: 4em;
+          }
+          .hero-description {
+            font-size: 2em;
+          }
         }
       }
     }
@@ -98,8 +102,12 @@
     .container {
       .row {
         .hero-text {
-        }
-        .hero-image {
+          .hero-title {
+            font-size: 3.8em;
+          }
+          .hero-description {
+            font-size: 1.8em;
+          }
         }
       }
     }
@@ -111,8 +119,12 @@
     .container {
       .row {
         .hero-text {
-        }
-        .hero-image {
+          .hero-title {
+            font-size: 3.4em;
+          }
+          .hero-description {
+            font-size: 1.5em;
+          }
         }
       }
     }
