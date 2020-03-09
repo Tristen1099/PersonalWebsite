@@ -18,6 +18,7 @@ export class ContactMeComponent implements OnInit {
 
   closeOverlay() {
     document.getElementById("formSubmitOverlay").style.display = "none";
+    document.getElementsByTagName('body')[0].style.overflowY = "scroll";
   }
 
   submitForm(event: any) {
@@ -42,6 +43,7 @@ export class ContactMeComponent implements OnInit {
     }).done(function () {
       const overlay = document.getElementById("formSubmitOverlay");
       overlay.style.display = "block";
+      document.getElementsByTagName('body')[0].style.overflow = "hidden";
       overlay.children[0].children[0].innerHTML = "Form submitted";
       overlay.children[0].children[1].innerHTML = "Submitted successfully! Thank you, I will respond as soon as possible at the provided email!";
       (document.getElementById('formName') as HTMLInputElement).value = '';
@@ -50,12 +52,12 @@ export class ContactMeComponent implements OnInit {
     }).fail(function () {
       const overlay = document.getElementById("formSubmitOverlay");
       overlay.style.display = "block";
+      document.getElementsByTagName('body')[0].style.overflow = "hidden";
       overlay.children[0].children[0].innerHTML = "Form not submitted";
       overlay.children[0].children[1].innerHTML = "Form submittion failed. Unfortunately the form has failed to submit. Please try again later.";
 
     });
   }
-
 
   nameValidation(event: any) {
     const regexp = new RegExp('[A-Za-z]|\\-|\\s|\\.|\\,|\\\'');
