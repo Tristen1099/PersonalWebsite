@@ -38,14 +38,14 @@ export class ProjectPortfolioComponent implements OnInit {
       language: "C#",
       date: "December, 2018",
       description: "This application allows for the creation of beautiful " +
-      "mosaic style images. Using a user input image and a user specified " +
-      "block size the application will average the color of the pixels within " +
-      "a block to then paste the averaged color into the new mosaic image. " +
-      "Options include a block size specifier, square or triangle blocks, " +
-      "black and white conversion, and even a picture mosaic. With the picture " +
-      "mosaic, a folder of input images can be used to take place of the average " +
-      "color of a block to create a beautiful image created from other images. All " +
-      "created images can then be saved to the machine in any picture format." ,
+        "mosaic style images. Using a user input image and a user specified " +
+        "block size the application will average the color of the pixels within " +
+        "a block to then paste the averaged color into the new mosaic image. " +
+        "Options include a block size specifier, square or triangle blocks, " +
+        "black and white conversion, and even a picture mosaic. With the picture " +
+        "mosaic, a folder of input images can be used to take place of the average " +
+        "color of a block to create a beautiful image created from other images. All " +
+        "created images can then be saved to the machine in any picture format.",
       images: [{
         src: "../../assets/Projects/MosaicMaker-1.png",
         title: "Mosaic Maker 1"
@@ -129,11 +129,11 @@ export class ProjectPortfolioComponent implements OnInit {
       language: "C++",
       date: "May, 2019",
       description: "Word Scramble is a game created in C++ to challenge the user. " +
-      "With options for a time limit and a letter count, the user can make the game " +
-      "as difficult as they want. The program chooses a random letter up to the " + 
-      "user specified letter count. Then using the letters, it checks against a pre-" +
-      "defined dictionary to ensure only valid words are displayed. High Scores are " +
-      "tracked to give the user the incentive to get the best score possible.",
+        "With options for a time limit and a letter count, the user can make the game " +
+        "as difficult as they want. The program chooses a random letter up to the " +
+        "user specified letter count. Then using the letters, it checks against a pre-" +
+        "defined dictionary to ensure only valid words are displayed. High Scores are " +
+        "tracked to give the user the incentive to get the best score possible.",
       images: [{
         src: "../../assets/Projects/WordScramble-1.png",
         title: "Word Scramble 1"
@@ -152,34 +152,39 @@ export class ProjectPortfolioComponent implements OnInit {
 
     document.getElementById("project-carousel").children[0].classList.add("active");
 
-
     [].map.call(
       document.querySelectorAll('.left'),
       ((slider: HTMLElement) => {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
 
-        slider.addEventListener('mousedown', (e) => {
-          isDown = true;
-          slider.classList.add('active');
-          startX = e.pageX - slider.offsetLeft;
-          scrollLeft = slider.scrollLeft;
+        slider.addEventListener('mouseenter', e => {
+
+          var x = window.scrollX;
+          var y = window.scrollY;
+          window.onscroll = function () { window.scrollTo(x, y); };
+
         });
-        slider.addEventListener('mouseleave', () => {
-          isDown = false;
-          slider.classList.remove('active');
+
+        slider.addEventListener('mouseleave', e => {
+
+          window.onscroll = function () { };
+
         });
-        slider.addEventListener('mouseup', () => {
-          isDown = false;
-          slider.classList.remove('active');
-        });
-        slider.addEventListener('mousemove', (e) => {
-          if (!isDown) return;
-          e.preventDefault();
-          const x = e.pageX - slider.offsetLeft;
-          const walk = (x - startX) * 3; //scroll-fast
-          slider.scrollLeft = scrollLeft - walk;
+
+        let scrollDirection;
+        let scrollAmount = 0;
+
+        slider.addEventListener('wheel', (e) => {
+
+          scrollDirection = e.deltaY;
+
+          if (scrollDirection < 0) {
+            scrollAmount = slider.scrollWidth / 8;
+            slider.scrollLeft -= scrollAmount;
+          } else {
+            scrollAmount = slider.scrollWidth / 8;
+            slider.scrollLeft += scrollAmount;
+          }
+
         });
       })
     )
