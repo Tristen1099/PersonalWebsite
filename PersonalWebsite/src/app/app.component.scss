@@ -130,11 +130,12 @@
     cursor: pointer;
     width: 5em;
     height: 5em;
-    background-color: #217d1e;
+    background-color: #4a974a;
     border-radius: 2em;
     animation-name: wobble;
     animation-duration: 6s;
     animation-iteration-count: infinite;
+    box-shadow: 0.01em 0.01em 1em 0.01em #549d42;
 
     #resumeIcon {
       background-size: cover;
