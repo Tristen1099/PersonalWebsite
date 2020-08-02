@@ -122,7 +122,7 @@
 
   #resumeButton {
     position: fixed;
-    left: 50px;
+    right: 50px;
     bottom: 50px;
     -webkit-transition: all 0.2s ease-in 0s;
     transition: all 0.2s ease-in 0s;
@@ -262,7 +262,7 @@
       }
     }
     #resumeButton {
-      left: 45px;
+      right: 45px;
       bottom: 45px;
       width: 4.5em;
       height: 4.5em;
@@ -295,7 +295,7 @@
       }
     }
     #resumeButton {
-      left: 40px;
+      right: 40px;
       bottom: 40px;
       width: 4em;
       height: 4em;
@@ -328,7 +328,7 @@
       }
     }
     #resumeButton {
-      left: 35px;
+      right: 35px;
       bottom: 35px;
       width: 3.5em;
       height: 3.5em;
@@ -361,7 +361,7 @@
       }
     }
     #resumeButton {
-      left: 30px;
+      right: 30px;
       bottom: 30px;
       width: 3em;
       height: 3em;
@@ -399,9 +399,6 @@
         }
       }
     }
-    #resumeButton {
-      bottom: 100px;
-    }
   }
 }
 
@@ -425,9 +422,6 @@
           }
         }
       }
-    }
-    #resumeButton {
-      bottom: 160px;
     }
   }
 }
