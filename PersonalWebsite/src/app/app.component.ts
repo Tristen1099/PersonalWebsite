@@ -51,3 +51,35 @@ $(document).ready(function () {
     }
   });
 });
+
+$(document).scroll(function () {
+  var y = $(this).scrollTop();
+  var height = $(".hero-container").height();
+  var box = document.getElementById("resumeButton");
+
+  if (y < height) {
+    if (box.style.opacity !== "0") {
+      var oppArray = ["1.0", "0.9", "0.8", "0.7", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"];
+      var x = 0;
+      (function next() {
+        box.style.opacity = oppArray[x];
+        if (++x < oppArray.length) {
+          setTimeout(next, 50);
+        }
+      })();
+      box.style.display = "none";
+    }
+  } else {
+    if (box.style.opacity !== "1") {
+      box.style.display = "block";
+      var oppArray = ["0", "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1.0"];
+      var x = 0;
+      (function next() {
+        box.style.opacity = oppArray[x];
+        if (++x < oppArray.length) {
+          setTimeout(next, 50);
+        }
+      })();
+    }
+  }
+});

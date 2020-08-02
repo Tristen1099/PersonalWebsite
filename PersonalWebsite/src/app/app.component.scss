@@ -136,6 +136,8 @@
     animation-duration: 6s;
     animation-iteration-count: infinite;
     box-shadow: 0.01em 0.01em 1em 0.01em #549d42;
+    opacity: 0.0;
+    display: none;
 
     #resumeIcon {
       background-size: cover;
