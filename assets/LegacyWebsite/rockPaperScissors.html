@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Rock, Fern, Herbivor</title>
+<link rel="stylesheet" href="style/rpsStyle.css" type="text/css" />
+<meta charset="utf-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="scripts/rpsScript.js"></script>
+</head>
+<body>
+<div id="wrapper">
+  <header>
+    <h1>Rock, Fern, Herbivor</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="miniGames.html">Mini Games Home</a></li>
+      <li><b>Other Mini Games</b></li>
+      <li><a href="guessingGame.html">Guessing Game</a></li>
+      <li><a href="coinFlip.html">Coin Flipper</a></li>
+      <li><a href="memory.html">Memory Game</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div id="dinoRPS"></div>
+    <div>
+      <p> Rock, Fern, Herbivor is like the classic 2 player game, rock, paper, scissors but with a twist! Each player chooses either rock, fern or herbivor. However there is a chance that a meteor will come and destroy all! </p>
+      <h3> The possible outcomes:</h3>
+      <ul>
+        <li>Rock destroys the Herbivor.</li>
+        <li>Herbivor eats the fern.</li>
+        <li>Fern covers the rock.</li>
+        <li>Meteor destroys all!</li>
+      </ul>
+      <label for="slider">Percent chance of meteor:</label>
+      <input type="number" id="percent" placeholder="%" step="1" min="0" max="100"/>
+    </div>
+    <canvas id="myCanvas" width="680" height="320"></canvas>
+    <div id="button_panel">
+      <button name="buttons" type="button" id="play_key" value="play_key">Play Again?</button>
+      <!--<button name="buttons" type="button" id="paper" value="paper">paper?</button>
+				<button name="buttons" type="button" id="scissors" value="scissors">scissors?</button>--> 
+    </div>
+  </main>
+  <footer> Copyright &copy; 2017 Dino World <br>
+    <a href="mailto:tristen1099@gmail.com">tristen1099@gmail.com</a> </footer>
+</div>
+</body>
+</html>

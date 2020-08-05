@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="scripts/coinScript.js"></script>
+<meta charset="utf-8">
+<link href="style/coinStyle.css"  rel="stylesheet" type="text/css" media="screen" />
+<title>Coin Flipper</title>
+</head>
+<body>
+<div id="wrapper">
+   <header>
+    <h1>Coin Flipper</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="miniGames.html">Mini Games Home</a></li>
+      <li><b>Other Mini Games</b></li>
+      <li><a href="rockPaperScissors.html">RPS</a></li>
+      <li><a href="guessingGame.html">Guessing Game</a></li>
+      <li><a href="memory.html">Memory Game</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div id="dinoCoin"></div>
+    <div>
+      <p>
+      <h3>This is a simple coin flipper, just enter the amount of times to flip the coin and it will output the result!</h3>
+      </p>
+    </div>
+    <div id="playing_field">
+      <div id="game_input">
+        <label id="guess_label" >Enter the amount of times to flip here:</label>
+        <input type="text" tabindex="1" id ="amount" name="amount" />
+        <input type="button" id="flip_coin" name="flip_coin" value="Flip" />
+      </div>
+      <div id="flip_status">
+        <input type="button" tabindex="3" id="flip_again" name="flip_again" value="Flip Again" />
+        <div id="count">
+          <h2><span></span></h2>
+        </div>
+        <div id="output"></div>
+      </div>
+    </div>
+  </main>
+  <footer> Copyright &copy; 2017 Dino World <br>
+    <a href="mailto:tristen1099@gmail.com">tristen1099@gmail.com</a> </footer>
+</div>
+</body>
+</html>

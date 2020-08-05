@@ -1,0 +1,183 @@
+/**
+* Basic Tags - CSS
+**/
+body {
+	background-color: #94CC68;
+	background-image: url("../images/cartographer.png");
+	color: #002500;
+	text-align: center;
+}
+canvas {
+	background: #18AD1A;
+	background-image: url("../images/cartographer.png");
+	border-radius: 10px;
+	display: block;
+	margin: 10px auto;
+	border: 1px solid black;
+}
+header {
+	background-color: #0E832C;
+	background-image: url("../images/DinosaurLogo.png");
+	height: 150px;
+	background-repeat: no-repeat;
+	text-align: center;
+	border: 3px solid #663300;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+h1 {
+	padding-top: 10px;
+	padding-left: 220px;
+	font-size: 3em;
+	animation-name: header;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+}
+header ul {
+	list-style-type: none;
+}
+main {
+	padding-left: 0em;
+	padding-right: 0em;
+	padding-top: 0em;
+	padding-bottom: 1em;
+	margin-left: 200px;
+	background-color: #61F144;
+	background-image: url("../images/cartographer.png");
+}
+main ul {
+	list-style-type: none;
+	padding-right: 2.5em;
+}
+nav {
+	float: left;
+	width: 200px;
+	font-size: 1.5em;
+	text-align: center;
+	font-weight: bold;
+	padding-top: 10px;
+	border-radius: 10px;
+}
+nav a {
+	text-decoration: none;
+}
+nav a:link {
+	color: #A8D29A;
+}
+nav a:visited {
+	color: #A97D5D;
+}
+nav a:hover {
+	color: #5D493A;
+}
+nav ul {
+	list-style-type: none;
+	padding-left: 0em;
+	padding-right: 0em;
+}
+footer {
+	border: 3px solid #221811;
+	background-color: #487722;
+	font-size: 1.4em;
+	font-weight: 900;
+	text-align: center;
+	font-style: italic;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+/**
+* ID Tags - CSS
+**/
+#wrapper {
+	background-color: #09551D;
+	/**
+	   *Image obtained from gettyimages.com
+	   */
+	background-image: url("../images/cartographer.png");
+	min-width: 1000px;
+	max-width: 1280px;
+	box-shadow: 0px 0px 20px 10px rgba(14,70,1,1);
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	border-radius: 20px;
+}
+#button_panel {
+	width: 75px;
+	/*border: 1px solid red;*/
+	margin-left: auto;
+	margin-right: auto;
+}
+#button_panel button {
+	width: 75px;
+	/*border: 1px solid green;*/
+	margin-right: 5px;
+}
+#dinoRPS {
+	/**
+	*Image obtained from gettyimages.com and modified by Tristen Rivera
+	*/
+	background-image: url("../images/RPSGameDino.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	height: 21.15vw;
+	border-radius: 10px;
+}
+@keyframes header {
+ 0% {
+color: #773300;
+}
+ 50% {
+color: #000000;
+}
+ 100% {
+color: #773300;
+}
+}
+
+@media only screen and (max-width: 1024px) {
+body {
+	margin: 0;
+}
+h1 {
+	margin-top: 0;
+	margin-bottom: 1em;
+	padding-top: 1.2em;
+	padding-bottom: 1em;
+	font-size: 2.5em;
+}
+nav {
+	float: none;
+	width: auto;
+	padding-top: 0;
+	margin: 10px;
+	font-size: 1.3em;
+	border-radius: 10px;
+}
+nav li {
+	display: inline-block;
+}
+nav a {
+	padding: 1em;
+	width: 8em;
+	font-weight: bold;
+	border-style: none;
+}
+nav ul {
+	padding: 0;
+	margin: 0;
+}
+main {
+	margin-left: 0px;
+}
+#dinoRPS {
+	height: 32vw;
+}
+#wrapper {
+	width: auto;
+	min-width: 705px;
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+}
+}
