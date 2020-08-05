@@ -105,6 +105,29 @@
   }
 }
 
+@supports (-ms-ime-align: auto) {
+  .project-container {
+    .carousel {
+      .carousel-inner {
+        .carousel-item {
+          .project-item {
+            .container {
+              .left {
+                .project-image-container {
+                  overflow: unset !important;
+                  .row {
+                    width: 300em !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media all and (max-width: 1400px) {
   .project-container {
     .carousel {
