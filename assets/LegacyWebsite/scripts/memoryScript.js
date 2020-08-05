@@ -52,13 +52,9 @@ function get_game_sequence() {
 
 	function generateGameSequence() {
 		var changedColor;
-		
-		
 
 		setTimeout(function () {
-			
-			
-			
+
 			var value = Math.floor(Math.random() * Math.floor(100));
 			changedColor = 0;
 

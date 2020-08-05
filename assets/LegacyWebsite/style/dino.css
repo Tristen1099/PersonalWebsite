@@ -7,11 +7,11 @@ body {
 	   *Image obtained from gettyimages.com
 	   */
 	background-image: url("../images/cartographer.png");
-	background-color: #94CC68;
+	background-color: #94cc68;
 	color: #002500;
 }
 header {
-	background-color: #0E832C;
+	background-color: #0e832c;
 	/**
 	   *Image obtained from gettyimages.com
 	   */
@@ -25,7 +25,7 @@ header {
 }
 h1 {
 	padding-left: 220px;
-	padding-top: .3em;
+	padding-top: 0.3em;
 	margin: auto;
 	font-size: 3em;
 	animation-name: header;
@@ -50,9 +50,14 @@ h4 {
 	clear: left;
 	text-transform: uppercase;
 }
-main h2, main h3, main h4, main p, main div, main dl {
-	padding-left : 2em;
-	padding-right : 2em;
+main h2,
+main h3,
+main h4,
+main p,
+main div,
+main dl {
+	padding-left: 2em;
+	padding-right: 2em;
 }
 main {
 	padding-left: 0em;
@@ -60,13 +65,13 @@ main {
 	padding-top: 0em;
 	padding-bottom: 1em;
 	margin-left: 200px;
-	background-color: #61F144;
+	background-color: #61f144;
 	background-image: url("../images/cartographer.png");
 }
 main p {
 	text-align: center;
-	padding-left: .5em;
-	padding-right: .5em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
 }
 main ul {
 	text-align: center;
@@ -94,13 +99,13 @@ nav a {
 	text-decoration: none;
 }
 nav a:link {
-	color: #A8D29A;
+	color: #a8d29a;
 }
 nav a:visited {
-	color: #A97D5D;
+	color: #a97d5d;
 }
 nav a:hover {
-	color: #5D493A;
+	color: #5d493a;
 }
 nav ul {
 	list-style-type: none;
@@ -116,21 +121,24 @@ footer {
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 }
-header, nav, main, footer {
+header,
+nav,
+main,
+footer {
 	display: block;
 }
-th, td {
+th,
+td {
 	padding: 5px;
 }
 tr:nth-of-type(1) {
 	background: #3cc380;
 }
 table a:link {
-	color: #A87F4D;
+	color: #a87f4d;
 }
 table a:visited {
 	color: #ded7cf;
-	;
 }
 table a:hover {
 	color: #b1ad9b;
@@ -144,7 +152,7 @@ table a:hover {
 	text-align: center;
 	font-size: 1.2em;
 	font-weight: 900;
-	background-color: #33714F;
+	background-color: #33714f;
 }
 #mobile {
 	display: none;
@@ -153,14 +161,14 @@ table a:hover {
 	display: inline;
 }
 #wrapper {
-	background-color: #09551D;
+	background-color: #09551d;
 	/**
 	   *Image obtained from istockphoto.com
 	   */
 	background-image: url("../images/cartographer.png");
 	min-width: 1000px;
 	max-width: 1280px;
-	box-shadow: 0px 0px 20px 10px rgba(14,70,1,1);
+	box-shadow: 0px 0px 20px 10px rgba(14, 70, 1, 1);
 	margin-left: auto;
 	margin-right: auto;
 	width: 80%;
@@ -241,135 +249,135 @@ table a:hover {
 	padding-right: 20px;
 	padding-bottom: 20px;
 }
- @keyframes header {
- 0% {
-color: #773300;
+@keyframes header {
+	0% {
+		color: #773300;
+	}
+	50% {
+		color: #000000;
+	}
+	100% {
+		color: #773300;
+	}
 }
- 50% {
-color: #000000;
-}
- 100% {
-color: #773300;
-}
-}
- @keyframes smallHeader {
- 0% {
-color: #000000;
-}
- 50% {
-color: #773300;
-}
- 100% {
-color: #000000;
-}
+@keyframes smallHeader {
+	0% {
+		color: #000000;
+	}
+	50% {
+		color: #773300;
+	}
+	100% {
+		color: #000000;
+	}
 }
 
 @media only screen and (max-width: 1024px) {
-body {
-	margin: 0;
-}
-header {
-	border: 5px solid #663300;
-}
-h1 {
-	margin: auto;
-	padding-top: 3vw;
-	font-size: 2.5em;
-}
-nav {
-	float: none;
-	width: auto;
-	padding-top: 0;
-	margin: 10px;
-	font-size: 1.3em;
-	border-radius: 10px;
-}
-nav li {
-	display: inline-block;
-}
-nav a {
-	padding: 1em;
-	width: 8em;
-	font-weight: bold;
-	border-style: none;
-}
-nav ul {
-	padding: 0;
-	margin: 0;
-}
-main {
-	margin-left: 0px;
-}
-#dinoBackground {
-	height: 30vw;
-}
-#dinoFacts {
-	height: 30vw;
-}
-#dinoTypes {
-	height: 30vw;
-}
-#dinoDiet {
-	height: 30vw;
-}
-#dinoLandscape {
-	height: 33vw;
-}
-#wrapper {
-	width: auto;
-	min-width: 0;
-	margin: 0;
-	padding: 0;
-	box-shadow: none;
-}
+	body {
+		margin: 0;
+	}
+	header {
+		border: 5px solid #663300;
+	}
+	h1 {
+		margin: auto;
+		padding-top: 3vw;
+		font-size: 2.5em;
+	}
+	nav {
+		float: none;
+		width: auto;
+		padding-top: 0;
+		margin: 10px;
+		font-size: 1.3em;
+		border-radius: 10px;
+	}
+	nav li {
+		display: inline-block;
+	}
+	nav a {
+		padding: 1em;
+		width: 8em;
+		font-weight: bold;
+		border-style: none;
+	}
+	nav ul {
+		padding: 0;
+		margin: 0;
+	}
+	main {
+		margin-left: 0px;
+	}
+	#dinoBackground {
+		height: 30vw;
+	}
+	#dinoFacts {
+		height: 30vw;
+	}
+	#dinoTypes {
+		height: 30vw;
+	}
+	#dinoDiet {
+		height: 30vw;
+	}
+	#dinoLandscape {
+		height: 33vw;
+	}
+	#wrapper {
+		width: auto;
+		min-width: 0;
+		margin: 0;
+		padding: 0;
+		box-shadow: none;
+	}
 }
 
 @media only screen and (max-width: 768px) {
-header {
-	border: 8px solid #663300;
-	background-image: none;
-}
-h1 {
-	font-size: 2em;
-	text-align: center;
-	padding-left: 0;
-	padding-top: 6vw;
-}
-nav {
-	margin: 0;
-}
-nav a {
-	display: block;
-	padding: 0.2em;
-	width: auto;
-	border-top: 1px solid #A88D64;
-	border-bottom: 1px solid #A88D64;
-}
-nav li {
-	display: block;
-}
-main {
-	padding-top: 1px;
-}
-h2 {
-	padding-top: .5em;
-	padding-right: 0;
-	padding-bottom: 0;
-	padding-left: .5em;
-	margin-right: .5em;
-}
-.details {
-	padding-left: 0;
-	padding-right: 0;
-}
-.floatleft {
-	padding-left: 0;
-	padding-right: 0;
-}
-#mobile {
-	display: inline;
-}
-#desktop {
-	display: none;
-}
+	header {
+		border: 8px solid #663300;
+		background-image: none;
+	}
+	h1 {
+		font-size: 2em;
+		text-align: center;
+		padding-left: 0;
+		padding-top: 6vw;
+	}
+	nav {
+		margin: 0;
+	}
+	nav a {
+		display: block;
+		padding: 0.2em;
+		width: auto;
+		border-top: 1px solid #a88d64;
+		border-bottom: 1px solid #a88d64;
+	}
+	nav li {
+		display: block;
+	}
+	main {
+		padding-top: 1px;
+	}
+	h2 {
+		padding-top: 0.5em;
+		padding-right: 0;
+		padding-bottom: 0;
+		padding-left: 0.5em;
+		margin-right: 0.5em;
+	}
+	.details {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.floatleft {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	#mobile {
+		display: inline;
+	}
+	#desktop {
+		display: none;
+	}
 }

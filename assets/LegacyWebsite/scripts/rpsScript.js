@@ -98,7 +98,7 @@ function getUserChoice() {
  */
 function getdinosaurChoice() {
 	"use strict";
-	
+
 	var dinosaurChoice = Math.random();
 
 	if (dinosaurChoice < .34) {

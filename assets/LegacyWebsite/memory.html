@@ -1,66 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>Memory Game</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0">
-<link href="style/memoryStyle.css" rel="stylesheet">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="scripts/memoryScript.js"></script>
+  <title>Memory Game</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style/memoryStyle.css" rel="stylesheet">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="scripts/memoryScript.js"></script>
 </head>
+
 <body>
-<div id="wrapper">
-  <header>
-    <h1>Memory Game</h1>
-  </header>
-  <nav>
-    <ul>
-      <li><a href="miniGames.html">Mini Games Home</a></li>
-      <li><b>Other Mini Games</b></li>
-      <li><a href="rockPaperScissors.html">RPS</a></li>
-      <li><a href="guessingGame.html">Guessing Game</a></li>
-      <li><a href="coinFlip.html">Coin Flipper</a></li>
-    </ul>
-  </nav>
-  <main>
-    <div id="memoryDino"></div>
-    <div id="playingField">
-      <div id="images">
-        <div id="green"> <img src="images/green.jpg" alt="green" width="200" height="200"> </div>
-        <div id="red"> <img src="images/red.jpg" alt="red" width="200" height="200"> </div>
-        <div id="yellow"> <img src="images/yellow.jpg" alt="yellow" width="200" height="200"> </div>
-        <div id="blue"> <img src="images/blue.jpg" alt="blue" width="200" height="200"> </div>
+  <div id="wrapper">
+    <header>
+      <h1>Memory Game</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="miniGames.html">Mini Games Home</a></li>
+        <li><b>Other Mini Games</b></li>
+        <li><a href="rockPaperScissors.html">RPS</a></li>
+        <li><a href="guessingGame.html">Guessing Game</a></li>
+        <li><a href="coinFlip.html">Coin Flipper</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div id="memoryDino"></div>
+      <div id="playingField">
+        <div id="images">
+          <div id="green"> <img src="images/green.jpg" alt="green" width="200" height="200"> </div>
+          <div id="red"> <img src="images/red.jpg" alt="red" width="200" height="200"> </div>
+          <div id="yellow"> <img src="images/yellow.jpg" alt="yellow" width="200" height="200"> </div>
+          <div id="blue"> <img src="images/blue.jpg" alt="blue" width="200" height="200"> </div>
+        </div>
+        <div id="imagesHard">
+          <div id="redHard"> <img src="images/red.jpg" alt="red" width="200" height="200"> </div>
+          <div id="orangeHard"> <img src="images/orange.jpg" alt="orange" width="200" height="200"> </div>
+          <div id="yellowHard"> <img src="images/yellow.jpg" alt="yellow" width="200" height="200"> </div>
+          <div id="greenHard"> <img src="images/green.jpg" alt="green" width="200" height="200"> </div>
+          <div id="limeHard"> <img src="images/lime.jpg" alt="lime" width="200" height="200"> </div>
+          <div id="blueHard"> <img src="images/blue.jpg" alt="blue" width="200" height="200"> </div>
+          <div id="indigoHard"> <img src="images/indigo.jpg" alt="indigo" width="200" height="200"> </div>
+          <div id="purpleHard"> <img src="images/purple.jpg" alt="purple" width="200" height="200"> </div>
+          <div id="magentaHard"> <img src="images/magenta.jpg" alt="magenta" width="200" height="200"> </div>
+        </div>
+        <div id="startGame"> <b>In this game all you do is remember the sequence of colors and repeat them back in order
+            to go on to the next level. If you input the incorrect order, the game is over!</b><br>
+          <input type="button" name="startGame" value="Start game" />
+        </div>
+        <div id="gameMode"> <b>Please choose your game mode.</b>
+          <input id="easyMode" type="button" name="easymode" value="Easy" />
+          <input id="hardMode" type="button" name="hardMode" value="Hard" />
+        </div>
+        <div id="submits">
+          <input type="button" id="submitLevel" name="submitLevel" value="Submit" />
+          <input type="button" id="submitLevelHard" name="submitLevelHard" value="Submit" />
+        </div>
+        <div id="gameInfo"> <span></span><br>
+          <input id="playAgain" type="button" name="playAgain" value="Play Again" />
+        </div>
       </div>
-      <div id="imagesHard">
-        <div id="redHard"> <img src="images/red.jpg" alt="red" width="200" height="200"> </div>
-        <div id="orangeHard"> <img src="images/orange.jpg" alt="orange" width="200" height="200"> </div>
-        <div id="yellowHard"> <img src="images/yellow.jpg" alt="yellow" width="200" height="200"> </div>
-        <div id="greenHard"> <img src="images/green.jpg" alt="green" width="200" height="200"> </div>
-        <div id="limeHard"> <img src="images/lime.jpg" alt="lime" width="200" height="200"> </div>
-        <div id="blueHard"> <img src="images/blue.jpg" alt="blue" width="200" height="200"> </div>
-        <div id="indigoHard"> <img src="images/indigo.jpg" alt="indigo" width="200" height="200"> </div>
-        <div id="purpleHard"> <img src="images/purple.jpg" alt="purple" width="200" height="200"> </div>
-        <div id="magentaHard"> <img src="images/magenta.jpg" alt="magenta" width="200" height="200"> </div>
-      </div>
-      <div id="startGame"> <b>In this game all you do is remember the sequence of colors and repeat them back in order to go on to the next level. If you input the incorrect order, the game is over!</b><br>
-        <input type="button" name="startGame" value="Start game" />
-      </div>
-      <div id="gameMode"> <b>Please choose your game mode.</b>
-        <input id="easyMode" type="button" name="easymode" value="Easy" />
-        <input id="hardMode" type="button" name="hardMode" value="Hard" />
-      </div>
-      <div id="submits">
-        <input type="button" id="submitLevel" name="submitLevel" value="Submit" />
-        <input type="button" id="submitLevelHard" name="submitLevelHard" value="Submit" />
-      </div>
-      <div id="gameInfo"> <span></span><br>
-        <input id="playAgain" type="button" name="playAgain" value="Play Again" />
-      </div>
-    </div>
-  </main>
-  <footer> Copyright &copy; 2017 Dino World <br>
-    <a href="mailto:tristen1099@gmail.com">tristen1099@gmail.com</a> </footer>
-</div>
+    </main>
+    <footer> Copyright &copy; 2017 Dino World <br></footer>
+  </div>
 </body>
+
 </html>
