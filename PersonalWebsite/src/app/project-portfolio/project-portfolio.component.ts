@@ -155,8 +155,8 @@ export class ProjectPortfolioComponent implements OnInit {
         " a little more interesting to create. And it is posted here as a" +
         " reminder of my first project, and to show the difference in the" +
         " quality of code from that site to this one a few years later." +
-        " ( Since it was my first experience with web development, I do not" +
-        " guarantee it to be few of errors or compatible with all browsers.)",
+        " (Since it was my first experience with web development, I do not" +
+        " guarantee it to be free of errors or compatible with all browsers.)",
       images: [{
         src: "../../assets/Projects/LegacyWebsite-1.png",
         title: "Legacy Website 1"
