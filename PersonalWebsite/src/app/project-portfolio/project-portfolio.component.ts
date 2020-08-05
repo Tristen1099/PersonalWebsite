@@ -145,6 +145,34 @@ export class ProjectPortfolioComponent implements OnInit {
         title: "Word Scramble 3"
       }]
 
+    }, {
+      name: "Legacy Website",
+      language: "HTML / CSS / JavaScript",
+      date: "Feburary, 2017",
+      description: "The first website I made back in 2017 when I was" +
+        " first getting into coding. The site was created purely to learn" +
+        " about HTML, CSS, and Javascript. It was given a theme to make it" +
+        " a little more interesting to create. And it is posted here as a" +
+        " reminder of my first project, and to show the difference in the" +
+        " quality of code from that site to this one a few years later." +
+        " ( Since it was my first experience with web development, I do not" +
+        " guarantee it to be few of errors or compatible with all browsers.)",
+      images: [{
+        src: "../../assets/Projects/LegacyWebsite-1.png",
+        title: "Legacy Website 1"
+      }, {
+        src: "../../assets/Projects/LegacyWebsite-2.png",
+        title: "Legacy Website 2"
+      }, {
+        src: "../../assets/Projects/LegacyWebsite-3.png",
+        title: "Legacy Website 3"
+      }, {
+        src: "../../assets/Projects/LegacyWebsite-4.png",
+        title: "Legacy Website 4"
+      }],
+      link: "../assets/LegacyWebsite/index.html",
+      linkDescription: "Click here to view the site"
+
     }];
   }
 
