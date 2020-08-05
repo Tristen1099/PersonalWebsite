@@ -116,7 +116,7 @@
                 .project-image-container {
                   overflow: unset !important;
                   .row {
-                    width: 300em !important;
+                    display: -webkit-inline-box !important;
                   }
                 }
               }
