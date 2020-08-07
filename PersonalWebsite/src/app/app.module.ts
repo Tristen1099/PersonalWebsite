@@ -8,9 +8,7 @@ import { ProjectPortfolioComponent } from './project-portfolio/project-portfolio
 import { EducationHistoryComponent } from './education-history/education-history.component';
 import { WorkHistoryComponent } from './work-history/work-history.component';
 import { ContactMeComponent } from './contact-me/contact-me.component';
-import { BlockStackerComponent } from './game-arcade/block-stacker/block-stacker.component';
 import { MainSiteDataComponent } from './main-site-data/main-site-data.component';
-import { ArcadePageComponent } from './game-arcade/arcade-page.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +18,7 @@ import { ArcadePageComponent } from './game-arcade/arcade-page.component';
     EducationHistoryComponent,
     WorkHistoryComponent,
     ContactMeComponent,
-    MainSiteDataComponent,
-    ArcadePageComponent,
-    BlockStackerComponent
+    MainSiteDataComponent
   ],
   imports: [
     BrowserModule,
