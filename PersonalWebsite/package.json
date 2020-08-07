@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
     "babel": "^6.23.0",
     "bootstrap": "^4.4.1",
     "hamburgers": "^1.1.3",
