@@ -19,6 +19,10 @@ export class AppComponent {
     }
   }
 
+  gameClick() {
+    window.scrollTo(0, 0);
+  }
+
   @HostListener('window:load', ['$event'])
   onLoadHandler(event) {
     [].map.call(

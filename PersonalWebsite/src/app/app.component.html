@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col navbar-title">
           <a class="navbar-brand nav-link text-left" href="#heroIntro">
-            <h4>Welcome!</h4>
+            <h4><a routerLink="" routerLinkActive="active">Welcome!</a></h4>
           </a>
         </div>
         <div class="col spacer"></div>
@@ -57,15 +57,16 @@
     </a>
   </div>
 
-  <div>
-    <app-hero-intro id="heroIntro"></app-hero-intro>
-    <app-education-history id="educationSection"></app-education-history>
-    <app-project-portfolio id="projectSection"></app-project-portfolio>
-    <app-work-history id="workExperienceSection"></app-work-history>
-    <app-contact-me id="contactSection"></app-contact-me>
-  </div>
+  <router-outlet></router-outlet>
 
   <footer>
+
+    <div id="easterEgg">
+      <a routerLink="/game-component" routerLinkActive="active" (click)="gameClick()">
+        <img src="../assets/blocks.png">
+      </a>
+    </div>
+
     <div class="container">
       <div class="row">
         <div class="col">
