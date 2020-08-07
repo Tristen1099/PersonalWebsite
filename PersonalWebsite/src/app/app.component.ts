@@ -8,6 +8,9 @@ import * as $ from 'jquery';
 })
 export class AppComponent {
   title = 'PersonalWebsite';
+  static mainPage = true;
+
+  public classReference = AppComponent;
 
   hamburgerClick() {
     const element = document.getElementById("hamburgerIcon");
@@ -19,7 +22,7 @@ export class AppComponent {
     }
   }
 
-  gameClick() {
+  arcadeClick() {
     window.scrollTo(0, 0);
   }
 
@@ -60,6 +63,10 @@ $(document).scroll(function () {
   var y = $(this).scrollTop();
   var height = $(".hero-container").height();
   var box = document.getElementById("resumeButton");
+
+  if (box == null) {
+    return;
+  }
 
   if (y < height) {
     if (box.style.opacity !== "0") {

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GameComponent } from './game-page/game.component';
 import { MainSiteDataComponent } from '../app/main-site-data/main-site-data.component';
+import { ArcadePageComponent } from './game-arcade/arcade-page.component';
+import { BlockStackerComponent } from '../app/game-arcade/block-stacker/block-stacker.component';
 
 
 const routes: Routes = [
@@ -10,8 +11,14 @@ const routes: Routes = [
     component: MainSiteDataComponent
   },
   {
-    path: 'game-component',
-    component: GameComponent
+    path: 'arcade-page-component',
+    component: ArcadePageComponent,
+    children: [
+      {
+        path: 'block-stacker',
+        component: BlockStackerComponent
+      }
+    ]
   },
   {
     path: '**',
