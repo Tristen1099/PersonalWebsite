@@ -9,6 +9,7 @@ import { EducationHistoryComponent } from './education-history/education-history
 import { WorkHistoryComponent } from './work-history/work-history.component';
 import { ContactMeComponent } from './contact-me/contact-me.component';
 import { MainSiteDataComponent } from './main-site-data/main-site-data.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MainSiteDataComponent } from './main-site-data/main-site-data.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

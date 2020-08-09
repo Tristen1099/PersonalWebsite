@@ -147,7 +147,7 @@ export class ProjectPortfolioComponent implements OnInit {
 
     }, {
       name: "Legacy Website",
-      language: "HTML / CSS / JavaScript",
+      language: "HTML/CSS/JavaScript",
       date: "Feburary, 2017",
       description: "The first website I made back in 2017 when I was" +
         " first getting into coding. The site was created purely to learn" +
@@ -178,10 +178,16 @@ export class ProjectPortfolioComponent implements OnInit {
 
   ngAfterViewInit() {
 
-    document.getElementById("project-carousel").children[0].classList.add("active");
+    [].map.call(
+      document.querySelectorAll('.carousel-control'),
+      ((carouselControl: HTMLElement) => {
+
+        carouselControl.style.cursor = "pointer";
+      })
+    );
 
     [].map.call(
-      document.querySelectorAll('.left'),
+      document.querySelectorAll('.left-side'),
       ((slider: HTMLElement) => {
 
         slider.addEventListener('mouseenter', e => {
@@ -217,4 +223,13 @@ export class ProjectPortfolioComponent implements OnInit {
       })
     )
   }
+
+  projectItemSlide(event: any) {
+    // console.log("Slide")
+    // console.log(event);
+  }
 }
+
+
+
+
