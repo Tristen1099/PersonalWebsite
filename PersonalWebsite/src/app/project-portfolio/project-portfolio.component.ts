@@ -187,6 +187,14 @@ export class ProjectPortfolioComponent implements OnInit {
     );
 
     [].map.call(
+      document.querySelectorAll('.carousel'),
+      ((carousel: HTMLElement) => {
+
+        carousel.style.outline = "none";
+      })
+    );
+
+    [].map.call(
       document.querySelectorAll('.left-side'),
       ((slider: HTMLElement) => {
 
