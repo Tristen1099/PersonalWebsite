@@ -3,7 +3,7 @@
         <h2><i class="fas fa-book"></i>Projects</h2>
     </div>
 
-    <carousel (activeSlideChange)="projectItemSlide($event)" [noPause]="false" [interval]="10000" id="project-carousel">
+    <carousel (activeSlideChange)="projectItemSlide($event)" [noPause]="false" [interval]="classReference.carouselInterval" id="project-carousel">
         <slide *ngFor="let project of projects; let i = index" class="carousel-item">
             <div class="project-item">
                 <div class="container">

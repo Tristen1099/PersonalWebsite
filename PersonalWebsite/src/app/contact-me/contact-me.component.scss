@@ -136,6 +136,25 @@
           }
         }
       }
+
+      #nameRow:focus-within {
+        .inputHeader {
+          transform: scale(1.1);
+          color: #061501;
+        }
+      }
+      #emailRow:focus-within {
+        .inputHeader {
+          transform: scale(1.1);
+          color: #061501;
+        }
+      }
+      #messageRow:focus-within {
+        .inputHeader {
+          transform: scale(1.1);
+          color: #061501;
+        }
+      }
     }
   }
 }

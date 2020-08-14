@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-project-portfolio',
@@ -8,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class ProjectPortfolioComponent implements OnInit {
 
   projects = new Array();
+  carouselInterval: number;
+  static carouselInterval = 0;
+
+  public classReference = ProjectPortfolioComponent;
 
   constructor() { }
 
@@ -250,6 +255,16 @@ export class ProjectPortfolioComponent implements OnInit {
     //console.log(event);
   }
 }
+
+$(document).scroll(function () {
+  var y = $(this).scrollTop();
+  var height = $(".hero-container").height();
+
+  if (y > height) {
+    ProjectPortfolioComponent.carouselInterval = 10000;
+    console.log("Changed");
+  }
+});
 
 
 
