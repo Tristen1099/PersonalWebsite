@@ -172,7 +172,6 @@ export class ProjectPortfolioComponent implements OnInit {
       }],
       link: "../assets/LegacyWebsite/index.html",
       linkDescription: "Click here to view the site"
-
     }];
   }
 
@@ -229,12 +228,26 @@ export class ProjectPortfolioComponent implements OnInit {
 
         });
       })
-    )
+    );
+
+    [].map.call(
+      document.querySelectorAll('.carousel-item'),
+      ((carouselItem: HTMLElement) => {
+
+        if (carouselItem.classList.contains("active")) {
+
+          var images: any = carouselItem.getElementsByTagName('img');
+          for (var image of images) {
+            var img = image as HTMLImageElement;
+            img.setAttribute('loading', 'eager');
+          }
+        }
+      })
+    );
   }
 
   projectItemSlide(event: any) {
-    // console.log("Slide")
-    // console.log(event);
+    //console.log(event);
   }
 }
 

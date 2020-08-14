@@ -13,7 +13,7 @@
                                 <div class="row">
                                     <div *ngFor="let image of project.images">
                                         <div class="col">
-                                            <img [src]="image.src">
+                                            <img [src]="image.src" loading="lazy">
                                         </div>
                                     </div>
                                 </div>
