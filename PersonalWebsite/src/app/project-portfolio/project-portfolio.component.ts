@@ -11,6 +11,7 @@ export class ProjectPortfolioComponent implements OnInit {
   projects = new Array();
   carouselInterval: number;
   static carouselInterval = 0;
+  public carouselLoaded = false;
 
   public classReference = ProjectPortfolioComponent;
 
@@ -261,8 +262,10 @@ $(document).scroll(function () {
   var height = $(".hero-container").height();
 
   if (y > height) {
-    ProjectPortfolioComponent.carouselInterval = 10000;
-    console.log("Changed");
+    if (!this.carouselLoaded) {
+      ProjectPortfolioComponent.carouselInterval = 10000;
+      this.carouselLoaded = true;
+    }
   }
 });
 
