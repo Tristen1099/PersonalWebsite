@@ -1,3 +1,5 @@
+import { COLORS, SHAPES } from './block-stacker-constants';
+
 export interface IPiece {
     x: number;
     y: number;
@@ -16,11 +18,12 @@ export class Piece implements IPiece {
     }
 
     spawn() {
-        this.color = 'green';
-        this.shape = [[0, 1, 1], [1, 1, 0], [0, 0, 0]];
+        const typeId = this.randomizePieceType(COLORS.length - 1);
+        this.color = COLORS[typeId];
+        this.shape = SHAPES[typeId];
 
         this.x = 3;
-        this.y = 1;
+        this.y = 0;
     }
 
     draw() {
@@ -40,5 +43,9 @@ export class Piece implements IPiece {
         this.x = piece.x;
         this.y = piece.y;
         this.shape = piece.shape;
+    }
+
+    private randomizePieceType(types: number): number {
+        return Math.floor(Math.random() * types + 1);
     }
 }

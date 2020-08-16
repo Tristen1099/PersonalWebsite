@@ -9,10 +9,19 @@
                 <p>Level: {{ level }}</p>
                 <p>Score: {{ score }}</p>
                 <p>Lines: {{ lines }}</p>
+                <p>High Score: {{ highScore }}</p>
+                <p>Next Block:</p>
+                <canvas #next class="next"></canvas>
             </div>
             <div class="button-container">
                 <button (click)="play()" class="button" id="play-button" *ngIf="!gameStarted">
                     Play
+                </button>
+                <button (click)="gameOver()" class="button" id="reset-button" *ngIf="gameStarted">
+                    Reset
+                </button>
+                <button (click)="pause()" class="button" id="pause-button" [class.button-disabled]="!gameStarted">
+                    Pause
                 </button>
             </div>
         </div>

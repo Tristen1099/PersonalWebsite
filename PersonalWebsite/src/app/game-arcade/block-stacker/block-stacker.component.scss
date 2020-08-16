@@ -45,6 +45,16 @@
                 #play-button {
                     background-color: #4caf50;
                 }
+                #reset-button {
+                    background-color: red;
+                }
+                #pause-button {
+                    background-color: #4caf50;
+
+                    &.button-disabled {
+                        background-color: #cccccc;
+                    }
+                }
             }
         }
     }

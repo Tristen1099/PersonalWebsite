@@ -18,9 +18,11 @@ export class BlockStackerComponent implements OnInit {
   level: number;
   score: number;
   lines: number;
+  highScore: number;
 
   currentPiece: Piece;
   gameBoard: number[][];
+  gameStarted: boolean;
 
   moves = {
     [KEY.LEFT]: (p: IPiece): IPiece => ({ ...p, x: p.x - 1 }),
@@ -47,7 +49,7 @@ export class BlockStackerComponent implements OnInit {
         this.currentPiece.move(piece);
       }
       this.canvasContext.clearRect(0, 0, this.canvasContext.canvas.width, this.canvasContext.canvas.height);
-      
+
       this.currentPiece.draw();
     }
   }
@@ -56,7 +58,6 @@ export class BlockStackerComponent implements OnInit {
 
   ngOnInit() {
     this.initializeBoard();
-
     this.resetGame();
   }
 
@@ -74,11 +75,16 @@ export class BlockStackerComponent implements OnInit {
   }
 
   play() {
+    this.gameStarted = true;
     this.resetGame();
     this.currentPiece = new Piece(this.canvasContext);
     this.currentPiece.draw();
   }
 
+  pause() {
+
+  }
+  
   private resetGame() {
     this.score = 0;
     this.lines = 0;
