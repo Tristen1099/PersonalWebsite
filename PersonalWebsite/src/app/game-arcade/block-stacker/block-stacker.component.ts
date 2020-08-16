@@ -23,6 +23,7 @@ export class BlockStackerComponent implements OnInit {
   currentPiece: Piece;
   gameBoard: number[][];
   gameStarted: boolean;
+  paused: boolean;
 
   moves = {
     [KEY.LEFT]: (p: IPiece): IPiece => ({ ...p, x: p.x - 1 }),
@@ -34,19 +35,19 @@ export class BlockStackerComponent implements OnInit {
 
   @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent) {
-
-    event.preventDefault();
-    let piece = this.moves[event.keyCode](this.currentPiece);
-    if (event.keyCode === KEY.SPACE) {
-      while (this.service.valid(piece, this.gameBoard)) {
-        this.currentPiece.move(piece);
-        piece = this.moves[KEY.DOWN](this.currentPiece);
-      }
-    }
-    if (this.moves[event.keyCode]) {
-
-      if (this.service.valid(piece, this.gameBoard)) {
-        this.currentPiece.move(piece);
+    
+      event.preventDefault();
+      let piece = this.moves[event.keyCode](this.currentPiece);
+      if (event.keyCode === KEY.SPACE) {
+        while (this.service.valid(piece, this.gameBoard)) {
+          this.currentPiece.move(piece);
+          piece = this.moves[KEY.DOWN](this.currentPiece);
+        }
+        }
+        if (this.moves[event.keyCode]) {
+    
+          if (this.service.valid(piece, this.gameBoard)) {
+            this.currentPiece.move(piece);
       }
       this.canvasContext.clearRect(0, 0, this.canvasContext.canvas.width, this.canvasContext.canvas.height);
 
@@ -59,6 +60,7 @@ export class BlockStackerComponent implements OnInit {
   ngOnInit() {
     this.initializeBoard();
     this.resetGame();
+    this.highScore = 0;
   }
 
   ngAfterViewInit() {
@@ -82,14 +84,27 @@ export class BlockStackerComponent implements OnInit {
   }
 
   pause() {
-
   }
-  
+
   private resetGame() {
+    this.paused = false;
     this.score = 0;
     this.lines = 0;
     this.level = 1;
     this.gameBoard = this.getEmptyGameBoard();
+    this.drawGridOnCanvas();
+  }
+
+  private drawGridOnCanvas() {
+    for (let index = 1; index < COLS; index++) {
+      this.canvasContext.fillStyle = 'black';
+      this.canvasContext.fillRect(index, 0, .025, this.canvasContext.canvas.height);
+    }
+
+    for (let index = 1; index < ROWS; index++) {
+      this.canvasContext.fillStyle = 'black';
+      this.canvasContext.fillRect(0, index, this.canvasContext.canvas.width, .025);
+    }
   }
 
   private getEmptyGameBoard() {
