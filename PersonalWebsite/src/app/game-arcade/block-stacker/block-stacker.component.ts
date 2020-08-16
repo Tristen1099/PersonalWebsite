@@ -25,18 +25,29 @@ export class BlockStackerComponent implements OnInit {
   moves = {
     [KEY.LEFT]: (p: IPiece): IPiece => ({ ...p, x: p.x - 1 }),
     [KEY.RIGHT]: (p: IPiece): IPiece => ({ ...p, x: p.x + 1 }),
-    [KEY.DOWN]: (p: IPiece): IPiece => ({ ...p, y: p.y + 1 })
+    [KEY.DOWN]: (p: IPiece): IPiece => ({ ...p, y: p.y + 1 }),
+    [KEY.SPACE]: (p: IPiece): IPiece => ({ ...p, y: p.y + 1 }),
+    [KEY.UP]: (p: IPiece): IPiece => this.service.rotate(p)
   };
 
   @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent) {
+
+    event.preventDefault();
+    let piece = this.moves[event.keyCode](this.currentPiece);
+    if (event.keyCode === KEY.SPACE) {
+      while (this.service.valid(piece, this.gameBoard)) {
+        this.currentPiece.move(piece);
+        piece = this.moves[KEY.DOWN](this.currentPiece);
+      }
+    }
     if (this.moves[event.keyCode]) {
-      event.preventDefault();
-      const piece = this.moves[event.keyCode](this.currentPiece);
+
       if (this.service.valid(piece, this.gameBoard)) {
         this.currentPiece.move(piece);
       }
       this.canvasContext.clearRect(0, 0, this.canvasContext.canvas.width, this.canvasContext.canvas.height);
+      
       this.currentPiece.draw();
     }
   }
