@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
-import { COLS, BLOCK_SIZE, ROWS } from './block-stacker-constants';
+import { COLS, BLOCK_SIZE, ROWS, KEY } from './block-stacker-constants';
 import { Piece, IPiece } from './block-stacker-piece';
+import { BlockStackerService } from './block-stacker-service';
 
 @Component({
   selector: 'app-block-stacker',
@@ -21,12 +22,30 @@ export class BlockStackerComponent implements OnInit {
   currentPiece: Piece;
   gameBoard: number[][];
 
+  moves = {
+    [KEY.LEFT]: (p: IPiece): IPiece => ({ ...p, x: p.x - 1 }),
+    [KEY.RIGHT]: (p: IPiece): IPiece => ({ ...p, x: p.x + 1 }),
+    [KEY.DOWN]: (p: IPiece): IPiece => ({ ...p, y: p.y + 1 })
+  };
 
-  constructor() { }
+  @HostListener('window:keydown', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    if (this.moves[event.keyCode]) {
+      event.preventDefault();
+      const piece = this.moves[event.keyCode](this.currentPiece);
+      if (this.service.valid(piece, this.gameBoard)) {
+        this.currentPiece.move(piece);
+      }
+      this.canvasContext.clearRect(0, 0, this.canvasContext.canvas.width, this.canvasContext.canvas.height);
+      this.currentPiece.draw();
+    }
+  }
+
+  constructor(private service: BlockStackerService) { }
 
   ngOnInit() {
     this.initializeBoard();
-    
+
     this.resetGame();
   }
 
