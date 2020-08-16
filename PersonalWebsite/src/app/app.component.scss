@@ -73,14 +73,15 @@
           }
 
           .active,
-          a:hover {
-            h4 {
-              color: #9dff9d;
+          h4 {
+            a:hover {
+              color: #9dff9d !important;
             }
           }
 
           .active {
-            h4, a {
+            h4,
+            a {
               color: #9dff9d !important;
               animation-name: floating;
               animation-duration: 2.5s;
