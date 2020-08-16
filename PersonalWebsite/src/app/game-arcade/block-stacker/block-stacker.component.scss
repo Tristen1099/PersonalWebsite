@@ -10,4 +10,81 @@
             color: white;
         }
     }
+
+    .grid {
+        padding: 0 25%;
+        display: flow-root;
+        margin-bottom: 2em;
+
+        .game-board {
+            border: solid 2px;
+            float: left;
+            background-color: rgba(7, 129, 7, 0.15);
+        }
+
+        .game-controls {
+            flex-direction: column;
+            justify-content: space-between;
+            width: 300px;
+            color: white;
+            float: right;
+
+            .button-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                bottom: 0;
+
+                .button {
+                    font-size: 16px;
+                    padding: 15px 30px;
+                    width: 140px;
+                    border: 1px solid black;
+                }
+
+                #play-button {
+                    background-color: #4caf50;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1500px) {
+    .block-stacker-container {
+        .header {
+            h2 {
+                font-size: 3em;
+            }
+        }
+        .grid {
+            padding: 0 20%;
+        }
+    }
+}
+
+@media all and (max-width: 1400px) {
+    .block-stacker-container {
+        .header {
+            h2 {
+                font-size: 2.5em;
+            }
+        }
+        .grid {
+            padding: 0 15%;
+        }
+    }
+}
+
+@media all and (max-width: 1300px) {
+    .block-stacker-container {
+        .header {
+            h2 {
+                font-size: 2em;
+            }
+        }
+        .grid {
+            padding: 0 10%;
+        }
+    }
 }

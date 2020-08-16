@@ -2,4 +2,19 @@
     <div class="header">
         <h2>Block Stacker</h2>
     </div>
+    <div class="grid">
+        <canvas #board class="game-board"></canvas>
+        <div class="game-controls">
+            <div>
+                <p>Level: {{ level }}</p>
+                <p>Score: {{ score }}</p>
+                <p>Lines: {{ lines }}</p>
+            </div>
+            <div class="button-container">
+                <button (click)="play()" class="button" id="play-button" *ngIf="!gameStarted">
+                    Play
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
