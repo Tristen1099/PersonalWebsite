@@ -14,6 +14,9 @@ export class BlockStackerComponent implements OnInit {
   @ViewChild('board', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;
   canvasContext: CanvasRenderingContext2D;
+  @ViewChild('next', { static: true })
+  canvasNext: ElementRef<HTMLCanvasElement>;
+  canvasContextNext: CanvasRenderingContext2D;
 
   level: number;
   score: number;
@@ -21,6 +24,7 @@ export class BlockStackerComponent implements OnInit {
   highScore: number;
 
   currentPiece: Piece;
+  nextPiece: Piece;
   gameBoard: number[][];
   gameStarted: boolean;
   paused: boolean;
@@ -56,6 +60,7 @@ export class BlockStackerComponent implements OnInit {
 
   ngOnInit() {
     this.initializeBoard();
+    this.initializeNext();
     this.resetGame();
     this.highScore = 0;
   }
@@ -73,10 +78,20 @@ export class BlockStackerComponent implements OnInit {
     this.canvasContext.scale(BLOCK_SIZE, BLOCK_SIZE);
   }
 
+
+  initializeNext() {
+    this.canvasContextNext = this.canvasNext.nativeElement.getContext('2d');
+    this.canvasContextNext.canvas.width = 4 * BLOCK_SIZE + 2;
+    this.canvasContextNext.canvas.height = 4 * BLOCK_SIZE;
+    this.canvasContextNext.scale(BLOCK_SIZE, BLOCK_SIZE);
+  }
+
   play() {
     this.gameStarted = true;
     this.resetGame();
+    this.nextPiece = new Piece(this.canvasContext);
     this.currentPiece = new Piece(this.canvasContext);
+    this.nextPiece.drawNext(this.canvasContextNext);
     this.time.start = performance.now();
     if (this.requestId) {
       cancelAnimationFrame(this.requestId);
@@ -114,6 +129,9 @@ export class BlockStackerComponent implements OnInit {
       this.currentPiece.move(piece);
     } else {
       this.freezePiece();
+      this.currentPiece = this.nextPiece;
+      this.nextPiece = new Piece(this.canvasContext);
+      this.nextPiece.drawNext(this.canvasContextNext);
     }
   }
 

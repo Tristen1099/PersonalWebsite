@@ -39,10 +39,38 @@ export class Piece implements IPiece {
         });
     }
 
+    drawNext(canvasContextNext: CanvasRenderingContext2D) {
+        canvasContextNext.clearRect(0, 0, canvasContextNext.canvas.width, canvasContextNext.canvas.height);
+        this.shape.forEach((row, y) => {
+            row.forEach((value, x) => {
+                if (value > 0) {
+                    this.addNextShadow(canvasContextNext, x, y);
+                }
+            });
+        });
+
+        canvasContextNext.fillStyle = this.color;
+        this.shape.forEach((row, y) => {
+            row.forEach((value, x) => {
+                if (value > 0) {
+                    canvasContextNext.fillStyle = this.color;
+                    const currentX = x + .025;
+                    const currentY = y + .025;
+                    canvasContextNext.fillRect(currentX, currentY, 1 - .025, 1 - .025);
+                }
+            });
+        });
+    }
+
     move(piece: IPiece) {
         this.x = piece.x;
         this.y = piece.y;
         this.shape = piece.shape;
+    }
+
+    private addNextShadow(canvasContextNext: CanvasRenderingContext2D, x: number, y: number): void {
+        canvasContextNext.fillStyle = 'black';
+        canvasContextNext.fillRect(x, y, 1.025, 1.025);
     }
 
     private randomizePieceType(types: number): number {
