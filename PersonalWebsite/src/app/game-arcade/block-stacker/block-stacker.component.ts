@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
-import { COLS, BLOCK_SIZE, ROWS, KEY, COLORS, LEVEL } from './block-stacker-constants';
+import { COLS, BLOCK_SIZE, ROWS, KEY, COLORS, LEVELS } from './block-stacker-constants';
 import { Piece, IPiece } from './block-stacker-piece';
 import { BlockStackerService } from './block-stacker-service';
 
@@ -25,6 +25,7 @@ export class BlockStackerComponent implements OnInit {
   gameStarted: boolean;
   paused: boolean;
 
+  requestId: number;
   time: { start: number; elapsed: number; level: number };
 
   moves = {
@@ -77,30 +78,42 @@ export class BlockStackerComponent implements OnInit {
     this.resetGame();
     this.currentPiece = new Piece(this.canvasContext);
     this.time.start = performance.now();
-    
+    if (this.requestId) {
+      cancelAnimationFrame(this.requestId);
+    }
     this.runGame();
   }
 
   pause() {
+    if (this.gameStarted) {
+      if (this.paused) {
+        this.runGame();
+        document.getElementById('pause-button').innerHTML = "Pause";
+      } else {
+        cancelAnimationFrame(this.requestId);
+        document.getElementById('pause-button').innerHTML = "Play";
+      }
+
+      this.paused = !this.paused;
+    }
   }
 
   private runGame(now = 0) {
     this.time.elapsed = now - this.time.start;
     if (this.time.elapsed > this.time.level) {
       this.time.start = now;
-      this.drop();
+      this.dropPiece();
     }
     this.draw();
-    requestAnimationFrame(this.runGame.bind(this));
+    this.requestId = requestAnimationFrame(this.runGame.bind(this));
   }
 
-  private drop() {
+  private dropPiece() {
     let piece = this.moves[KEY.DOWN](this.currentPiece);
     if (this.service.valid(piece, this.gameBoard)) {
       this.currentPiece.move(piece);
     }
   }
-
 
   private draw() {
     this.canvasContext.clearRect(0, 0, this.canvasContext.canvas.width, this.canvasContext.canvas.height);
@@ -126,7 +139,7 @@ export class BlockStackerComponent implements OnInit {
     this.lines = 0;
     this.level = 1;
     this.gameBoard = this.getEmptyGameBoard();
-    this.time = { start: 0, elapsed: 0, level: LEVEL[this.level] };
+    this.time = { start: 0, elapsed: 0, level: LEVELS[this.level] };
     this.drawGridOnCanvas();
   }
 

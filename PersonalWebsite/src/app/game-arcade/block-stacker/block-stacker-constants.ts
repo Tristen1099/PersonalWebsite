@@ -21,7 +21,6 @@ export const COLORS = [
     'rgba(255, 0, 0)',
 ];
 
-
 export const SHAPES = [
     [],
     [[0, 0, 0, 0], [1, 1, 1, 1], [0, 0, 0, 0], [0, 0, 0, 0]],
@@ -33,7 +32,7 @@ export const SHAPES = [
     [[7, 7, 0], [0, 7, 7], [0, 0, 0]]
 ];
 
-export class LEVEL {
+export class LEVELS {
     static readonly 1 = 720;
     static readonly 2 = 630;
     static readonly 3 = 550;
