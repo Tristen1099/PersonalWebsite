@@ -99,6 +99,10 @@ export class BlockStackerComponent implements OnInit {
     this.runGame();
   }
 
+  gameOver() {
+    
+  }
+
   pause() {
     if (this.gameStarted) {
       if (this.paused) {
