@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
-import { COLS, BLOCK_SIZE, ROWS, KEY } from './block-stacker-constants';
+import { COLS, BLOCK_SIZE, ROWS, KEY, COLORS, LEVEL } from './block-stacker-constants';
 import { Piece, IPiece } from './block-stacker-piece';
 import { BlockStackerService } from './block-stacker-service';
 
@@ -25,6 +25,8 @@ export class BlockStackerComponent implements OnInit {
   gameStarted: boolean;
   paused: boolean;
 
+  time: { start: number; elapsed: number; level: number };
+
   moves = {
     [KEY.LEFT]: (p: IPiece): IPiece => ({ ...p, x: p.x - 1 }),
     [KEY.RIGHT]: (p: IPiece): IPiece => ({ ...p, x: p.x + 1 }),
@@ -35,7 +37,7 @@ export class BlockStackerComponent implements OnInit {
 
   @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    
+    if (this.moves[event.keyCode]) {
       event.preventDefault();
       let piece = this.moves[event.keyCode](this.currentPiece);
       if (event.keyCode === KEY.SPACE) {
@@ -43,15 +45,9 @@ export class BlockStackerComponent implements OnInit {
           this.currentPiece.move(piece);
           piece = this.moves[KEY.DOWN](this.currentPiece);
         }
-        }
-        if (this.moves[event.keyCode]) {
-    
-          if (this.service.valid(piece, this.gameBoard)) {
-            this.currentPiece.move(piece);
+      } else if (this.service.valid(piece, this.gameBoard)) {
+        this.currentPiece.move(piece);
       }
-      this.canvasContext.clearRect(0, 0, this.canvasContext.canvas.width, this.canvasContext.canvas.height);
-
-      this.currentPiece.draw();
     }
   }
 
@@ -80,10 +76,48 @@ export class BlockStackerComponent implements OnInit {
     this.gameStarted = true;
     this.resetGame();
     this.currentPiece = new Piece(this.canvasContext);
-    this.currentPiece.draw();
+    this.time.start = performance.now();
+    
+    this.runGame();
   }
 
   pause() {
+  }
+
+  private runGame(now = 0) {
+    this.time.elapsed = now - this.time.start;
+    if (this.time.elapsed > this.time.level) {
+      this.time.start = now;
+      this.drop();
+    }
+    this.draw();
+    requestAnimationFrame(this.runGame.bind(this));
+  }
+
+  private drop() {
+    let piece = this.moves[KEY.DOWN](this.currentPiece);
+    if (this.service.valid(piece, this.gameBoard)) {
+      this.currentPiece.move(piece);
+    }
+  }
+
+
+  private draw() {
+    this.canvasContext.clearRect(0, 0, this.canvasContext.canvas.width, this.canvasContext.canvas.height);
+    this.currentPiece.draw();
+    this.drawBoard();
+  }
+
+  private drawBoard() {
+    this.gameBoard.forEach((row, y) => {
+      row.forEach((value, x) => {
+        if (value > 0) {
+          this.canvasContext.fillStyle = COLORS[value];
+          this.canvasContext.fillRect(x, y, 1, 1);
+        }
+      });
+    });
+    this.drawGridOnCanvas();
   }
 
   private resetGame() {
@@ -92,6 +126,7 @@ export class BlockStackerComponent implements OnInit {
     this.lines = 0;
     this.level = 1;
     this.gameBoard = this.getEmptyGameBoard();
+    this.time = { start: 0, elapsed: 0, level: LEVEL[this.level] };
     this.drawGridOnCanvas();
   }
 
