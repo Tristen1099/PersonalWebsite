@@ -112,7 +112,19 @@ export class BlockStackerComponent implements OnInit {
     let piece = this.moves[KEY.DOWN](this.currentPiece);
     if (this.service.valid(piece, this.gameBoard)) {
       this.currentPiece.move(piece);
+    } else {
+      this.freezePiece();
     }
+  }
+
+  private freezePiece() {
+    this.currentPiece.shape.forEach((row, y) => {
+      row.forEach((value, x) => {
+        if (value > 0) {
+          this.gameBoard[y + this.currentPiece.y][x + this.currentPiece.x] = value;
+        }
+      });
+    });
   }
 
   private draw() {
