@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
-import { COLS, BLOCK_SIZE, ROWS, KEY, COLORS, LEVELS, LINES_PER_LEVEL } from './block-stacker-constants';
+import { COLS, BLOCK_SIZE, ROWS, KEY, COLORS, LEVELS, LINES_PER_LEVEL, POINTS } from './block-stacker-constants';
 import { Piece, IPiece } from './block-stacker-piece';
 import { BlockStackerService } from './block-stacker-service';
 
@@ -21,6 +21,7 @@ export class BlockStackerComponent implements OnInit {
   level: number;
   score: number;
   lines: number;
+  totalLines: number;
   highScore: number;
 
   currentPiece: Piece;
@@ -50,10 +51,14 @@ export class BlockStackerComponent implements OnInit {
       if (event.keyCode === KEY.SPACE) {
         while (this.service.valid(piece, this.gameBoard)) {
           this.currentPiece.move(piece);
+          this.score += POINTS.HARD_DROP;
           piece = this.moves[KEY.DOWN](this.currentPiece);
         }
       } else if (this.service.valid(piece, this.gameBoard)) {
         this.currentPiece.move(piece);
+        if (event.keyCode === KEY.DOWN) {
+          this.score += POINTS.SOFT_DROP;
+        }
       }
     }
   }
@@ -102,7 +107,13 @@ export class BlockStackerComponent implements OnInit {
   }
 
   gameOver() {
-    
+    this.gameStarted = false;
+    cancelAnimationFrame(this.requestId);
+    this.highScore = this.score > this.highScore ? this.score : this.highScore;
+
+    const overlay = document.getElementById("endGameOverlay");
+    overlay.style.display = "block";
+    document.getElementsByTagName('body')[0].style.overflow = "hidden";
   }
 
   pause() {
@@ -119,27 +130,39 @@ export class BlockStackerComponent implements OnInit {
     }
   }
 
+  closeOverlay() {
+    document.getElementById("endGameOverlay").style.display = "none";
+    document.getElementsByTagName('body')[0].style.overflowY = "scroll";
+  }
+
   private runGame(now = 0) {
     this.time.elapsed = now - this.time.start;
     if (this.time.elapsed > this.time.level) {
       this.time.start = now;
-      this.dropPiece();
+      if (!this.dropPiece()) {
+        this.gameOver();
+        return;
+      }
     }
     this.draw();
     this.requestId = requestAnimationFrame(this.runGame.bind(this));
   }
 
-  private dropPiece() {
+  private dropPiece(): boolean {
     let piece = this.moves[KEY.DOWN](this.currentPiece);
     if (this.service.valid(piece, this.gameBoard)) {
       this.currentPiece.move(piece);
     } else {
       this.freezePiece();
       this.clearLines();
+      if (this.currentPiece.y === 0) {
+        return false;
+      }
       this.currentPiece = this.nextPiece;
       this.nextPiece = new Piece(this.canvasContext);
       this.nextPiece.drawNext(this.canvasContextNext);
     }
+    return true;
   }
 
   private freezePiece() {
@@ -164,6 +187,7 @@ export class BlockStackerComponent implements OnInit {
     if (lines > 0) {
       this.score += this.service.getLinesClearedPoints(lines, this.level);
       this.lines += lines;
+      this.totalLines += lines;
       if (this.lines >= LINES_PER_LEVEL) {
         this.level++;
         this.lines -= LINES_PER_LEVEL;
@@ -194,6 +218,7 @@ export class BlockStackerComponent implements OnInit {
     this.paused = false;
     this.score = 0;
     this.lines = 0;
+    this.totalLines = 0;
     this.level = 1;
     this.gameBoard = this.getEmptyGameBoard();
     this.time = { start: 0, elapsed: 0, level: LEVELS[this.level] };

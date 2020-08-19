@@ -104,7 +104,6 @@ export class ContactMeComponent implements OnInit {
         $("#emailErrorBlank").css("visibility", "hidden");
         $("#emailErrorBlank").css("display", "none");
         $("#emailErrorWrongFormat").css("display", "block");
-        $
       }
     } else {
       this.validEmail = false;

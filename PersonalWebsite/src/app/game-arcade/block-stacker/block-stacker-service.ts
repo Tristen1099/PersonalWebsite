@@ -42,7 +42,7 @@ export class BlockStackerService {
                     : lines === 3
                         ? POINTS.TRIPLE
                         : lines === 4
-                            ? POINTS.TETRIS
+                            ? POINTS.BLOCKSTACKER
                             : 0;
 
         return (level) * lineClearPoints;

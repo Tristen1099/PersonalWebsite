@@ -27,3 +27,17 @@
         </div>
     </div>
 </div>
+
+<div id="endGameOverlay">
+    <div id="text">
+        <h2>Game Over</h2>
+        <h3>Oh no, you have lost :(</h3>
+        <h3>Your Score: {{ score }}</h3>
+        <h3>High Score: {{ highScore }}</h3>
+        <h3>Level: {{ level }}</h3>
+        <h3>Total Lines Cleared: {{ totalLines }}</h3>
+        <button (click)="closeOverlay()">
+            <p>Close</p>
+        </button>
+    </div>
+</div>

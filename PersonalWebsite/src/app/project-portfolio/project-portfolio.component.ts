@@ -240,6 +240,12 @@ export class ProjectPortfolioComponent implements OnInit {
       document.querySelectorAll('.carousel-item'),
       ((carouselItem: HTMLElement) => {
 
+        if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+          var images: any = carouselItem.getElementsByTagName('img');
+          var img = images[0] as HTMLImageElement;
+          img.setAttribute('loading', 'eager');
+        }
+
         if (carouselItem.classList.contains("active")) {
 
           var images: any = carouselItem.getElementsByTagName('img');
