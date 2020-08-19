@@ -1,6 +1,7 @@
 export const COLS = 10;
 export const ROWS = 20;
 export const BLOCK_SIZE = 30;
+export const LINES_PER_LEVEL = 10;
 
 export class KEY {
     static readonly LEFT = 37;
@@ -8,6 +9,7 @@ export class KEY {
     static readonly DOWN = 40;
     static readonly UP = 38;
     static readonly SPACE = 32;
+    static readonly ESC = 27;
 }
 
 export const COLORS = [
@@ -53,4 +55,11 @@ export class LEVELS {
     static readonly 18 = 50;
     static readonly 19 = 30;
     static readonly 20 = 30;
+}
+
+export class POINTS {
+    static readonly SINGLE = 100;
+    static readonly DOUBLE = 300;
+    static readonly TRIPLE = 500;
+    static readonly TETRIS = 800;
 }

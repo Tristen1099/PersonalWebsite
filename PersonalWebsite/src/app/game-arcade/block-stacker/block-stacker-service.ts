@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IPiece } from './block-stacker-piece';
-import { COLS, ROWS } from './block-stacker-constants';
+import { COLS, ROWS, POINTS } from './block-stacker-constants';
 
 @Injectable({
     providedIn: 'root'
@@ -22,22 +22,6 @@ export class BlockStackerService {
         });
     }
 
-    isEmpty(value: number): boolean {
-        return value === 0;
-    }
-
-    insideWalls(x: number): boolean {
-        return x >= 0 && x < COLS;
-    }
-
-    aboveFloor(y: number): boolean {
-        return y <= ROWS;
-    }
-
-    notOccupied(board: number[][], x: number, y: number): boolean {
-        return board[y] && board[y][x] === 0;
-    }
-
     rotate(piece: IPiece): IPiece {
         let p: IPiece = JSON.parse(JSON.stringify(piece));
         for (let y = 0; y < p.shape.length; ++y) {
@@ -49,4 +33,35 @@ export class BlockStackerService {
         return p;
     }
 
+    getLinesClearedPoints(lines: number, level: number): number {
+        const lineClearPoints =
+            lines === 1
+                ? POINTS.SINGLE
+                : lines === 2
+                    ? POINTS.DOUBLE
+                    : lines === 3
+                        ? POINTS.TRIPLE
+                        : lines === 4
+                            ? POINTS.TETRIS
+                            : 0;
+
+        return (level) * lineClearPoints;
+    }
+
+
+    private isEmpty(value: number): boolean {
+        return value === 0;
+    }
+
+    private insideWalls(x: number): boolean {
+        return x >= 0 && x < COLS;
+    }
+
+    private aboveFloor(y: number): boolean {
+        return y <= ROWS;
+    }
+
+    private notOccupied(board: number[][], x: number, y: number): boolean {
+        return board[y] && board[y][x] === 0;
+    }
 }

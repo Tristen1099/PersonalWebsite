@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
-import { COLS, BLOCK_SIZE, ROWS, KEY, COLORS, LEVELS } from './block-stacker-constants';
+import { COLS, BLOCK_SIZE, ROWS, KEY, COLORS, LEVELS, LINES_PER_LEVEL } from './block-stacker-constants';
 import { Piece, IPiece } from './block-stacker-piece';
 import { BlockStackerService } from './block-stacker-service';
 
@@ -42,7 +42,9 @@ export class BlockStackerComponent implements OnInit {
 
   @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    if (this.moves[event.keyCode]) {
+    if (event.keyCode === KEY.ESC) {
+      this.pause();
+    } else if (this.moves[event.keyCode]) {
       event.preventDefault();
       let piece = this.moves[event.keyCode](this.currentPiece);
       if (event.keyCode === KEY.SPACE) {
@@ -133,6 +135,7 @@ export class BlockStackerComponent implements OnInit {
       this.currentPiece.move(piece);
     } else {
       this.freezePiece();
+      this.clearLines();
       this.currentPiece = this.nextPiece;
       this.nextPiece = new Piece(this.canvasContext);
       this.nextPiece.drawNext(this.canvasContextNext);
@@ -147,6 +150,26 @@ export class BlockStackerComponent implements OnInit {
         }
       });
     });
+  }
+
+  private clearLines() {
+    let lines = 0;
+    this.gameBoard.forEach((row, y) => {
+      if (row.every(value => value !== 0)) {
+        lines++;
+        this.gameBoard.splice(y, 1);
+        this.gameBoard.unshift(Array(COLS).fill(0));
+      }
+    });
+    if (lines > 0) {
+      this.score += this.service.getLinesClearedPoints(lines, this.level);
+      this.lines += lines;
+      if (this.lines >= LINES_PER_LEVEL) {
+        this.level++;
+        this.lines -= LINES_PER_LEVEL;
+        this.time.level = LEVELS[this.level];
+      }
+    }
   }
 
   private draw() {
