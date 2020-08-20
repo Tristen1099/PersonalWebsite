@@ -12,10 +12,14 @@
     }
 
     .grid {
-        height: 100vh;
+        height: fit-content;
         padding: 0 25%;
         display: flow-root;
         margin-bottom: 2em;
+
+        .mobile-buttons {
+            display: none;
+        }
 
         .game-board {
             border: solid 2px;
@@ -30,8 +34,12 @@
             color: white;
             float: right;
 
-            .button-container {
-                display: flex;
+            .mobile-button-container {
+                display: none;
+            }
+
+            .desktop-buttons {
+                display: block;
                 flex-direction: row;
                 justify-content: space-between;
                 bottom: 0;
@@ -164,6 +172,66 @@
 }
 
 @media all and (max-width: 1000px) {
+    .block-stacker-container {
+        .grid {
+            height: fit-content;
+            text-align: center;
+
+            .mobile-buttons {
+                display: block;
+                margin: 0 auto;
+                text-align: center;
+                padding-bottom: 1em;
+
+                .button {
+                    font-size: 16px;
+                    padding: 15px 30px;
+                    width: 140px;
+                    border: 1px solid black;
+                }
+
+                #mobile-play-button {
+                    background-color: #4caf50;
+                }
+                #mobile-reset-button {
+                    background-color: red;
+                }
+                #mobile-pause-button {
+                    background-color: #4caf50;
+
+                    &.button-disabled {
+                        background-color: #cccccc;
+                    }
+                }
+            }
+
+            .game-board {
+                float: none;
+                padding: 0;
+                margin: 0 auto;
+                display: block;
+            }
+
+            .game-controls {
+                float: none;
+                margin: auto;
+                padding-top: 1em;
+
+                .mobile-button-container {
+                    display: block;
+
+                    .button {
+                        border: 1px solid black;
+                    }
+                }
+
+                .desktop-buttons {
+                    display: none;
+                }
+            }
+        }
+    }
+
     #endGameOverlay {
         #text {
             h2 {

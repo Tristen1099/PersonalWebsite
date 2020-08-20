@@ -121,9 +121,11 @@ export class BlockStackerComponent implements OnInit {
       if (this.paused) {
         this.runGame();
         document.getElementById('pause-button').innerHTML = "Pause";
+        document.getElementById('mobile-pause-button').innerHTML = "Pause";
       } else {
         cancelAnimationFrame(this.requestId);
         document.getElementById('pause-button').innerHTML = "Play";
+        document.getElementById('mobile-pause-button').innerHTML = "Play";
       }
 
       this.paused = !this.paused;
@@ -133,6 +135,24 @@ export class BlockStackerComponent implements OnInit {
   closeOverlay() {
     document.getElementById("endGameOverlay").style.display = "none";
     document.getElementsByTagName('body')[0].style.overflowY = "scroll";
+  }
+
+  mobileButtonClick(keyCode: number) {
+    if (this.moves[keyCode]) {
+      let piece = this.moves[keyCode](this.currentPiece);
+      if (keyCode === KEY.SPACE) {
+        while (this.service.valid(piece, this.gameBoard)) {
+          this.currentPiece.move(piece);
+          this.score += POINTS.HARD_DROP;
+          piece = this.moves[KEY.DOWN](this.currentPiece);
+        }
+      } else if (this.service.valid(piece, this.gameBoard)) {
+        this.currentPiece.move(piece);
+        if (keyCode === KEY.DOWN) {
+          this.score += POINTS.SOFT_DROP;
+        }
+      }
+    }
   }
 
   private runGame(now = 0) {

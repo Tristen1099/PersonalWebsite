@@ -3,8 +3,38 @@
         <h2>Block Stacker</h2>
     </div>
     <div class="grid">
+        <div class="mobile-buttons">
+            <button (click)="play()" class="button" id="mobile-play-button" *ngIf="!gameStarted">
+                Play
+            </button>
+            <button (click)="gameOver()" class="button" id="mobile-reset-button" *ngIf="gameStarted">
+                Reset
+            </button>
+            <button (click)="pause()" class="button" id="mobile-pause-button" [class.button-disabled]="!gameStarted">
+                Pause
+            </button>
+        </div>
         <canvas #board class="game-board"></canvas>
         <div class="game-controls">
+            <div class="mobile-button-container container">
+                <div class="row">
+                    <button (click)="mobileButtonClick(38)" class="button col">
+                        Rotate
+                    </button>
+                    <button (click)="mobileButtonClick(37)" class="button col">
+                        Left
+                    </button>
+                    <button (click)="mobileButtonClick(40)" class="button col">
+                        Down
+                    </button>
+                    <button (click)="mobileButtonClick(39)" class="button col">
+                        Right
+                    </button>
+                    <button (click)="mobileButtonClick(32)" class="button col">
+                        Drop
+                    </button>
+                </div>
+            </div>
             <div>
                 <p>Level: {{ level }}</p>
                 <p>Score: {{ score }}</p>
@@ -13,7 +43,7 @@
                 <p>Next Block:</p>
                 <canvas #next class="next"></canvas>
             </div>
-            <div class="button-container">
+            <div class="desktop-buttons">
                 <button (click)="play()" class="button" id="play-button" *ngIf="!gameStarted">
                     Play
                 </button>
