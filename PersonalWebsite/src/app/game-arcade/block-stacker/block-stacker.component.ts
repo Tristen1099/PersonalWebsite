@@ -43,21 +43,30 @@ export class BlockStackerComponent implements OnInit {
 
   @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    if (event.keyCode === KEY.ESC) {
-      this.pause();
-    } else if (this.moves[event.keyCode]) {
-      event.preventDefault();
-      let piece = this.moves[event.keyCode](this.currentPiece);
-      if (event.keyCode === KEY.SPACE) {
-        while (this.service.valid(piece, this.gameBoard)) {
+    if (this.gameStarted) {
+      if (event.keyCode === KEY.ESC) {
+        this.pause();
+      } else if (event.keyCode == KEY.SWITCH) {
+        let currentPiece = this.currentPiece;
+        this.currentPiece = this.nextPiece;
+        this.currentPiece.x = currentPiece.x;
+        this.currentPiece.y = currentPiece.y;
+        this.nextPiece = currentPiece;
+        this.nextPiece.drawNext(this.canvasContextNext);
+      } else if (this.moves[event.keyCode]) {
+        event.preventDefault();
+        let piece = this.moves[event.keyCode](this.currentPiece);
+        if (event.keyCode === KEY.SPACE) {
+          while (this.service.valid(piece, this.gameBoard)) {
+            this.currentPiece.move(piece);
+            this.score += POINTS.HARD_DROP;
+            piece = this.moves[KEY.DOWN](this.currentPiece);
+          }
+        } else if (this.service.valid(piece, this.gameBoard)) {
           this.currentPiece.move(piece);
-          this.score += POINTS.HARD_DROP;
-          piece = this.moves[KEY.DOWN](this.currentPiece);
-        }
-      } else if (this.service.valid(piece, this.gameBoard)) {
-        this.currentPiece.move(piece);
-        if (event.keyCode === KEY.DOWN) {
-          this.score += POINTS.SOFT_DROP;
+          if (event.keyCode === KEY.DOWN) {
+            this.score += POINTS.SOFT_DROP;
+          }
         }
       }
     }
@@ -138,18 +147,20 @@ export class BlockStackerComponent implements OnInit {
   }
 
   mobileButtonClick(keyCode: number) {
-    if (this.moves[keyCode]) {
-      let piece = this.moves[keyCode](this.currentPiece);
-      if (keyCode === KEY.SPACE) {
-        while (this.service.valid(piece, this.gameBoard)) {
+    if (this.gameStarted) {
+      if (this.moves[keyCode]) {
+        let piece = this.moves[keyCode](this.currentPiece);
+        if (keyCode === KEY.SPACE) {
+          while (this.service.valid(piece, this.gameBoard)) {
+            this.currentPiece.move(piece);
+            this.score += POINTS.HARD_DROP;
+            piece = this.moves[KEY.DOWN](this.currentPiece);
+          }
+        } else if (this.service.valid(piece, this.gameBoard)) {
           this.currentPiece.move(piece);
-          this.score += POINTS.HARD_DROP;
-          piece = this.moves[KEY.DOWN](this.currentPiece);
-        }
-      } else if (this.service.valid(piece, this.gameBoard)) {
-        this.currentPiece.move(piece);
-        if (keyCode === KEY.DOWN) {
-          this.score += POINTS.SOFT_DROP;
+          if (keyCode === KEY.DOWN) {
+            this.score += POINTS.SOFT_DROP;
+          }
         }
       }
     }
@@ -178,6 +189,8 @@ export class BlockStackerComponent implements OnInit {
       if (this.currentPiece.y === 0) {
         return false;
       }
+      this.nextPiece.x = 3;
+      this.nextPiece.y = 0;
       this.currentPiece = this.nextPiece;
       this.nextPiece = new Piece(this.canvasContext);
       this.nextPiece.drawNext(this.canvasContextNext);

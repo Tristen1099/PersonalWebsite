@@ -10,6 +10,7 @@ export class KEY {
     static readonly UP = 38;
     static readonly SPACE = 32;
     static readonly ESC = 27;
+    static readonly SWITCH = 83;
 }
 
 export const COLORS = [
