@@ -47,12 +47,7 @@ export class BlockStackerComponent implements OnInit {
       if (event.keyCode === KEY.ESC) {
         this.pause();
       } else if (event.keyCode == KEY.SWITCH) {
-        let currentPiece = this.currentPiece;
-        this.currentPiece = this.nextPiece;
-        this.currentPiece.x = currentPiece.x;
-        this.currentPiece.y = currentPiece.y;
-        this.nextPiece = currentPiece;
-        this.nextPiece.drawNext(this.canvasContextNext);
+        this.switchPiece();
       } else if (this.moves[event.keyCode]) {
         event.preventDefault();
         let piece = this.moves[event.keyCode](this.currentPiece);
@@ -148,7 +143,9 @@ export class BlockStackerComponent implements OnInit {
 
   mobileButtonClick(keyCode: number) {
     if (this.gameStarted) {
-      if (this.moves[keyCode]) {
+      if (keyCode == KEY.SWITCH) {
+        this.switchPiece();
+      } else if (this.moves[keyCode]) {
         let piece = this.moves[keyCode](this.currentPiece);
         if (keyCode === KEY.SPACE) {
           while (this.service.valid(piece, this.gameBoard)) {
@@ -163,6 +160,22 @@ export class BlockStackerComponent implements OnInit {
           }
         }
       }
+    }
+  }
+
+  private switchPiece() {
+    let currentPiece = this.currentPiece;
+    let nextPiece = this.nextPiece;
+    nextPiece.x = currentPiece.x;
+    nextPiece.y = currentPiece.y;
+    let valid = this.service.valid(nextPiece, this.gameBoard);
+    if (valid) {
+      currentPiece = this.currentPiece;
+      this.currentPiece = this.nextPiece;
+      this.currentPiece.x = currentPiece.x;
+      this.currentPiece.y = currentPiece.y;
+      this.nextPiece = currentPiece;
+      this.nextPiece.drawNext(this.canvasContextNext);
     }
   }
 

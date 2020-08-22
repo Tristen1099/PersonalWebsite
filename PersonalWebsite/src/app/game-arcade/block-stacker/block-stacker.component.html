@@ -17,7 +17,7 @@
         <canvas #board class="game-board"></canvas>
         <div class="game-controls">
             <div class="mobile-button-container container">
-                <div class="row">
+                <div class="row justify-content-center">
                     <button (click)="mobileButtonClick(38)" class="button col">
                         Rotate
                     </button>
@@ -30,8 +30,11 @@
                     <button (click)="mobileButtonClick(39)" class="button col">
                         Right
                     </button>
-                    <button (click)="mobileButtonClick(32)" class="button col">
+                    <button (click)="mobileButtonClick(32)" class="button col col-5">
                         Drop
+                    </button>
+                    <button (click)="mobileButtonClick(83)" class="button col col-5">
+                        Switch Block
                     </button>
                 </div>
             </div>

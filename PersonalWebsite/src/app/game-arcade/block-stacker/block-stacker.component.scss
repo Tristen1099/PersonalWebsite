@@ -216,12 +216,17 @@
                 float: none;
                 margin: auto;
                 padding-top: 1em;
+                width: fit-content;
 
                 .mobile-button-container {
                     display: block;
 
                     .button {
                         border: 1px solid black;
+                        margin: 0 .5em .5em .5em;
+                        background-color: #98ff9c;
+                        border-radius: .5em;
+                        height: 2.5em;
                     }
                 }
 
