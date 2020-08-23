@@ -1,0 +1,91 @@
+.container {
+    min-height: 100vh;
+    max-height: fit-content;
+
+    .pageHeader {
+        padding: 1em 0 0 0;
+
+        h2 {
+            text-align: center;
+            font-family: monospace;
+            font-weight: 600;
+            font-size: 3.5em;
+            color: white;
+
+            .fas {
+                font-size: 0.7em;
+                color: #4a974a;
+                margin: 0.5em;
+            }
+        }
+    }
+
+    .row {
+        .col {
+            .game-link-container {
+                background-color: #7a897a;
+                border-radius: 1em;
+                margin: 5% 10% 5% 10%;
+                box-shadow: 0.5em 0.2em 1em 0.3em #2a3e25;
+
+                img {
+                    height: 250px;
+                    border-radius: 1em;
+                    padding: 0.7em;
+                    margin: 0 auto;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1200px) {
+    .arcade-container {
+        .pageHeader {
+            h2 {
+                font-size: 3.3em;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1000px) {
+    .arcade-container {
+        .pageHeader {
+            h2 {
+                font-size: 3.1em;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 800px) {
+    .arcade-container {
+        .pageHeader {
+            h2 {
+                font-size: 2.9em;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 600px) {
+    .arcade-container {
+        .pageHeader {
+            h2 {
+                font-size: 2.6em;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 400px) {
+    .arcade-container {
+        .pageHeader {
+            h2 {
+                font-size: 2.3em;
+            }
+        }
+    }
+}

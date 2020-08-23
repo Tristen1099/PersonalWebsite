@@ -8,7 +8,22 @@ import { AppComponent } from '../app.component';
 })
 export class ArcadePageComponent implements OnInit {
 
+  games = new Array();
+
   ngOnInit() {
+    this.games = [{
+      routerLink: "/arcade-page-component/block-stacker",
+      imageSource: "../../assets/Arcade/BlockStacker.png"
+    }, {
+      routerLink: "/arcade-page-component/block-stacker",
+      imageSource: "../../assets/Arcade/BlockStacker.png"
+    }, {
+      routerLink: "/arcade-page-component/block-stacker",
+      imageSource: "../../assets/Arcade/BlockStacker.png"
+    }, {
+      routerLink: "/arcade-page-component/block-stacker",
+      imageSource: "../../assets/Arcade/BlockStacker.png"
+    }];
   }
 
   ngAfterViewInit() {
@@ -16,5 +31,4 @@ export class ArcadePageComponent implements OnInit {
       AppComponent.mainPage = false;
     });
   }
-
 }

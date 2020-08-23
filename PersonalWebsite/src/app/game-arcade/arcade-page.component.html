@@ -1,24 +1,17 @@
-<div class="container">
+<div class="arcade-container container">
     <div class="pageHeader">
-        Welcome to the secret arcade
+        <h2><i class="fas fa-gamepad"></i>THE SECRET ARCADE<i class="fas fa-puzzle-piece"></i></h2>
     </div>
-    <div>
-        <ul>
-            <li>
-                <a routerLink="/arcade-page-component/block-stacker" routerLinkActive="active">
-                    Block Stacker
+
+    <div class="row justify-content-center">
+        <div *ngFor="let game of games;" class="col">
+            <div class="game-link-container">
+                <a [routerLink]="game.routerLink" routerLinkActive="active">
+                    <img [src]="game.imageSource">
                 </a>
-            </li>
-            <li>
-                Other Game
-            </li>
-            <li>
-                Other Game
-            </li>
-            <li>
-                Other Game
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
+
 </div>
 <router-outlet></router-outlet>
