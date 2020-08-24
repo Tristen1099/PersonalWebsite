@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ArcadePageComponent } from './arcade-page.component';
 import { BlockStackerComponent } from './block-stacker/block-stacker.component';
+import { BombDusterComponent } from './bomb-duster/bomb-duster.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'block-stacker',
     component: BlockStackerComponent
+  },
+  {
+    path: 'bomb-duster',
+    component: BombDusterComponent
   },
   {
     path: '**',

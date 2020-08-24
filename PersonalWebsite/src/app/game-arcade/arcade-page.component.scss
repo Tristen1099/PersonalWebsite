@@ -30,6 +30,7 @@
                 animation-duration: 2s;
                 animation-fill-mode: both;
                 animation-name: scaleIn;
+                animation-timing-function: ease-in-out;
 
                 img {
                     height: 250px;
@@ -49,31 +50,31 @@
 
 @keyframes shake {
     0% {
-        transform: scale(1.01) rotate(0deg);
+        transform: scale(1) rotate(0deg);
     }
     10% {
-        transform: scale(1.02) rotate(-1deg);
+        transform: scale(1.01) rotate(-1deg);
     }
     20% {
-        transform: scale(1.03) rotate(1deg);
+        transform: scale(1.01) rotate(1deg);
     }
     30% {
-        transform: scale(1.04) rotate(0deg);
+        transform: scale(1.02) rotate(0deg);
     }
     40% {
-        transform: scale(1.05) rotate(1deg);
+        transform: scale(1.02) rotate(1deg);
     }
     50% {
-        transform: scale(1.05) rotate(-1deg);
-    }
-    60% {
-        transform: scale(1.04) rotate(0deg);
-    }
-    70% {
         transform: scale(1.03) rotate(-1deg);
     }
+    60% {
+        transform: scale(1.02) rotate(0deg);
+    }
+    70% {
+        transform: scale(1.02) rotate(-1deg);
+    }
     80% {
-        transform: scale(1.02) rotate(1deg);
+        transform: scale(1.01) rotate(1deg);
     }
     90% {
         transform: scale(1.01) rotate(0.5deg);
@@ -100,7 +101,7 @@
     .arcade-container {
         .pageHeader {
             h2 {
-                font-size: 3.3em;
+                font-size: 3.2em;
             }
         }
     }
@@ -110,7 +111,7 @@
     .arcade-container {
         .pageHeader {
             h2 {
-                font-size: 3.1em;
+                font-size: 3em;
             }
         }
         .row {
@@ -127,7 +128,7 @@
     .arcade-container {
         .pageHeader {
             h2 {
-                font-size: 2.9em;
+                font-size: 2.5em;
             }
         }
     }
@@ -137,7 +138,7 @@
     .arcade-container {
         .pageHeader {
             h2 {
-                font-size: 2.6em;
+                font-size: 2.1em;
             }
         }
     }
@@ -147,7 +148,7 @@
     .arcade-container {
         .pageHeader {
             h2 {
-                font-size: 2.3em;
+                font-size: 1.6em;
             }
         }
     }

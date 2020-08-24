@@ -13,16 +13,20 @@ export class ArcadePageComponent implements OnInit {
   ngOnInit() {
     this.games = [{
       routerLink: "/arcade-page-component/block-stacker",
-      imageSource: "../../assets/Arcade/BlockStacker.png"
+      imageSource: "../../assets/Arcade/BlockStacker.png",
+      title: "BLOCK STACKER"
+    }, {
+      routerLink: "/arcade-page-component/bomb-duster",
+      imageSource: "../../assets/Arcade/BlockStacker.png",
+      title: "BOMB DUSTER"
     }, {
       routerLink: "/arcade-page-component/block-stacker",
-      imageSource: "../../assets/Arcade/BlockStacker.png"
+      imageSource: "../../assets/Arcade/BlockStacker.png",
+      title: "BLOCK STACKER"
     }, {
       routerLink: "/arcade-page-component/block-stacker",
-      imageSource: "../../assets/Arcade/BlockStacker.png"
-    }, {
-      routerLink: "/arcade-page-component/block-stacker",
-      imageSource: "../../assets/Arcade/BlockStacker.png"
+      imageSource: "../../assets/Arcade/BlockStacker.png",
+      title: "BLOCK STACKER"
     }];
   }
 

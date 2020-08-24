@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { ArcadeRoutingModule } from './arcade-routing.module';
 import { ArcadePageComponent } from './arcade-page.component';
 import { BlockStackerComponent } from './block-stacker/block-stacker.component';
+import { BombDusterComponent } from './bomb-duster/bomb-duster.component';
 
 @NgModule({
   declarations: [
     BlockStackerComponent,
-    ArcadePageComponent
+    ArcadePageComponent,
+    BombDusterComponent
   ],
   imports: [
     CommonModule,

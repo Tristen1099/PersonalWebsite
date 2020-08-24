@@ -8,11 +8,18 @@
             font-weight: 600;
             font-size: 3.5em;
             color: white;
+
+            .fas {
+                font-size: 0.7em;
+                color: #4a974a;
+                margin: 0.5em;
+            }
         }
     }
 
     .grid {
-        height: fit-content;
+        min-height: 100vh;
+        max-height: fit-content;
         padding: 0 25%;
         display: flow-root;
         margin-bottom: 2em;
@@ -223,9 +230,9 @@
 
                     .button {
                         border: 1px solid black;
-                        margin: 0 .5em .5em .5em;
+                        margin: 0 0.5em 0.5em 0.5em;
                         background-color: #98ff9c;
-                        border-radius: .5em;
+                        border-radius: 0.5em;
                         height: 2.5em;
                     }
                 }

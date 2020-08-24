@@ -7,7 +7,7 @@
         <div *ngFor="let game of games;" class="col">
             <div class="game-link-container">
                 <a [routerLink]="game.routerLink" routerLinkActive="active">
-                    <img [src]="game.imageSource">
+                    <img [src]="game.imageSource" [title]="game.title">
                 </a>
             </div>
         </div>
