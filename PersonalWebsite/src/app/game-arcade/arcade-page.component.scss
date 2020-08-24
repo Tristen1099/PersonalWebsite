@@ -37,7 +37,6 @@
                     padding: 0.7em;
                     margin: 0 auto;
                     display: block;
-                    max-width: -webkit-fill-available;
                 }
             }
         }
@@ -77,7 +76,7 @@
         transform: scale(1.02) rotate(1deg);
     }
     90% {
-        transform: scale(1.01) rotate(.5deg);
+        transform: scale(1.01) rotate(0.5deg);
     }
     100% {
         transform: scale(1) rotate(0deg);
@@ -112,6 +111,13 @@
         .pageHeader {
             h2 {
                 font-size: 3.1em;
+            }
+        }
+        .row {
+            .col {
+                .game-link-container {
+                    margin: 1em 0;
+                }
             }
         }
     }
