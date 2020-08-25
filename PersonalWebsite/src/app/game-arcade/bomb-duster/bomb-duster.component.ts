@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, ɵConsole } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { Cell } from './cell';
 import { CellStatus, NEIGHBORS } from './cell';
