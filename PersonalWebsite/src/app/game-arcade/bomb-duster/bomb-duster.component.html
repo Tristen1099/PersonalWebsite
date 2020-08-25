@@ -2,8 +2,36 @@
     <div class="header">
         <h2><i class="fas fa-bomb"></i>Bomb Duster</h2>
     </div>
-    
 
+    <div class="game-board">
+        <div class="row top-buttons">
+            <div class="col">
+                <h5>Game Difficulty</h5>
+                <select #gameLevel class="level-selector" (change)="levelChanged()">
+                    <option value="1">Easy</option>
+                    <option value="2">Medium</option>
+                    <option value="3">Hard</option>
+                </select>
+            </div>
+            <div class="col">
+                :)
+            </div>
+            <div class="col">
+                Time
+            </div>
+        </div>
+        <div id="board">
+            <div *ngFor="let row of gameBoard;" class="row">
+                <app-cell *ngFor="let cell of row;"></app-cell>
+            </div>
+        </div>
+        <div class="row bottom-buttons">
+            <div class="col">
+                <button (click)="newGame()">New Game</button>
+            </div>
+        </div>
+
+    </div>
 
 
 </div>
