@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ɵConsole } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { Cell } from './cell';
 import { CellStatus, NEIGHBORS } from './cell';
@@ -40,7 +40,6 @@ export class BombDusterComponent implements OnInit {
     this.gameLevel.nativeElement.disabled = false;
 
     this.setUpGameBoard();
-    console.log(this.gameBoard);
   }
 
   levelChanged() {
@@ -60,7 +59,7 @@ export class BombDusterComponent implements OnInit {
       if (cell.status != CellStatus.UnTouched) {
         return;
       } else if (cell.isBomb) {
-        this.gameOver();
+        this.gameOver(false);
       } else {
         cell.status = CellStatus.Cleared;
         if (cell.neighborBombs === 0) {
@@ -75,6 +74,8 @@ export class BombDusterComponent implements OnInit {
         }
       }
     }
+
+    this.checkIfGameEnd();
   }
 
   flagCell(cell: Cell) {
@@ -96,9 +97,27 @@ export class BombDusterComponent implements OnInit {
       this.gameFlags++;
     }
 
-    console.log(cell);
+    this.checkIfGameEnd();
   }
 
+  private checkIfGameEnd() {
+
+    let allMarked = true;
+
+    for (var row of this.gameBoard) {
+
+      let marked = row.every(cell => ((cell.isBomb && cell.status == CellStatus.Flagged) || (!cell.isBomb && cell.status != CellStatus.Flagged)));
+
+      if (!marked) {
+        allMarked = marked;
+      }
+
+    }
+
+    if (allMarked) {
+      this.gameOver(true);
+    }
+  }
 
   private setUpGameBoard() {
     let level = this.gameLevel.nativeElement.value;
@@ -136,9 +155,21 @@ export class BombDusterComponent implements OnInit {
     this.countNeighborBombs();
   }
 
-  private gameOver() {
+  private gameOver(gameWon: boolean) {
     this.gameEnded = true;
     this.showAll();
+    this.gameWon(gameWon);
+  }
+
+  private gameWon(gameWon: boolean) {
+
+    if (gameWon) {
+      console.log("WINNER");
+
+    } else {
+      console.log("LOSER");
+    }
+
   }
 
   private showAll() {
