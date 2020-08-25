@@ -17,16 +17,21 @@
                 :)
             </div>
             <div class="col">
-                Time
+                <div class="row"><i class="fas fa-clock"></i>Time</div>
+                <div class="row"><i class="fas fa-flag"></i>
+                    <h6>{{ gameFlags }}</h6>
+                </div>
             </div>
         </div>
         <div id="board">
             <div *ngFor="let row of gameBoard;" class="row">
-                <button *ngFor="let cell of row;" [className]="cell.status == 1 ? 'cell active' : 'cell'" (click)="checkCell(cell)"
-                    (contextmenu)="$event.preventDefault(); flagCell(cell)">
+                <button *ngFor="let cell of row;" [className]="cell.status == 1 ? 'cell active' : 'cell'"
+                    (click)="checkCell(cell)" (contextmenu)="$event.preventDefault(); flagCell(cell)">
                     <i *ngIf="cell.status == 2" class="fas fa-flag"></i>
-                    <!-- <i *ngIf="cell.isBomb == true" class="fas fa-bomb"></i> -->
-                    <h5 *ngIf="cell.status == 1 && cell.isBomb != true && cell.neighborBombs != 0" [className]="'bomb-' + cell.neighborBombs">{{cell.neighborBombs}}</h5>
+                    <i *ngIf="cell.status == 2 && !cell.isBomb && gameEnded" class="fas fa-times"></i>
+                    <i *ngIf="cell.isBomb == true && gameEnded && cell.status != 2" class="fas fa-bomb"></i>
+                    <h5 *ngIf="cell.status == 1 && !cell.isBomb && cell.neighborBombs != 0"
+                        [className]="'bomb-' + cell.neighborBombs">{{cell.neighborBombs}}</h5>
                 </button>
             </div>
         </div>

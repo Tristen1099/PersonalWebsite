@@ -12,6 +12,8 @@ export class BombDusterComponent implements OnInit {
 
   gameBoard: Cell[][];
   gameStarted: boolean;
+  gameEnded: boolean;
+  gameFlags: number;
 
   @ViewChild('gameLevel', { static: true })
   gameLevel: ElementRef<HTMLSelectElement>;
@@ -33,6 +35,7 @@ export class BombDusterComponent implements OnInit {
   newGame() {
     this.gameBoard = [];
     this.gameStarted = false;
+    this.gameEnded = false;
     this.firstClick = true;
     this.gameLevel.nativeElement.disabled = false;
 
@@ -49,6 +52,7 @@ export class BombDusterComponent implements OnInit {
   checkCell(cell: Cell) {
     this.gameStarted = true;
     this.gameLevel.nativeElement.disabled = true;
+
     if (this.firstClick && cell.isBomb) {
       this.setUpGameBoard();
     } else {
@@ -77,9 +81,20 @@ export class BombDusterComponent implements OnInit {
     if (this.firstClick) {
       return;
     }
+
     this.gameStarted = true;
     this.gameLevel.nativeElement.disabled = true;
-    cell.flagCell();
+
+    if (cell.status == CellStatus.Cleared) {
+      return;
+    }
+    if (cell.status == CellStatus.UnTouched) {
+      cell.status = CellStatus.Flagged;
+      this.gameFlags--;
+    } else if (cell.status == CellStatus.Flagged) {
+      cell.status = CellStatus.UnTouched;
+      this.gameFlags++;
+    }
 
     console.log(cell);
   }
@@ -105,6 +120,8 @@ export class BombDusterComponent implements OnInit {
       bombs = 100;
     }
 
+    this.gameFlags = bombs;
+
     for (var i: number = 0; i < rows; i++) {
       this.gameBoard[i] = [];
       for (var j: number = 0; j < columns; j++) {
@@ -120,13 +137,14 @@ export class BombDusterComponent implements OnInit {
   }
 
   private gameOver() {
+    this.gameEnded = true;
     this.showAll();
   }
 
   private showAll() {
     for (const row of this.gameBoard) {
       for (const cell of row) {
-        if (cell.status != CellStatus.Cleared) {
+        if (cell.status == CellStatus.UnTouched) {
           cell.status = CellStatus.Cleared;
         }
       }
@@ -160,10 +178,8 @@ export class BombDusterComponent implements OnInit {
       if (this.gameBoard[y][x].isBomb == false) {
         this.gameBoard[y][x].isBomb = true;
         bombsLeft -= 1;
-        this.placeRandomBombs(bombsLeft);
-      } else {
-        this.placeRandomBombs(bombsLeft);
       }
+      this.placeRandomBombs(bombsLeft);
     }
   }
 

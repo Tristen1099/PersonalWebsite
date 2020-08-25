@@ -19,15 +19,4 @@ export class Cell {
     this.isBomb = false;
     this.neighborBombs = 0;
   }
-
-  flagCell() {
-    if (this.status == CellStatus.Cleared) {
-      return;
-    }
-    if (this.status == CellStatus.UnTouched) {
-      this.status = CellStatus.Flagged;
-    } else if (this.status == CellStatus.Flagged) {
-      this.status = CellStatus.UnTouched;
-    }
-  }
 }
