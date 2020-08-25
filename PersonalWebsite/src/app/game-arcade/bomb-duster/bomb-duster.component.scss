@@ -60,6 +60,59 @@
                 margin: 0 !important;
                 padding: 0 !important;
                 height: 30px;
+
+                .cell {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 3px;
+                    background-color: #c6ced9;
+                    border-color: white black black white;
+                    border-width: 1px;
+                    outline: none;
+
+                    &.active {
+                        background-color: #cccccc;
+                        border-color: #a5a5a5;
+                    }
+
+                    .fas {
+                        color: #b61717;
+                    }
+
+                    h5 {
+                        &.bomb-1 {
+                            color: blue;
+                        }
+
+                        &.bomb-2 {
+                            color: green;
+                        }
+
+                        &.bomb-3 {
+                            color: red;
+                        }
+
+                        &.bomb-4 {
+                            color: darkblue;
+                        }
+
+                        &.bomb-5 {
+                            color: darkred;
+                        }
+
+                        &.bomb-6 {
+                            color: teal;
+                        }
+
+                        &.bomb-7 {
+                            color: black;
+                        }
+
+                        &.bomb-8 {
+                            color: gray;
+                        }
+                    }
+                }
             }
         }
 

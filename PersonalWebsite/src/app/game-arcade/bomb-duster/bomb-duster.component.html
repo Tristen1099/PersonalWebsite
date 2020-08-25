@@ -22,7 +22,12 @@
         </div>
         <div id="board">
             <div *ngFor="let row of gameBoard;" class="row">
-                <app-cell *ngFor="let cell of row;"></app-cell>
+                <button *ngFor="let cell of row;" [className]="cell.status == 1 ? 'cell active' : 'cell'" (click)="checkCell(cell)"
+                    (contextmenu)="$event.preventDefault(); flagCell(cell)">
+                    <i *ngIf="cell.status == 2" class="fas fa-flag"></i>
+                    <!-- <i *ngIf="cell.isBomb == true" class="fas fa-bomb"></i> -->
+                    <h5 *ngIf="cell.status == 1 && cell.isBomb != true && cell.neighborBombs != 0" [className]="'bomb-' + cell.neighborBombs">{{cell.neighborBombs}}</h5>
+                </button>
             </div>
         </div>
         <div class="row bottom-buttons">
