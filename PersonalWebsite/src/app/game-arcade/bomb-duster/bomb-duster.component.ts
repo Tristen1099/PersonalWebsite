@@ -19,6 +19,8 @@ export class BombDusterComponent implements OnInit {
   gameLevel: ElementRef<HTMLSelectElement>;
 
   firstClick: boolean;
+  timeElapsed: number;
+  interval;
 
   constructor() { }
 
@@ -36,6 +38,8 @@ export class BombDusterComponent implements OnInit {
     this.gameBoard = [];
     this.gameStarted = false;
     this.gameEnded = false;
+    this.stopClock();
+    this.timeElapsed = 0;
     this.firstClick = true;
     this.gameLevel.nativeElement.disabled = false;
 
@@ -51,6 +55,10 @@ export class BombDusterComponent implements OnInit {
   checkCell(cell: Cell) {
     this.gameStarted = true;
     this.gameLevel.nativeElement.disabled = true;
+
+    if (this.firstClick) {
+      this.startClock();
+    }
 
     if (this.firstClick && cell.isBomb) {
       this.setUpGameBoard();
@@ -80,6 +88,7 @@ export class BombDusterComponent implements OnInit {
 
   flagCell(cell: Cell) {
     if (this.firstClick) {
+      this.startClock();
       return;
     }
 
@@ -101,7 +110,6 @@ export class BombDusterComponent implements OnInit {
   }
 
   private checkIfGameEnd() {
-
     let allMarked = true;
 
     for (var row of this.gameBoard) {
@@ -111,7 +119,6 @@ export class BombDusterComponent implements OnInit {
       if (!marked) {
         allMarked = marked;
       }
-
     }
 
     if (allMarked) {
@@ -155,8 +162,21 @@ export class BombDusterComponent implements OnInit {
     this.countNeighborBombs();
   }
 
+  private startClock() {
+    this.stopClock();
+
+    this.interval = setInterval(() => {
+      this.timeElapsed++;
+    }, 1000)
+  }
+
+  private stopClock() {
+    clearInterval(this.interval);
+  }
+
   private gameOver(gameWon: boolean) {
     this.gameEnded = true;
+    this.stopClock();
     this.showAll();
     this.gameWon(gameWon);
   }
@@ -165,11 +185,9 @@ export class BombDusterComponent implements OnInit {
 
     if (gameWon) {
       console.log("WINNER");
-
     } else {
       console.log("LOSER");
     }
-
   }
 
   private showAll() {
@@ -177,6 +195,38 @@ export class BombDusterComponent implements OnInit {
       for (const cell of row) {
         if (cell.status == CellStatus.UnTouched) {
           cell.status = CellStatus.Cleared;
+        }
+      }
+    }
+  }
+
+  private clearNeighbors(cell: Cell) {
+    if (cell == undefined) {
+      return;
+    }
+    let clearable = true;
+    for (const peer of NEIGHBORS) {
+
+      let x = cell.cellRow + peer[0];
+      let y = cell.cellColumn + peer[1];
+      if ((x < 0 || x >= this.gameBoard.length) || (y < 0 || y >= this.gameBoard[0].length)) {
+        return;
+      }
+
+      let neighborCell = this.gameBoard[x][y];
+
+      if (((neighborCell.isBomb && neighborCell.status == CellStatus.Flagged) && neighborCell.isBomb)) {
+        clearable = false;
+        break;
+      }
+    }
+
+    if (clearable) {
+      for (const peer of NEIGHBORS) {
+
+        let neighborCell = this.gameBoard[cell.cellRow + peer[0]][cell.cellColumn + peer[1]];
+        if (neighborCell.status != CellStatus.Flagged) {
+          neighborCell.status = CellStatus.Cleared;
         }
       }
     }
