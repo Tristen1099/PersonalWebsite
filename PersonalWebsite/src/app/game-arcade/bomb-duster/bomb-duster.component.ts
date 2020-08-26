@@ -3,6 +3,12 @@ import { AppComponent } from 'src/app/app.component';
 import { Cell } from './cell';
 import { CellStatus, NEIGHBORS } from './cell';
 
+enum GameStatus {
+  Player = '../../../assets/Arcade/BombDusterAssets/GamePlayer.png',
+  Winner = '../../../assets/Arcade/BombDusterAssets/GameWinner.png',
+  Loser = '../../../assets/Arcade/BombDusterAssets/GameLoser.png'
+}
+
 @Component({
   selector: 'app-bomb-duster',
   templateUrl: './bomb-duster.component.html',
@@ -14,6 +20,7 @@ export class BombDusterComponent implements OnInit {
   gameStarted: boolean;
   gameEnded: boolean;
   gameFlags: number;
+  gameStatus: string;
 
   @ViewChild('gameLevel', { static: true })
   gameLevel: ElementRef<HTMLSelectElement>;
@@ -35,6 +42,7 @@ export class BombDusterComponent implements OnInit {
   }
 
   newGame() {
+    this.gameStatus = GameStatus.Player;
     this.gameBoard = [];
     this.gameStarted = false;
     this.gameEnded = false;
@@ -82,7 +90,6 @@ export class BombDusterComponent implements OnInit {
         }
       }
     }
-
     this.checkIfGameEnd();
   }
 
@@ -98,6 +105,7 @@ export class BombDusterComponent implements OnInit {
     if (cell.status == CellStatus.Cleared) {
       return;
     }
+
     if (cell.status == CellStatus.UnTouched) {
       cell.status = CellStatus.Flagged;
       this.gameFlags--;
@@ -120,7 +128,6 @@ export class BombDusterComponent implements OnInit {
         allMarked = marked;
       }
     }
-
     if (allMarked) {
       this.gameOver(true);
     }
@@ -184,9 +191,9 @@ export class BombDusterComponent implements OnInit {
   private gameWon(gameWon: boolean) {
 
     if (gameWon) {
-      console.log("WINNER");
+      this.gameStatus = GameStatus.Winner;
     } else {
-      console.log("LOSER");
+      this.gameStatus = GameStatus.Loser;
     }
   }
 
@@ -209,24 +216,26 @@ export class BombDusterComponent implements OnInit {
 
       let x = cell.cellRow + peer[0];
       let y = cell.cellColumn + peer[1];
-      if ((x < 0 || x >= this.gameBoard.length) || (y < 0 || y >= this.gameBoard[0].length)) {
-        return;
-      }
+      if (!((x < 0 || x >= this.gameBoard.length) || (y < 0 || y >= this.gameBoard[0].length))) {
+        let neighborCell = this.gameBoard[x][y];
 
-      let neighborCell = this.gameBoard[x][y];
-
-      if (((neighborCell.isBomb && neighborCell.status == CellStatus.Flagged) && neighborCell.isBomb)) {
-        clearable = false;
-        break;
+        if (neighborCell.isBomb && neighborCell.status != CellStatus.Flagged) {
+          clearable = false;
+          break;
+        }
       }
     }
 
     if (clearable) {
       for (const peer of NEIGHBORS) {
 
-        let neighborCell = this.gameBoard[cell.cellRow + peer[0]][cell.cellColumn + peer[1]];
-        if (neighborCell.status != CellStatus.Flagged) {
-          neighborCell.status = CellStatus.Cleared;
+        let x = cell.cellRow + peer[0];
+        let y = cell.cellColumn + peer[1];
+        if (!((x < 0 || x >= this.gameBoard.length) || (y < 0 || y >= this.gameBoard[0].length))) {
+          let neighborCell = this.gameBoard[x][y];
+          if (neighborCell.status != CellStatus.Flagged) {
+            neighborCell.status = CellStatus.Cleared;
+          }
         }
       }
     }

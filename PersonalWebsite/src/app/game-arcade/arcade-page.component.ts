@@ -17,16 +17,16 @@ export class ArcadePageComponent implements OnInit {
       title: "BLOCK STACKER"
     }, {
       routerLink: "/arcade-page-component/bomb-duster",
-      imageSource: "../../assets/Arcade/BlockStacker.png",
+      imageSource: "../../assets/Arcade/BombDuster.png",
       title: "BOMB DUSTER"
     }, {
-      routerLink: "/arcade-page-component/block-stacker",
-      imageSource: "../../assets/Arcade/BlockStacker.png",
-      title: "BLOCK STACKER"
+      routerLink: "/arcade-page-component/bomb-duster",
+      imageSource: "../../assets/Arcade/BombDuster.png",
+      title: "BOMB DUSTER"
     }, {
-      routerLink: "/arcade-page-component/block-stacker",
-      imageSource: "../../assets/Arcade/BlockStacker.png",
-      title: "BLOCK STACKER"
+      routerLink: "/arcade-page-component/bomb-duster",
+      imageSource: "../../assets/Arcade/BombDuster.png",
+      title: "BOMB DUSTER"
     }];
   }
 
