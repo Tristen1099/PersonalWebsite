@@ -29,7 +29,18 @@ export class BombDusterComponent implements OnInit {
   timeElapsed: number;
   interval;
 
-  constructor() { }
+  constructor() {
+    let prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementsByTagName("nav")[0].style.top = "0";
+      } else {
+        document.getElementsByTagName("nav")[0].style.top = "-500px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  }
 
   ngOnInit() {
     this.newGame();
