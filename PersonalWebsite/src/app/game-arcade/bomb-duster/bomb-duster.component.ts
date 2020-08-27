@@ -79,6 +79,7 @@ export class BombDusterComponent implements OnInit {
         return;
       } else if (cell.isBomb) {
         this.gameOver(false);
+        return;
       } else {
         cell.status = CellStatus.Cleared;
         if (cell.neighborBombs === 0) {
@@ -180,23 +181,19 @@ export class BombDusterComponent implements OnInit {
   }
 
   private checkIfGameEnd() {
-    let allMarked = true;
-    let allValidUnMarked = true;
+    let valid = true;
 
     for (var row of this.gameBoard) {
 
 
       let marked = row.every(cell => ((cell.isBomb && cell.status == CellStatus.Flagged) || (!cell.isBomb && cell.status != CellStatus.Flagged)));
-      let validUnMarked = row.every(cell => ((cell.isBomb && cell.status != CellStatus.Flagged) || (!cell.isBomb && cell.status == CellStatus.Cleared) || (cell.isBomb && cell.status == CellStatus.Flagged)));
+      let allValid = row.every(cell => ((((cell.isBomb && cell.status != CellStatus.Flagged) || (!cell.isBomb && cell.status == CellStatus.Cleared)) || (cell.isBomb && cell.status == CellStatus.Flagged) || marked)));
 
-      if (!marked) {
-        allMarked = marked;
-      }
-      if (!validUnMarked) {
-        allValidUnMarked = validUnMarked;
+      if (!allValid) {
+        valid = allValid;
       }
     }
-    if (allMarked || allValidUnMarked) {
+    if (valid) {
       this.gameOver(true);
     }
   }
