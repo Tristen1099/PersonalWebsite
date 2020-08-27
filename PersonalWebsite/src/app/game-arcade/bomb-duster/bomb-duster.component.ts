@@ -29,18 +29,7 @@ export class BombDusterComponent implements OnInit {
   timeElapsed: number;
   interval;
 
-  constructor() {
-    let prevScrollpos = window.pageYOffset;
-    window.onscroll = function () {
-      var currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        document.getElementsByTagName("nav")[0].style.top = "0";
-      } else {
-        document.getElementsByTagName("nav")[0].style.top = "-500px";
-      }
-      prevScrollpos = currentScrollPos;
-    }
-  }
+  constructor() { }
 
   ngOnInit() {
     this.newGame();
@@ -78,6 +67,9 @@ export class BombDusterComponent implements OnInit {
     if (this.firstClick) {
       this.startClock();
     }
+    if (this.gameLevel.nativeElement.value == "5") {
+      this.firstClick = false;
+    }
 
     if (this.firstClick && cell.isBomb) {
       this.setUpGameBoard();
@@ -105,6 +97,9 @@ export class BombDusterComponent implements OnInit {
   }
 
   flagCell(cell: Cell) {
+    if (this.gameLevel.nativeElement.value == "5") {
+      this.firstClick = false;
+    }
     if (this.firstClick) {
       this.startClock();
       return;
@@ -128,22 +123,6 @@ export class BombDusterComponent implements OnInit {
     this.checkIfGameEnd();
   }
 
-  private checkIfGameEnd() {
-    let allMarked = true;
-
-    for (var row of this.gameBoard) {
-
-      let marked = row.every(cell => ((cell.isBomb && cell.status == CellStatus.Flagged) || (!cell.isBomb && cell.status != CellStatus.Flagged)));
-
-      if (!marked) {
-        allMarked = marked;
-      }
-    }
-    if (allMarked) {
-      this.gameOver(true);
-    }
-  }
-
   private setUpGameBoard() {
     let level = this.gameLevel.nativeElement.value;
     let rows = 0;
@@ -158,10 +137,18 @@ export class BombDusterComponent implements OnInit {
       rows = 15;
       columns = 15;
       bombs = 50;
-    } else {
-      rows = 25;
-      columns = 25;
+    } else if (level === "3") {
+      rows = 20;
+      columns = 20;
       bombs = 100;
+    } else if (level === "4") {
+      rows = 30;
+      columns = 30;
+      bombs = 250;
+    } else {
+      rows = 15;
+      columns = 15;
+      bombs = 224;
     }
 
     this.gameFlags = bombs;
@@ -184,12 +171,34 @@ export class BombDusterComponent implements OnInit {
     this.stopClock();
 
     this.interval = setInterval(() => {
-      this.timeElapsed++;
-    }, 1000)
+      this.timeElapsed += .1;
+    }, 100)
   }
 
   private stopClock() {
     clearInterval(this.interval);
+  }
+
+  private checkIfGameEnd() {
+    let allMarked = true;
+    let allValidUnMarked = true;
+
+    for (var row of this.gameBoard) {
+
+
+      let marked = row.every(cell => ((cell.isBomb && cell.status == CellStatus.Flagged) || (!cell.isBomb && cell.status != CellStatus.Flagged)));
+      let validUnMarked = row.every(cell => ((cell.isBomb && cell.status != CellStatus.Flagged) || (!cell.isBomb && cell.status == CellStatus.Cleared) || (cell.isBomb && cell.status == CellStatus.Flagged)));
+
+      if (!marked) {
+        allMarked = marked;
+      }
+      if (!validUnMarked) {
+        allValidUnMarked = validUnMarked;
+      }
+    }
+    if (allMarked || allValidUnMarked) {
+      this.gameOver(true);
+    }
   }
 
   private gameOver(gameWon: boolean) {
@@ -271,7 +280,6 @@ export class BombDusterComponent implements OnInit {
   }
 
   private placeRandomBombs(bombsLeft: number) {
-
     if (bombsLeft > 0) {
       let y = Math.floor(Math.random() * this.gameBoard.length);
       let x = Math.floor(Math.random() * this.gameBoard[y].length);

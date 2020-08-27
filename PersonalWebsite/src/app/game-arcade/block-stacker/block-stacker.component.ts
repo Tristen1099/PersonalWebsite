@@ -67,18 +67,7 @@ export class BlockStackerComponent implements OnInit {
     }
   }
 
-  constructor(private service: BlockStackerService) {
-    let prevScrollpos = window.pageYOffset;
-    window.onscroll = function () {
-      var currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        document.getElementsByTagName("nav")[0].style.top = "0";
-      } else {
-        document.getElementsByTagName("nav")[0].style.top = "-500px";
-      }
-      prevScrollpos = currentScrollPos;
-    }
-  }
+  constructor(private service: BlockStackerService) {}
 
   ngOnInit() {
     this.initializeBoard();

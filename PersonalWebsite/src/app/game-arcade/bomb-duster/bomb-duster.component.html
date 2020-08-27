@@ -11,6 +11,8 @@
                     <option value="1">Easy</option>
                     <option value="2">Medium</option>
                     <option value="3">Hard</option>
+                    <option value="4">Expert</option>
+                    <option value="5">Impossible</option>
                 </select>
             </div>
             <div class="col">
@@ -18,7 +20,7 @@
             </div>
             <div class="col">
                 <div class="row"><i class="fas fa-clock"></i>
-                    <h6>{{ timeElapsed }} second(s)</h6>
+                    <h6>{{ timeElapsed | number : '1.1-2' }} second(s)</h6>
                 </div>
                 <div class="row"><i class="fas fa-flag"></i>
                     <h6>{{ gameFlags }}</h6>
