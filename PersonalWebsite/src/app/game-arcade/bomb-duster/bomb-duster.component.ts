@@ -55,7 +55,7 @@ export class BombDusterComponent implements OnInit {
   }
 
   levelChanged() {
-    if (!this.gameStarted) {
+    if (!this.gameStarted || this.gameEnded) {
       this.newGame();
     }
   }
@@ -206,7 +206,7 @@ export class BombDusterComponent implements OnInit {
   }
 
   private gameWon(gameWon: boolean) {
-
+    this.gameLevel.nativeElement.disabled = false;
     if (gameWon) {
       this.gameStatus = GameStatus.Winner;
     } else {
@@ -288,5 +288,4 @@ export class BombDusterComponent implements OnInit {
       this.placeRandomBombs(bombsLeft);
     }
   }
-
 }
