@@ -4,11 +4,16 @@
     </div>
 
     <div class="row justify-content-center">
-        <div *ngFor="let game of games;" class="col">
-            <div class="game-link-container">
-                <a [routerLink]="game.routerLink" routerLinkActive="active">
-                    <img [src]="game.imageSource" [title]="game.title">
-                </a>
+        <div *ngFor="let game of games;" class="col-5 arcade-content">
+            <a [routerLink]="game.routerLink" routerLinkActive="active">
+                <img [src]="game.imageSource" [title]="game.title" class="arcade-content-layer_bottom">
+            </a>
+            <div class="arcade-content-layer_top arcade-content-layer_slideup">
+                <div class="arcade-content-text">{{game.description}}
+                    <a [routerLink]="game.routerLink" routerLinkActive="active" [title]="game.title" >
+                        Click here to play
+                    </a>
+                </div>
             </div>
         </div>
     </div>

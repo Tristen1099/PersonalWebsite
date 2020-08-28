@@ -202,10 +202,6 @@ export class BombDusterComponent implements OnInit {
     this.gameEnded = true;
     this.stopClock();
     this.showAll();
-    this.gameWon(gameWon);
-  }
-
-  private gameWon(gameWon: boolean) {
     this.gameLevel.nativeElement.disabled = false;
     if (gameWon) {
       this.gameStatus = GameStatus.Winner;
