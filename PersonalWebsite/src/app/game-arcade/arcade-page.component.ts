@@ -42,5 +42,36 @@ export class ArcadePageComponent implements OnInit {
     setTimeout(() => {
       AppComponent.mainPage = false;
     });
+
+    if (window.innerWidth > 1000) {
+      [].map.call(
+        document.querySelectorAll('.arcade-content'),
+        ((content: HTMLElement) => {
+
+          let siblings = [];
+          let sibling = content.parentNode.firstChild;
+          for (; sibling; sibling = sibling.nextSibling) {
+            if (sibling.nodeType == 1 && sibling != content) {
+              siblings.push(sibling);
+            }
+          }
+
+          content.addEventListener('mouseenter', e => {
+
+            for (let sib of siblings) {
+              (sib as HTMLElement).classList.add("blur");
+            }
+          });
+
+          content.addEventListener('mouseleave', e => {
+
+            for (let sib of siblings) {
+              (sib as HTMLElement).classList.remove("blur");
+            }
+          });
+        })
+      );
+    }
+
   }
 }

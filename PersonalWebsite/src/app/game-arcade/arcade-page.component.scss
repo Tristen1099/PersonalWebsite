@@ -106,11 +106,10 @@
             max-width: 45%;
             flex: 45%;
         }
-    }
 
-    .row:hover > .arcade-content:not(:hover) {
-        filter: brightness(0.9) blur(1px);
-        transform: scale(1.03);
+        .blur {
+            filter: brightness(0.9) blur(1px);
+        }
     }
 }
 
