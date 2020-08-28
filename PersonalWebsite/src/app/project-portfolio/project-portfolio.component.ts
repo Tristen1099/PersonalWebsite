@@ -178,6 +178,14 @@ export class ProjectPortfolioComponent implements OnInit {
       }],
       link: "../assets/LegacyWebsite/index.html",
       linkDescription: "Click here to view the site"
+    }, {
+      name: "Secret Arcade",
+      language: "HTML/SCSS/Typescript",
+      date: "August, 2020",
+      description: "",
+      images: [],
+      link: "/arcade-page-component",
+      linkDescription: "Or click here to directly view the arcade"
     }];
   }
 
@@ -256,6 +264,11 @@ export class ProjectPortfolioComponent implements OnInit {
         }
       })
     );
+  }
+
+
+  arcadeClick() {
+    window.scrollTo(0, 0);
   }
 
   projectItemSlide(event: any) {

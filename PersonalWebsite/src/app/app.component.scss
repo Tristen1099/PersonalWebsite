@@ -276,6 +276,17 @@
   }
 }
 
+@supports (-webkit-hyphens: none) {
+  .page-container {
+    footer {
+      #easterEgg {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+}
+
 @supports (-ms-ime-align: auto) {
   .page-container {
     .navbar {

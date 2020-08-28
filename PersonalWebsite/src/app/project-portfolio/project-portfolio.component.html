@@ -3,7 +3,8 @@
         <h2><i class="fas fa-book"></i>Projects</h2>
     </div>
 
-    <carousel (activeSlideChange)="projectItemSlide($event)" [noPause]="false" [interval]="classReference.carouselInterval" id="project-carousel">
+    <carousel (activeSlideChange)="projectItemSlide($event)" [noPause]="false"
+        [interval]="classReference.carouselInterval" id="project-carousel">
         <slide *ngFor="let project of projects; let i = index" class="carousel-item">
             <div class="project-item">
                 <div class="container">
@@ -25,7 +26,12 @@
                                 <h3>Language: {{ project.language }}</h3>
                                 <h3>Created: {{ project.date }}</h3>
                                 <p>{{ project.description }}</p>
-                                <a [href]="project.link" target="_blank">{{ project.linkDescription }}</a>
+                                <a *ngIf="project.name === 'Legacy Website'" [href]="project.link"
+                                    target="_blank">{{ project.linkDescription }}</a>
+                                <a *ngIf="project.name === 'Secret Arcade'" [routerLink]="project.link"
+                                    routerLinkActive="active" (click)="arcadeClick()">
+                                    {{ project.linkDescription }}
+                                </a>
                             </div>
                         </div>
                     </div>
