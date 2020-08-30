@@ -33,7 +33,7 @@
                     (click)="checkCell(cell)" (contextmenu)="$event.preventDefault(); flagCell(cell)">
                     <i *ngIf="cell.status == 2" class="fas fa-flag"></i>
                     <i *ngIf="cell.status == 2 && !cell.isBomb && gameEnded" class="fas fa-times"></i>
-                    <i *ngIf="cell.isBomb == true && gameEnded && cell.status != 2" class="fas fa-bomb"></i>
+                    <i *ngIf="cell.isBomb && gameEnded && cell.status != 2" class="fas fa-bomb"></i>
                     <h5 *ngIf="cell.status == 1 && !cell.isBomb && cell.neighborBombs != 0"
                         [className]="'bomb-' + cell.neighborBombs">{{cell.neighborBombs}}</h5>
                 </button>

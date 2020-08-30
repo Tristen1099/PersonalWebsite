@@ -277,7 +277,7 @@ export class BombDusterComponent implements OnInit {
       let y = Math.floor(Math.random() * this.gameBoard.length);
       let x = Math.floor(Math.random() * this.gameBoard[y].length);
 
-      if (this.gameBoard[y][x].isBomb == false) {
+      if (!this.gameBoard[y][x].isBomb) {
         this.gameBoard[y][x].isBomb = true;
         bombsLeft -= 1;
       }

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ArcadePageComponent } from './arcade-page.component';
 import { BlockStackerComponent } from './block-stacker/block-stacker.component';
 import { BombDusterComponent } from './bomb-duster/bomb-duster.component';
+import { PicturePuzzleComponent } from './picture-puzzle/picture-puzzle.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'bomb-duster',
     component: BombDusterComponent
+  },
+  {
+    path: 'picture-puzzle',
+    component: PicturePuzzleComponent
   },
   {
     path: '**',

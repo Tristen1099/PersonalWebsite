@@ -1,4 +1,7 @@
 .block-stacker-container {
+    min-height: 100vh;
+    max-height: fit-content;
+
     .header {
         padding: 1em 0;
 
@@ -18,8 +21,6 @@
     }
 
     .grid {
-        min-height: 100vh;
-        max-height: fit-content;
         padding: 0 25%;
         display: flow-root;
         margin-bottom: 2em;

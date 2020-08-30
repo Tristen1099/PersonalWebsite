@@ -26,10 +26,10 @@ export class ArcadePageComponent implements OnInit {
         "You must clear a board containing hidden bombs without detonating any of them, with help from clues " +
         "about the number of neighboring bombs in each field, you win once the whole board is cleared."
     }, {
-      routerLink: "/arcade-page-component/bomb-duster",
+      routerLink: "/arcade-page-component/picture-puzzle",
       imageSource: "../../assets/Arcade/BombDuster.png",
-      title: "BOMB DUSTER",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor ligula porttitor, lacinia sapien non."
+      title: "PICTURE PUZZLE",
+      description: "Picture Puzzle Picture Puzzle Picture Puzzle Picture Puzzle Picture Puzzle"
     }, {
       routerLink: "/arcade-page-component/bomb-duster",
       imageSource: "../../assets/Arcade/BombDuster.png",
