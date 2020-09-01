@@ -31,8 +31,14 @@
         border-color: #588051 #2c5d23 #2c5d23 #588051;
         border-width: 2px;
 
-        h6 {
-            color: white;
+        .top-buttons {
+            text-align: center;
+        }
+
+        #board {
+            h6 {
+                color: white;
+            }
         }
     }
 }

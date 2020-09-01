@@ -129,26 +129,32 @@ export class BombDusterComponent implements OnInit {
     let columns = 0;
     let bombs = 0;
 
-    if (level === "1") {
-      rows = 10;
-      columns = 10;
-      bombs = 10;
-    } else if (level === "2") {
-      rows = 15;
-      columns = 15;
-      bombs = 50;
-    } else if (level === "3") {
-      rows = 20;
-      columns = 20;
-      bombs = 100;
-    } else if (level === "4") {
-      rows = 30;
-      columns = 30;
-      bombs = 250;
-    } else {
-      rows = 15;
-      columns = 15;
-      bombs = 224;
+    switch (level) {
+      case "1":
+        rows = 10;
+        columns = 10;
+        bombs = 10;
+        break;
+      case "2":
+        rows = 15;
+        columns = 15;
+        bombs = 50;
+        break;
+      case "3":
+        rows = 20;
+        columns = 20;
+        bombs = 100;
+        break;
+      case "4":
+        rows = 30;
+        columns = 30;
+        bombs = 250;
+        break;
+      case "5":
+        rows = 15;
+        columns = 15;
+        bombs = 224;
+        break;
     }
 
     this.gameFlags = bombs;

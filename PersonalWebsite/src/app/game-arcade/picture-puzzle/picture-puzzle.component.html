@@ -4,15 +4,52 @@
     </div>
 
     <div class="game-board">
-        <table>
+        <div class="top-buttons">
+
+            <div class="row">
+                <div class="col">
+                    <h4>Game Difficulty</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="radio" id="easyButton" name="difficulty" value="easy" checked="true"
+                        (change)="difficultyChanged($event)">
+                    <label for="easyButton">Easy</label>
+                </div>
+                <div class="col">
+                    <input type="radio" id="mediumButton" name="difficulty" value="medium"
+                        (change)="difficultyChanged($event)">
+                    <label for="mediumButton">Medium</label>
+                </div>
+                <div class="col">
+                    <input type="radio" id="hardButton" name="difficulty" value="hard"
+                        (change)="difficultyChanged($event)">
+                    <label for="hardButton">Hard</label>
+                </div>
+            </div>
+        </div>
+        <table id="board">
             <tr *ngFor="let tileRow of tiles; index as row">
                 <th *ngFor="let tile of tileRow; index as col"
                     [ngStyle]="{'background-image': tile.backgroundImage, 'background-size': tile.backgroundSize, 'background-position': tile.backgroundPosition, 'width': tile.width + 'px', 'height': tile.height + 'px'}"
                     (click)="tileClick(row, col)">
-                    <h6>{{tile.positionNumber}}</h6>
+                    <h6 *ngIf="tile.backgroundImage != null && displayNumbers">{{tile.positionNumber}}</h6>
                 </th>
             </tr>
         </table>
+        <div class="bottom-buttons">
+            <div class="row">
+                <div class="col">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="numberSwitch" checked="true"
+                            (change)="displayNumbersChanged($event)">
+                        <label class="custom-control-label" for="numberSwitch">Display numbers on tiles</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>
