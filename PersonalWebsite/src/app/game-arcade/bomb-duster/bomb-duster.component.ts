@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
-import { Cell } from './cell';
-import { CellStatus, NEIGHBORS } from './cell';
+import { Cell, CellStatus, NEIGHBORS } from './cell';
 
 enum GameStatus {
   Player = '../../../assets/Arcade/BombDusterAssets/GamePlayer.png',
@@ -215,40 +214,6 @@ export class BombDusterComponent implements OnInit {
       for (const cell of row) {
         if (cell.status == CellStatus.UnTouched) {
           cell.status = CellStatus.Cleared;
-        }
-      }
-    }
-  }
-
-  private clearNeighbors(cell: Cell) {
-    if (cell == undefined) {
-      return;
-    }
-    let clearable = true;
-    for (const peer of NEIGHBORS) {
-
-      let x = cell.cellRow + peer[0];
-      let y = cell.cellColumn + peer[1];
-      if (!((x < 0 || x >= this.gameBoard.length) || (y < 0 || y >= this.gameBoard[0].length))) {
-        let neighborCell = this.gameBoard[x][y];
-
-        if (neighborCell.isBomb && neighborCell.status != CellStatus.Flagged) {
-          clearable = false;
-          break;
-        }
-      }
-    }
-
-    if (clearable) {
-      for (const peer of NEIGHBORS) {
-
-        let x = cell.cellRow + peer[0];
-        let y = cell.cellColumn + peer[1];
-        if (!((x < 0 || x >= this.gameBoard.length) || (y < 0 || y >= this.gameBoard[0].length))) {
-          let neighborCell = this.gameBoard[x][y];
-          if (neighborCell.status != CellStatus.Flagged) {
-            neighborCell.status = CellStatus.Cleared;
-          }
         }
       }
     }

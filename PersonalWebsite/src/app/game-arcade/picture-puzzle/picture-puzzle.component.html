@@ -3,4 +3,16 @@
         <h2><i class="fas fa-puzzle-piece"></i>Picture Puzzle</h2>
     </div>
 
+    <div class="game-board">
+        <table>
+            <tr *ngFor="let tileRow of tiles; index as row">
+                <th *ngFor="let tile of tileRow; index as col"
+                    [ngStyle]="{'background-image': tile.backgroundImage, 'background-size': tile.backgroundSize, 'background-position': tile.backgroundPosition, 'width': tile.width + 'px', 'height': tile.height + 'px'}"
+                    (click)="tileClick(row, col)">
+                    <h6>{{tile.positionNumber}}</h6>
+                </th>
+            </tr>
+        </table>
+    </div>
+
 </div>

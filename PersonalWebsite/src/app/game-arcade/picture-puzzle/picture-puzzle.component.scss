@@ -19,4 +19,20 @@
             }
         }
     }
+
+    .game-board {
+        width: fit-content;
+        background-color: #7a897a;
+        border-radius: 1em;
+        padding: 1em 3em;
+        margin: 0 auto 3em auto;
+        box-shadow: 0.5em 0.2em 1em 0.3em #64855c;
+        border-style: solid;
+        border-color: #588051 #2c5d23 #2c5d23 #588051;
+        border-width: 2px;
+
+        h6 {
+            color: white;
+        }
+    }
 }
