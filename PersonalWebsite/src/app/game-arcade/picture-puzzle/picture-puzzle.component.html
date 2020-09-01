@@ -41,6 +41,11 @@
         <div class="bottom-buttons">
             <div class="row">
                 <div class="col">
+                    <button (click)="shuffle()">Shuffle</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="numberSwitch" checked="true"
                             (change)="displayNumbersChanged($event)">

@@ -16,12 +16,15 @@ export class PicturePuzzleComponent implements OnInit {
 
   tiles: Tile[][];
   gridSize: number;
+  shuffleAmount: number;
   displayNumbers: boolean;
+
 
   constructor() { }
 
   ngOnInit(): void {
     this.gridSize = 3;
+    this.shuffleAmount = 35;
     this.displayNumbers = true;
     this.setupPictureGrid();
   }
@@ -72,14 +75,17 @@ export class PicturePuzzleComponent implements OnInit {
     switch (difficulty) {
       case "easy":
         this.gridSize = 3;
+        this.shuffleAmount = 75;
         this.setupPictureGrid();
         break;
       case "medium":
         this.gridSize = 4;
+        this.shuffleAmount = 100;
         this.setupPictureGrid();
         break;
       case "hard":
         this.gridSize = 5;
+        this.shuffleAmount = 125;
         this.setupPictureGrid();
         break;
     }
@@ -87,14 +93,15 @@ export class PicturePuzzleComponent implements OnInit {
   }
 
   tileClick(row: number, col: number) {
-
     this.moveTile(row, col);
-
-
-
   }
 
-  private moveTile(row: number, col: number) {
+  shuffle() {
+    this.shuffleTiles(this.shuffleAmount);
+  }
+
+  private moveTile(row: number, col: number): boolean {
+    let moved = false
     for (const peer of NEIGHBORS) {
       if (!((row + peer[0] < 0 || row + peer[0] >= this.gridSize) || (col + peer[1] < 0 || col + peer[1] >= this.gridSize))) {
         let neighbor = this.tiles[row + peer[0]][col + peer[1]];
@@ -102,8 +109,28 @@ export class PicturePuzzleComponent implements OnInit {
           let currentTile = this.tiles[row][col];
           this.tiles[row][col] = neighbor;
           this.tiles[row + peer[0]][col + peer[1]] = currentTile;
+          return true;
         }
       }
+    }
+    return moved;
+  }
+
+  private shuffleTiles(shuffleAmount: number) {
+    const that = this;
+    if (shuffleAmount > 0) {
+      let y = Math.floor(Math.random() * this.tiles.length);
+      let x = Math.floor(Math.random() * this.tiles[y].length);
+
+      if (this.moveTile(y, x)) {
+        shuffleAmount -= 1;
+        setTimeout(function () {
+          that.shuffleTiles(shuffleAmount);
+        }, 50);
+      } else {
+        this.shuffleTiles(shuffleAmount);
+      }
+
     }
   }
 
