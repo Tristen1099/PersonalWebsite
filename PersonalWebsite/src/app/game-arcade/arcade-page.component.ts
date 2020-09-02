@@ -27,13 +27,15 @@ export class ArcadePageComponent implements OnInit {
         "about the number of neighboring bombs in each field, you win once the whole board is cleared."
     }, {
       routerLink: "/arcade-page-component/picture-puzzle",
-      imageSource: "../../assets/Arcade/BombDuster.png",
+      imageSource: "../../assets/Arcade/PicturePuzzle.png",
       title: "PICTURE PUZZLE",
-      description: "Picture Puzzle Picture Puzzle Picture Puzzle Picture Puzzle Picture Puzzle"
+      description: "Picture Puzzle is sliding puzzle game. Adapted from the 15 puzzle game. It consists of a frame " +
+      "of numbered square tiles in random order with one tile missing. The object of the puzzle is to place the tiles " +
+      "in order by making sliding moves that use the empty space."
     }, {
-      routerLink: "/arcade-page-component/bomb-duster",
-      imageSource: "../../assets/Arcade/BombDuster.png",
-      title: "BOMB DUSTER",
+      routerLink: "",
+      imageSource: "../../assets/Arcade/InProgress.png",
+      title: "IN PROGRESS",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor ligula porttitor, lacinia sapien non."
     }];
   }
