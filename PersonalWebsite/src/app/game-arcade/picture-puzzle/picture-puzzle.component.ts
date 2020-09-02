@@ -14,7 +14,10 @@ export class PicturePuzzleComponent implements OnInit {
   images = [
     '../../assets/Arcade/PicturePuzzleAssets/River.JPG',
     '../../assets/Arcade/PicturePuzzleAssets/Dog.JPG',
-    '../../assets/Arcade/PicturePuzzleAssets/Ocean.JPG'
+    '../../assets/Arcade/PicturePuzzleAssets/Ocean.JPG',
+    '../../assets/Arcade/PicturePuzzleAssets/Earth.gif',
+    '../../assets/Arcade/PicturePuzzleAssets/Car.JPG',
+    '../../assets/Arcade/PicturePuzzleAssets/Fish.JPG'
   ];
   tiles: Tile[][];
   gridSize: number;
@@ -171,8 +174,8 @@ export class PicturePuzzleComponent implements OnInit {
     this.stopClock();
 
     this.interval = setInterval(() => {
-      this.timeElapsed += 1;
-    }, 1000)
+      this.timeElapsed += .1;
+    }, 100)
   }
 
   private stopClock() {

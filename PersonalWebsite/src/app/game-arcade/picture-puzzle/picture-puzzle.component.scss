@@ -40,6 +40,7 @@
         }
 
         #board {
+            margin: auto;
             tr {
                 th {
                     border: 1px solid gray;
@@ -94,6 +95,7 @@
                     height: 75px;
                     border-radius: 5px;
                     cursor: pointer;
+                    margin-bottom: .5em;
                 }
             }
 
@@ -125,6 +127,7 @@
 
         .game-board {
             padding: 1em 2em;
+            width: 75%;
 
             .top-buttons {
                 h4 {
@@ -161,10 +164,8 @@
                     .user-input {
                         width: min-content;
 
-                        .col-4,
-                        .col-8 {
-                            max-width: unset;
-                            flex: unset;
+                        .col-2,
+                        .col-9 {
                             padding: 0;
 
                             .row {
@@ -193,6 +194,7 @@
 
         .game-board {
             padding: 1em;
+            width: 95%;
 
             .top-buttons {
                 h4 {
@@ -205,11 +207,6 @@
             }
 
             .bottom-buttons {
-                .col-7 {
-                    width: 150px;
-                    margin: auto;
-                }
-
                 h6 {
                     i {
                         margin-right: 0.5em;
@@ -229,11 +226,7 @@
 
                 .user-image {
                     .user-input {
-                        width: min-content;
-
-                        .col-8 {
-                            width: 200px;
-                            margin: 0 25px;
+                        .col-9 {
                             .row {
                                 margin: 0;
 
@@ -243,13 +236,13 @@
                             }
                         }
 
-                        .col-4 {
+                        .col-2 {
                             margin: 0 50px;
-                            margin: .5em 0 0 0;
-                                img {
-                                    width: 65px;
-                                    height: 65px;
-                                }
+                            margin: 0.5em 0 0 0;
+                            img {
+                                width: 65px;
+                                height: 65px;
+                            }
                         }
                     }
                 }
