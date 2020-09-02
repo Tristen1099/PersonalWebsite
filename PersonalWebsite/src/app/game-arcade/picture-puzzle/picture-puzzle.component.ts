@@ -10,23 +10,41 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class PicturePuzzleComponent implements OnInit {
 
+  imageSrc: any;
   images = [
-    { src: '../../assets/Arcade/test.JPG', title: 'Test1' }
+    '../../assets/Arcade/PicturePuzzleAssets/River.JPG',
+    '../../assets/Arcade/PicturePuzzleAssets/Dog.JPG',
+    '../../assets/Arcade/PicturePuzzleAssets/Ocean.JPG'
   ];
-
   tiles: Tile[][];
   gridSize: number;
   shuffleAmount: number;
   displayNumbers: boolean;
 
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.gridSize = 3;
     this.shuffleAmount = 35;
     this.displayNumbers = true;
+    this.imageSrc = this.images[Math.floor(Math.random() * this.images.length)];
     this.setupPictureGrid();
+
+    const that = this;
+
+    $('#_file').change(function () {
+      var file = this.files[0];
+      var reader = new FileReader();
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+      reader.onload = function () {
+        that.imageSrc = reader.result;
+        $('#userImage').attr("src", reader.result);
+        that.setupPictureGrid();
+      }
+    });
   }
 
   ngAfterViewInit() {
@@ -40,7 +58,6 @@ export class PicturePuzzleComponent implements OnInit {
     this.tiles = [];
     let totalTilesCreated = 0;
     var percentage = 100 / (this.gridSize - 1);
-    var image = this.images[Math.floor(Math.random() * this.images.length)];
 
     for (var i: number = 0; i < this.gridSize; i++) {
       this.tiles[i] = [];
@@ -50,7 +67,7 @@ export class PicturePuzzleComponent implements OnInit {
         if (!(i == this.gridSize - 1 && j == this.gridSize - 1)) {
           let xpos = (percentage * (totalTilesCreated % this.gridSize)) + '%';
           let ypos = (percentage * Math.floor(totalTilesCreated / this.gridSize)) + '%';
-          currentTile.backgroundImage = 'url(' + image.src + ')';
+          currentTile.backgroundImage = 'url(' + this.imageSrc + ')';
           currentTile.backgroundSize = (this.gridSize * 100) + '%';
           currentTile.backgroundPosition = xpos + ' ' + ypos;
         }
@@ -67,6 +84,16 @@ export class PicturePuzzleComponent implements OnInit {
 
   displayNumbersChanged(event: any) {
     this.displayNumbers = event.target.checked;
+  }
+
+  sampleImageClick(source: string) {
+    this.imageSrc = source;
+    this.setupPictureGrid();
+  }
+
+  userImageClick(source: any) {
+    this.imageSrc = source.target.src;
+    this.setupPictureGrid();
   }
 
   difficultyChanged(event: any) {
@@ -133,5 +160,4 @@ export class PicturePuzzleComponent implements OnInit {
 
     }
   }
-
 }

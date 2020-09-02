@@ -41,17 +41,50 @@
         <div class="bottom-buttons">
             <div class="row">
                 <div class="col">
-                    <button (click)="shuffle()">Shuffle</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="numberSwitch" checked="true"
                             (change)="displayNumbersChanged($event)">
                         <label class="custom-control-label" for="numberSwitch">Display numbers on tiles</label>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button (click)="shuffle()">Shuffle</button>
+                </div>
+            </div>
+            <div class="sample-images">
+                <div class="row">
+                    <div class="col">
+                        <h6>Sample Images</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div *ngFor="let imageSrc of images" class="col">
+                        <img [src]="imageSrc" (click)="sampleImageClick(imageSrc)">
+                    </div>
+                </div>
+            </div>
+            <div class="user-image">
+                <div class="row">
+                    <div class="col">
+                        <h6>User Image</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <h6>* Needs to be a square image</h6>
+                        </div>
+                        <div class="row">
+                            <input type='file' id='_file' accept="image/*" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img id="userImage" (click)="userImageClick($event)"/>
+                    </div>
+                </div>
+
             </div>
         </div>
 
