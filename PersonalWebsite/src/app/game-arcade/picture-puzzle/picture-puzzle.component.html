@@ -40,17 +40,21 @@
         </table>
         <div class="bottom-buttons">
             <div class="row">
-                <div class="col">
+                <div class="col-7">
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="numberSwitch" checked="true"
                             (change)="displayNumbersChanged($event)">
                         <label class="custom-control-label" for="numberSwitch">Display numbers on tiles</label>
                     </div>
                 </div>
+                <div class="col-5">
+                    <h6><i class="fas fa-clock"></i>{{ timeElapsed }} second(s)</h6>
+                </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <button (click)="shuffle()">Shuffle</button>
+                    <button *ngIf="!gameStarted" (click)="shuffle()">Shuffle</button>
+                    <button *ngIf="gameStarted" (click)="setupPictureGrid()">New Game</button>
                 </div>
             </div>
             <div class="sample-images">
@@ -71,8 +75,8 @@
                         <h6>User Image</h6>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
+                <div class="row user-input">
+                    <div class="col-8">
                         <div class="row">
                             <h6>* Needs to be a square image</h6>
                         </div>
@@ -80,8 +84,8 @@
                             <input type='file' id='_file' accept="image/*" />
                         </div>
                     </div>
-                    <div class="col">
-                        <img id="userImage" (click)="userImageClick($event)"/>
+                    <div class="col-4">
+                        <img id="userImage" (click)="userImageClick($event)" />
                     </div>
                 </div>
 
