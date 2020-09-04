@@ -33,6 +33,7 @@
             <tr *ngFor="let tileRow of tiles; index as row">
                 <th *ngFor="let tile of tileRow; index as col"
                     [ngStyle]="{'background-image': tile.backgroundImage, 'background-size': tile.backgroundSize, 'background-position': tile.backgroundPosition, 'width': tile.width + 'px', 'height': tile.height + 'px'}"
+                    [className]="gameOver ? 'active' : ''"
                     (click)="tileClick(row, col)">
                     <h6 *ngIf="tile.backgroundImage != null && displayNumbers">{{tile.positionNumber}}</h6>
                 </th>

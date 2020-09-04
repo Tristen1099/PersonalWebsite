@@ -51,6 +51,9 @@
                 th:hover {
                     opacity: 0.8;
                 }
+                .active {
+                    border: none !important;
+                }
             }
         }
 
@@ -95,7 +98,7 @@
                     height: 75px;
                     border-radius: 5px;
                     cursor: pointer;
-                    margin-bottom: .5em;
+                    margin-bottom: 0.5em;
                 }
             }
 

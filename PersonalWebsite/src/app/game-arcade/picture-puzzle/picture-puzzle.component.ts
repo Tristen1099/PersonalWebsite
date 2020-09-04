@@ -12,13 +12,14 @@ export class PicturePuzzleComponent implements OnInit {
 
   imageSrc: any;
   images = [
-    '../../assets/Arcade/PicturePuzzleAssets/River.JPG',
+    '../../assets/Arcade/PicturePuzzleAssets/Fireworks.JPG',
     '../../assets/Arcade/PicturePuzzleAssets/Dog.JPG',
     '../../assets/Arcade/PicturePuzzleAssets/Ocean.JPG',
     '../../assets/Arcade/PicturePuzzleAssets/Earth.gif',
     '../../assets/Arcade/PicturePuzzleAssets/Car.JPG',
     '../../assets/Arcade/PicturePuzzleAssets/Fish.JPG'
   ];
+
   tiles: Tile[][];
   gridSize: number;
   shuffleAmount: number;
@@ -28,6 +29,7 @@ export class PicturePuzzleComponent implements OnInit {
   shuffling: boolean;
 
   gameStarted: boolean;
+  gameOver: boolean;
   timeElapsed: number;
   interval;
 
@@ -36,6 +38,7 @@ export class PicturePuzzleComponent implements OnInit {
 
   ngOnInit(): void {
     this.gameStarted = false;
+    this.gameOver = false;
     this.gridSize = 3;
     this.shuffleAmount = 35;
     this.displayNumbers = true;
@@ -46,15 +49,21 @@ export class PicturePuzzleComponent implements OnInit {
 
     const that = this;
 
-    $('#_file').change(function () {
-      var file = this.files[0];
-      var reader = new FileReader();
-      if (file) {
-        reader.readAsDataURL(file);
+    $('#_file').change(function (e) {
+
+      let img = new Image;
+      let canvas = document.createElement("canvas");
+      let ctx = canvas.getContext("2d");
+      if (e.target.files.length == 0) {
+        return;
       }
-      reader.onload = function () {
-        that.imageSrc = reader.result;
-        $('#userImage').attr("src", reader.result);
+      img.src = URL.createObjectURL(e.target.files[0]);
+      img.onload = function () {
+        canvas.width = 800;
+        canvas.height = 800;
+        ctx.drawImage(img, 0, 0, 800, 800);
+        that.imageSrc = canvas.toDataURL("image/jpeg", 0.5);
+        $('#userImage').attr("src", that.imageSrc);
         that.setupPictureGrid();
       }
     });
@@ -77,11 +86,13 @@ export class PicturePuzzleComponent implements OnInit {
   setupPictureGrid() {
 
     this.stopClock();
+    this.gameOver = false;
     this.gameStarted = false;
+    this.displayNumbers = (document.getElementById("numberSwitch") as HTMLInputElement).checked;
     this.timeElapsed = 0;
     this.tiles = [];
     let totalTilesCreated = 0;
-    var percentage = 100 / (this.gridSize - 1);
+    const percentage = 100 / (this.gridSize - 1);
 
     for (var i: number = 0; i < this.gridSize; i++) {
       this.tiles[i] = [];
@@ -151,12 +162,44 @@ export class PicturePuzzleComponent implements OnInit {
     if (this.gameStarted) {
       this.startClock();
       this.moveTile(row, col);
+      if (this.checkIfGameOver()) {
+        this.displayGameWon();
+      }
     }
   }
 
   shuffle() {
     this.gameStarted = true;
     this.shuffleTiles(this.shuffleAmount);
+  }
+
+  private displayGameWon() {
+    this.gameOver = true;
+    this.displayNumbers = false;
+    this.stopClock();
+    let lastTile = this.tiles[this.gridSize - 1][this.gridSize - 1];
+    let tileNumber = (this.gridSize * this.gridSize) - 1;
+    const percentage = 100 / (this.gridSize - 1);
+    let xpos = (percentage * (tileNumber % this.gridSize)) + '%';
+    let ypos = (percentage * Math.floor(tileNumber / this.gridSize)) + '%';
+    lastTile.backgroundImage = 'url(' + this.imageSrc + ')';
+    lastTile.backgroundSize = (this.gridSize * 100) + '%';
+    lastTile.backgroundPosition = xpos + ' ' + ypos;
+  }
+
+  private checkIfGameOver(): boolean {
+    let position = 1;
+    let hasWon = true;
+    for (var i: number = 0; i < this.gridSize; i++) {
+      for (var j: number = 0; j < this.gridSize; j++) {
+        if (this.tiles[i][j].positionNumber != position) {
+          return false;
+        } else {
+          position++;
+        }
+      }
+    }
+    return hasWon;
   }
 
   private getImageSize() {
