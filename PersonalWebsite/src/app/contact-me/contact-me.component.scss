@@ -1,21 +1,18 @@
+@import "../mixins.scss";
+
 .contact-container {
   .header {
     padding: 1em 0 0 0;
 
     h2 {
-      text-align: center;
-      font-family: monospace;
-      font-weight: 600;
-      font-size: 3.5em;
-      color: white;
+      @include componentHeader(white);
 
       .fas {
-        font-size: 0.7em;
-        color: #4a974a;
-        margin: 0.5em;
+        @include componentHeaderIcon(#4a974a);
       }
     }
   }
+
   .container {
     background-color: #7a897a;
     box-shadow: 0.5em 0.2em 1em 0.3em #2a3e25;
@@ -84,7 +81,7 @@
           }
         }
 
-        button {
+        .center {
           color: white;
           width: 30%;
           margin: 1em auto 1em 35%;
@@ -100,9 +97,7 @@
           position: relative;
           vertical-align: middle;
           height: 40px;
-        }
 
-        .center {
           &::before,
           &::after {
             top: 0;
@@ -137,18 +132,8 @@
         }
       }
 
-      #nameRow:focus-within {
-        .inputHeader {
-          transform: scale(1.1);
-          color: #061501;
-        }
-      }
-      #emailRow:focus-within {
-        .inputHeader {
-          transform: scale(1.1);
-          color: #061501;
-        }
-      }
+      #nameRow:focus-within,
+      #emailRow:focus-within,
       #messageRow:focus-within {
         .inputHeader {
           transform: scale(1.1);
@@ -160,50 +145,7 @@
 }
 
 #formSubmitOverlay {
-  position: fixed;
-  display: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 2;
-
-  #text {
-    text-align: center;
-    background-color: #166024;
-    padding: 1em;
-    border-radius: 0.5em;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 50px;
-    color: white;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-
-    h2 {
-      border-width: 0 0 1px 0;
-      border-color: white;
-      border-style: solid;
-    }
-    
-    button {
-      color: white;
-      width: 30%;
-      background-color: #3e593e;
-      border-color: black;
-      border-radius: 5px;
-      position: relative;
-      vertical-align: middle;
-      height: 40px;
-      p {
-        font-size: 0.5em;
-      }
-    }
-  }
+  @include windowOverLay();
 }
 
 @keyframes bouncy {
@@ -245,7 +187,6 @@
 
   #formSubmitOverlay {
     #text {
-
       h2 {
         font-size: 1.8rem;
       }
@@ -274,7 +215,6 @@
 
   #formSubmitOverlay {
     #text {
-
       h2 {
         font-size: 1.6rem;
       }
@@ -303,7 +243,6 @@
 
   #formSubmitOverlay {
     #text {
-
       h2 {
         font-size: 1.4rem;
       }
@@ -312,9 +251,9 @@
       }
       button {
         width: 45%;
-        
+
         p {
-          font-size: .4em;
+          font-size: 0.4em;
         }
       }
     }
@@ -336,7 +275,6 @@
 
   #formSubmitOverlay {
     #text {
-
       h2 {
         font-size: 1.2rem;
       }
@@ -365,18 +303,17 @@
 
   #formSubmitOverlay {
     #text {
-
       h2 {
         font-size: 1rem;
       }
       h3 {
-        font-size: .8rem;
+        font-size: 0.8rem;
       }
       button {
         width: 55%;
 
         p {
-          font-size: .3em;
+          font-size: 0.3em;
         }
       }
     }

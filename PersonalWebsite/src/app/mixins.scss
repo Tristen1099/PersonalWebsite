@@ -1,0 +1,106 @@
+@mixin componentHeader($color: black) {
+    text-align: center;
+    font-family: monospace;
+    font-weight: 600;
+    font-size: 3.5em;
+    color: $color;
+}
+
+@mixin componentHeaderIcon($color: #165016) {
+    font-size: 0.7em;
+    color: $color;
+    margin: 0.5em;
+}
+
+@mixin articleContainer() {
+    width: 60%;
+    background-color: #7a897a;
+    border-radius: 1em;
+    padding: 2em;
+    margin: 0 auto;
+    box-shadow: 0.5em 0.2em 1em 0.3em #64855c;
+    transition: transform 2s ease;
+}
+
+@mixin articleContent() {
+    padding: 2em 0;
+    border-width: 1px 0 1px 0;
+    border-color: #687668;
+    border-style: solid;
+    margin-bottom: 1em;
+    transition: transform 0.4s ease;
+}
+
+@mixin articleParagraph() {
+    margin: 0.5em 0;
+    font-weight: 600;
+}
+
+@mixin articleSubDetails() {
+    margin: 0;
+    font-style: italic;
+    font-weight: unset;
+}
+
+@mixin articleHover() {
+    transform: scale(1.04);
+
+    .fas {
+        color: #0f360f;
+    }
+}
+
+@mixin articleHover() {
+    transform: scale(1.04);
+
+    .fas {
+        color: #0f360f;
+    }
+}
+
+@mixin windowOverLay() {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+
+    #text {
+        text-align: center;
+        background-color: #166024;
+        padding: 1em;
+        border-radius: 0.5em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 50px;
+        color: white;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+
+        h2 {
+            border-width: 0 0 1px 0;
+            border-color: white;
+            border-style: solid;
+        }
+
+        button {
+            color: white;
+            width: 30%;
+            background-color: #3e593e;
+            border-color: black;
+            border-radius: 5px;
+            position: relative;
+            vertical-align: middle;
+            height: 40px;
+            p {
+                font-size: 0.5em;
+            }
+        }
+    }
+}

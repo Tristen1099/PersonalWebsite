@@ -1,29 +1,16 @@
+@import "../../mixins.scss";
+@import "../arcade-mixins.scss";
+
 .block-stacker-container {
     min-height: 100vh;
     max-height: fit-content;
 
     .header {
-        padding: 1em 0;
-
-        h2 {
-            text-align: center;
-            font-family: monospace;
-            font-weight: 600;
-            font-size: 3.5em;
-            color: white;
-
-            .fas {
-                font-size: 0.7em;
-                color: #4a974a;
-                margin: 0.5em;
-            }
-        }
+        @include gameHeader();
     }
 
     .grid {
-        padding: 0 25%;
-        display: flow-root;
-        margin-bottom: 2em;
+        @include gameContainer();
 
         .mobile-buttons {
             display: none;
@@ -31,8 +18,8 @@
 
         .game-board {
             border: solid 2px;
-            float: left;
-            background-color: rgba(7, 129, 7, 0.15);
+            background-color: rgba(5, 83, 5, 0.65);
+            margin: 0.5em;
         }
 
         .game-controls {
@@ -78,50 +65,7 @@
 }
 
 #endGameOverlay {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 2;
-
-    #text {
-        text-align: center;
-        background-color: #166024;
-        padding: 1em;
-        border-radius: 0.5em;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        font-size: 50px;
-        color: white;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-
-        h2 {
-            border-width: 0 0 1px 0;
-            border-color: white;
-            border-style: solid;
-        }
-
-        button {
-            color: white;
-            width: 30%;
-            background-color: #3e593e;
-            border-color: black;
-            border-radius: 5px;
-            position: relative;
-            vertical-align: middle;
-            height: 40px;
-            p {
-                font-size: 0.5em;
-            }
-        }
-    }
+    @include windowOverLay();
 }
 
 @media all and (max-width: 1500px) {
@@ -187,7 +131,7 @@
 
             .mobile-buttons {
                 display: block;
-                margin: 0 auto;
+                margin: 0.5em auto;
                 text-align: center;
                 padding-bottom: 1em;
 

@@ -11,6 +11,7 @@ export class MainSiteDataComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    document.getElementsByTagName('body')[0].style.overflowY = "scroll";
   }
 
   ngAfterViewInit() {
