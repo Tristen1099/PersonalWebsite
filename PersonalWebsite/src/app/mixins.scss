@@ -104,3 +104,62 @@
         }
     }
 }
+
+@mixin bottomInfoButton($left: unset, $right: unset) {
+    position: fixed;
+    left: $left;
+    right: $right;
+    bottom: 50px;
+    -webkit-transition: all 0.2s ease-in 0s;
+    transition: all 0.2s ease-in 0s;
+    z-index: 9999;
+    cursor: pointer;
+    width: 5em;
+    height: 5em;
+    background-color: #4a974a;
+    border-radius: 2em;
+    animation-name: wobble;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    box-shadow: 0.01em 0.01em 1em 0.01em #549d42;
+    opacity: 0;
+    display: none;
+}
+
+@mixin bottomInfoButtonIcon() {
+    background-size: cover;
+    width: 5em;
+    height: 5em;
+    padding: 0.5em;
+    transition: 0.3s;
+}
+
+@keyframes wobble {
+    0% {
+        transform: translateX(0%);
+    }
+    5% {
+        transform: translateX(0%);
+    }
+    10% {
+        transform: translateX(0%);
+    }
+    15% {
+        transform: translateX(-20%) rotate(-5deg);
+    }
+    30% {
+        transform: translateX(15%) rotate(3deg);
+    }
+    45% {
+        transform: translateX(-10%) rotate(-3deg);
+    }
+    60% {
+        transform: translateX(5%) rotate(2deg);
+    }
+    75% {
+        transform: translateX(-2%) rotate(-1deg);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
