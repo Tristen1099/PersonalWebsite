@@ -30,13 +30,13 @@ export class ProjectPortfolioComponent implements OnInit {
         "all text input is free text.",
       images: [{
         src: "../../assets/Projects/HomeworkTracker-1.png",
-        title: "Homework Tracker 1"
+        alt: "Homework Tracker 1"
       }, {
         src: "../../assets/Projects/HomeworkTracker-2.png",
-        title: "Homework Tracker 2"
+        alt: "Homework Tracker 2"
       }, {
         src: "../../assets/Projects/HomeworkTracker-3.png",
-        title: "Homework Tracker 3"
+        alt: "Homework Tracker 3"
       }]
 
     }, {
@@ -54,22 +54,22 @@ export class ProjectPortfolioComponent implements OnInit {
         "created images can then be saved to the machine in any picture format.",
       images: [{
         src: "../../assets/Projects/MosaicMaker-1.png",
-        title: "Mosaic Maker 1"
+        alt: "Mosaic Maker 1"
       }, {
         src: "../../assets/Projects/MosaicMaker-2.png",
-        title: "Mosaic Maker 2"
+        alt: "Mosaic Maker 2"
       }, {
         src: "../../assets/Projects/MosaicMaker-3.png",
-        title: "Mosaic Maker 3"
+        alt: "Mosaic Maker 3"
       }, {
         src: "../../assets/Projects/MosaicMaker-4.png",
-        title: "Mosaic Maker 4"
+        alt: "Mosaic Maker 4"
       }, {
         src: "../../assets/Projects/MosaicMaker-5.png",
-        title: "Mosaic Maker 5"
+        alt: "Mosaic Maker 5"
       }, {
         src: "../../assets/Projects/MosaicMaker-6.png",
-        title: "Mosaic Maker 6"
+        alt: "Mosaic Maker 6"
       }]
 
     }, {
@@ -85,28 +85,28 @@ export class ProjectPortfolioComponent implements OnInit {
         "easy transfer to other machines.",
       images: [{
         src: "../../assets/Projects/PasswordManager-1.png",
-        title: "Password Manager 1"
+        alt: "Password Manager 1"
       }, {
         src: "../../assets/Projects/PasswordManager-2.png",
-        title: "Password Manager 2"
+        alt: "Password Manager 2"
       }, {
         src: "../../assets/Projects/PasswordManager-3.png",
-        title: "Password Manager 3"
+        alt: "Password Manager 3"
       }, {
         src: "../../assets/Projects/PasswordManager-4.png",
-        title: "Password Manager 4"
+        alt: "Password Manager 4"
       }, {
         src: "../../assets/Projects/PasswordManager-5.png",
-        title: "Password Manager 5"
+        alt: "Password Manager 5"
       }, {
         src: "../../assets/Projects/PasswordManager-6.png",
-        title: "Password Manager 6"
+        alt: "Password Manager 6"
       }, {
         src: "../../assets/Projects/PasswordManager-7.png",
-        title: "Password Manager 7"
+        alt: "Password Manager 7"
       }, {
         src: "../../assets/Projects/PasswordManager-8.png",
-        title: "Password Manager 8"
+        alt: "Password Manager 8"
       }]
 
     }, {
@@ -121,13 +121,13 @@ export class ProjectPortfolioComponent implements OnInit {
         "editing inconsistant data, and file export.",
       images: [{
         src: "../../assets/Projects/WeatherAnalysis-1.png",
-        title: "Weather Analysis 1"
+        alt: "Weather Analysis 1"
       }, {
         src: "../../assets/Projects/WeatherAnalysis-2.png",
-        title: "Weather Analysis 2"
+        alt: "Weather Analysis 2"
       }, {
         src: "../../assets/Projects/WeatherAnalysis-3.png",
-        title: "Weather Analysis 3"
+        alt: "Weather Analysis 3"
       }]
 
     }, {
@@ -142,13 +142,13 @@ export class ProjectPortfolioComponent implements OnInit {
         "tracked to give the user the incentive to get the best score possible.",
       images: [{
         src: "../../assets/Projects/WordScramble-1.png",
-        title: "Word Scramble 1"
+        alt: "Word Scramble 1"
       }, {
         src: "../../assets/Projects/WordScramble-2.png",
-        title: "Word Scramble 2"
+        alt: "Word Scramble 2"
       }, {
         src: "../../assets/Projects/WordScramble-3.png",
-        title: "Word Scramble 3"
+        alt: "Word Scramble 3"
       }]
 
     }, {
@@ -165,22 +165,22 @@ export class ProjectPortfolioComponent implements OnInit {
         " guarantee it to be free of errors or compatible with all browsers.)",
       images: [{
         src: "../../assets/Projects/LegacyWebsite-1.png",
-        title: "Legacy Website 1"
+        alt: "Legacy Website 1"
       }, {
         src: "../../assets/Projects/LegacyWebsite-2.png",
-        title: "Legacy Website 2"
+        alt: "Legacy Website 2"
       }, {
         src: "../../assets/Projects/LegacyWebsite-3.png",
-        title: "Legacy Website 3"
+        alt: "Legacy Website 3"
       }, {
         src: "../../assets/Projects/LegacyWebsite-4.png",
-        title: "Legacy Website 4"
+        alt: "Legacy Website 4"
       }],
       link: "../assets/LegacyWebsite/index.html",
       linkDescription: "Click here to view the site"
     }, {
       name: "Secret Arcade",
-      language: "HTML/SCSS/Typescript",
+      language: "HTML/SCSS/TypeScript",
       date: "August, 2020",
       description: "",
       images: [],

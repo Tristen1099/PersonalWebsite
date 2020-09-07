@@ -14,7 +14,7 @@
                                 <div class="row">
                                     <div *ngFor="let image of project.images">
                                         <div class="col">
-                                            <img [src]="image.src" loading="lazy">
+                                            <img [src]="image.src" [alt]="image.alt" loading="lazy">
                                         </div>
                                     </div>
                                 </div>

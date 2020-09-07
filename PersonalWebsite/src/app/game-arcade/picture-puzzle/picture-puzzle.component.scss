@@ -118,6 +118,16 @@
                 }
             }
 
+            #board {
+                tr {
+                    th {
+                        h6 {
+                            font-size: 0.8em;
+                        }
+                    }
+                }
+            }
+
             .bottom-buttons {
                 .col-5,
                 .col-7 {
@@ -186,6 +196,16 @@
 
                 label {
                     font-size: 0.8em;
+                }
+            }
+
+            #board {
+                tr {
+                    th {
+                        h6 {
+                            font-size: 0.6em;
+                        }
+                    }
                 }
             }
 
