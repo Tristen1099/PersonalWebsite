@@ -88,7 +88,10 @@ export class PicturePuzzleComponent implements OnInit {
     this.stopClock();
     this.gameOver = false;
     this.gameStarted = false;
-    this.displayNumbers = (document.getElementById("numberSwitch") as HTMLInputElement).checked;
+    let numberSwitch = document.getElementById("numberSwitch");
+    if (numberSwitch != null) {
+      this.displayNumbers = (numberSwitch as HTMLInputElement).checked;
+    }
     this.timeElapsed = 0;
     this.tiles = [];
     let totalTilesCreated = 0;

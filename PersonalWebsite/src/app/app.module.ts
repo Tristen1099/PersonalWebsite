@@ -10,6 +10,8 @@ import { WorkHistoryComponent } from './work-history/work-history.component';
 import { ContactMeComponent } from './contact-me/contact-me.component';
 import { MainSiteDataComponent } from './main-site-data/main-site-data.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

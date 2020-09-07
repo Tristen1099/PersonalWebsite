@@ -33,65 +33,6 @@
         .col {
           white-space: nowrap;
 
-          li .active,
-          a:hover {
-            h4,
-            h5 {
-              color: #9dff9d;
-            }
-
-            h5:before,
-            h5:after {
-              opacity: 1;
-            }
-
-            h5:before {
-              transform: translateX(-5px);
-            }
-
-            h5:after {
-              transform: translateX(5px);
-            }
-          }
-
-          h5:before {
-            content: "</";
-            left: 0;
-          }
-
-          h5:after {
-            content: ">";
-            right: 12px;
-          }
-
-          h5:before,
-          h5:after {
-            position: absolute;
-            opacity: 0;
-            font-size: 25px;
-            color: white;
-            transition: all 0.3s;
-            bottom: 10px;
-          }
-
-          .active,
-          h4 {
-            a:hover {
-              color: #9dff9d !important;
-            }
-          }
-
-          .active {
-            h4,
-            a {
-              color: #9dff9d !important;
-              animation-name: floating;
-              animation-duration: 2.5s;
-              animation-iteration-count: infinite;
-              animation-timing-function: ease-in-out;
-            }
-          }
-
           h4 {
             margin: 0 auto;
             font-size: 2.5em;
@@ -105,6 +46,65 @@
             margin: 0 auto;
             font-size: 2em;
             color: white;
+          }
+        }
+
+        li .active,
+        a:hover {
+          h4,
+          h5 {
+            color: #9dff9d;
+          }
+
+          h5:before,
+          h5:after {
+            opacity: 1;
+          }
+
+          h5:before {
+            transform: translateX(-5px);
+          }
+
+          h5:after {
+            transform: translateX(5px);
+          }
+        }
+
+        h5:before {
+          content: "</";
+          left: 0;
+        }
+
+        h5:after {
+          content: ">";
+          right: 12px;
+        }
+
+        h5:before,
+        h5:after {
+          position: absolute;
+          opacity: 0;
+          font-size: 25px;
+          color: white;
+          transition: all 0.3s;
+          bottom: 10px;
+        }
+
+        .active,
+        h4 {
+          a:hover {
+            color: #9dff9d !important;
+          }
+        }
+
+        .active {
+          h4,
+          a {
+            color: #9dff9d !important;
+            animation-name: floating;
+            animation-duration: 2.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
           }
         }
 

@@ -19,7 +19,7 @@
                 <form id="contactForm">
                     <div class="row" id="nameRow">
                         <div class="inputHeader">
-                            <label><i class="fas fa-signature"></i>Name</label>
+                            <label for="formName"><i class="fas fa-signature"></i>Name</label>
                         </div>
                         <input type="text" name="name" id="formName" autocomplete="off"
                             (input)="nameValidation($event)">
@@ -29,7 +29,7 @@
                     </div>
                     <div class="row" id="emailRow">
                         <div class="inputHeader">
-                            <label><i class="fas fa-at"></i>Email</label>
+                            <label for="formEmail"><i class="fas fa-at"></i>Email</label>
                         </div>
                         <input type="email" name="email" id="formEmail" autocomplete="off" (input)="emailValidation()">
                         <div class="inputError">
@@ -40,7 +40,7 @@
                     </div>
                     <div class="row" id="messageRow">
                         <div class="inputHeader">
-                            <label><i class="fas fa-comment"></i>Message</label>
+                            <label for="formMessage"><i class="fas fa-comment"></i>Message</label>
                         </div>
                         <textarea type="text" name="message" id="formMessage" autocomplete="off"
                             (input)="messageValidation()"></textarea>
