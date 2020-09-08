@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1599597941491,
+  "timestamp": 1599599378153,
   "index": "https://tristen.codes/index.html",
   "assetGroups": [
     {
@@ -8,17 +8,17 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "https://tristen.codes/5-es2015.e237adc9206b560be2c6.js",
-        "https://tristen.codes/5-es5.e237adc9206b560be2c6.js",
+        "https://tristen.codes/5-es2015.e27db937616c51cdfd00.js",
+        "https://tristen.codes/5-es5.e27db937616c51cdfd00.js",
         "https://tristen.codes/favicon.ico",
         "https://tristen.codes/index.html",
-        "https://tristen.codes/main-es2015.1b1775bd24a8fcde7265.js",
-        "https://tristen.codes/main-es5.1b1775bd24a8fcde7265.js",
+        "https://tristen.codes/main-es2015.6718f530deaed6cfeecf.js",
+        "https://tristen.codes/main-es5.6718f530deaed6cfeecf.js",
         "https://tristen.codes/manifest.webmanifest",
         "https://tristen.codes/polyfills-es2015.09ee2f719bd21ab5c7b1.js",
         "https://tristen.codes/polyfills-es5.12b5c32d1603e35dd556.js",
-        "https://tristen.codes/runtime-es2015.d5d171a0f8983ccfc91c.js",
-        "https://tristen.codes/runtime-es5.d5d171a0f8983ccfc91c.js",
+        "https://tristen.codes/runtime-es2015.dfad266685d1294829b0.js",
+        "https://tristen.codes/runtime-es5.dfad266685d1294829b0.js",
         "https://tristen.codes/styles.8da637c707f94e40265f.css"
       ],
       "patterns": []
@@ -152,8 +152,8 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://tristen.codes/5-es2015.e237adc9206b560be2c6.js": "0c44acac6643f52bf558a294971bac678650f503",
-    "https://tristen.codes/5-es5.e237adc9206b560be2c6.js": "148b12ecfc9e250d76c271a310f88e19c0eca662",
+    "https://tristen.codes/5-es2015.e27db937616c51cdfd00.js": "61ebd38852b0378256f7332323f4dff398055d82",
+    "https://tristen.codes/5-es5.e27db937616c51cdfd00.js": "72b45f4862b369910658dd8eb6e1e1db2a8b5712",
     "https://tristen.codes/assets/Arcade/BlockStacker.png": "ed84d663c1f09447bbe9bf7e3dfe8de365258736",
     "https://tristen.codes/assets/Arcade/BombDuster.png": "b0ce7c5990f94cd7edef4cf805b20b3af903c5a7",
     "https://tristen.codes/assets/Arcade/BombDusterAssets/GameLoser.png": "c9d83a7721d23d23506c69a7a6939f25fc9ec28b",
@@ -273,14 +273,14 @@
     "https://tristen.codes/background-texture.531a2c40dccb697c058e.jpg": "152143f19268c5a626dd7e0f0144a9cc16e5b2b9",
     "https://tristen.codes/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
     "https://tristen.codes/hero-image.1283dc6b99c957cca79b.png": "1489d8616ccc5c512fce9e4c0ffab31fea3c6a26",
-    "https://tristen.codes/index.html": "9b4770079f267814e1f7315fe1aa7e4afd4979b4",
-    "https://tristen.codes/main-es2015.1b1775bd24a8fcde7265.js": "a5e95f0e879919d134998c3ef7ce889825e0f6eb",
-    "https://tristen.codes/main-es5.1b1775bd24a8fcde7265.js": "292969338513dcdd46c5962cf6da58d131fa41d0",
+    "https://tristen.codes/index.html": "6416a68a34540a08bfef0253aca6781608daaf37",
+    "https://tristen.codes/main-es2015.6718f530deaed6cfeecf.js": "c6edbf9fc32a64dcaab8c07f2c598baa9bdcb91d",
+    "https://tristen.codes/main-es5.6718f530deaed6cfeecf.js": "f041f4b37ebd8b1e4164075d1be21c737577aa53",
     "https://tristen.codes/manifest.webmanifest": "26109a7f9f1883904a921dd206c555edcd2ff5b0",
     "https://tristen.codes/polyfills-es2015.09ee2f719bd21ab5c7b1.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "https://tristen.codes/polyfills-es5.12b5c32d1603e35dd556.js": "8aa26ea87b9958c6bd13b7c257c0e9940438e684",
-    "https://tristen.codes/runtime-es2015.d5d171a0f8983ccfc91c.js": "5894d18929509fbd7553acd47b2eac0b244f4320",
-    "https://tristen.codes/runtime-es5.d5d171a0f8983ccfc91c.js": "798ca6e6cd6fe204a4ad2efe456f735a6e873cee",
+    "https://tristen.codes/runtime-es2015.dfad266685d1294829b0.js": "0cb0b9e29958a3ea26382ed1b776ef175edd7062",
+    "https://tristen.codes/runtime-es5.dfad266685d1294829b0.js": "794bf6df9d6cff47f3d533f2b2a50a9546a66819",
     "https://tristen.codes/styles.8da637c707f94e40265f.css": "ded50ea38b1f21bbc731025f1b24954aaf41985c"
   },
   "navigationUrls": [
