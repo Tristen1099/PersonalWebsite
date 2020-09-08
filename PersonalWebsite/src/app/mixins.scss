@@ -14,7 +14,7 @@
 
 @mixin articleContainer() {
     width: 60%;
-    background-color: #7a897a;
+    background-color: #849a84;
     border-radius: 1em;
     padding: 2em;
     margin: 0 auto;
@@ -33,13 +33,13 @@
 
 @mixin articleParagraph() {
     margin: 0.5em 0;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 @mixin articleSubDetails() {
     margin: 0;
     font-style: italic;
-    font-weight: unset;
+    font-weight: 600;
 }
 
 @mixin articleHover() {
