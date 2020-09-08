@@ -27,6 +27,7 @@ export class PicturePuzzleComponent implements OnInit {
   windowSize: number;
   imageSize: number;
   shuffling: boolean;
+  previousMovedTile: number;
 
   gameStarted: boolean;
   gameOver: boolean;
@@ -40,7 +41,7 @@ export class PicturePuzzleComponent implements OnInit {
     this.gameStarted = false;
     this.gameOver = false;
     this.gridSize = 3;
-    this.shuffleAmount = 35;
+    this.shuffleAmount = 75;
     this.displayNumbers = true;
     this.imageSrc = this.images[Math.floor(Math.random() * this.images.length)];
     this.windowSize = window.innerWidth;
@@ -88,6 +89,7 @@ export class PicturePuzzleComponent implements OnInit {
     this.stopClock();
     this.gameOver = false;
     this.gameStarted = false;
+    this.previousMovedTile = null;
     let numberSwitch = document.getElementById("numberSwitch");
     if (numberSwitch != null) {
       this.displayNumbers = (numberSwitch as HTMLInputElement).checked;
@@ -234,6 +236,7 @@ export class PicturePuzzleComponent implements OnInit {
       if (!((row + peer[0] < 0 || row + peer[0] >= this.gridSize) || (col + peer[1] < 0 || col + peer[1] >= this.gridSize))) {
         let neighbor = this.tiles[row + peer[0]][col + peer[1]];
         if (neighbor.backgroundImage == null) {
+          this.previousMovedTile = this.tiles[row][col].positionNumber;
           let currentTile = this.tiles[row][col];
           this.tiles[row][col] = neighbor;
           this.tiles[row + peer[0]][col + peer[1]] = currentTile;
@@ -251,7 +254,9 @@ export class PicturePuzzleComponent implements OnInit {
       let y = Math.floor(Math.random() * this.tiles.length);
       let x = Math.floor(Math.random() * this.tiles[y].length);
 
-      if (this.moveTile(y, x)) {
+      if (this.tiles[y][x].positionNumber == this.previousMovedTile) {
+        this.shuffleTiles(shuffleAmount);
+      } else if (this.moveTile(y, x)) {
         shuffleAmount -= 1;
         setTimeout(function () {
           that.shuffleTiles(shuffleAmount);
