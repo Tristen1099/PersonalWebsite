@@ -30,8 +30,8 @@ export class ArcadePageComponent implements OnInit {
       imageSource: "../../assets/Arcade/PicturePuzzle.png",
       title: "PICTURE PUZZLE",
       description: "Picture Puzzle is sliding puzzle game. Adapted from the 15 puzzle game. It consists of a frame " +
-      "of numbered square tiles in random order with one tile missing. The object of the puzzle is to place the tiles " +
-      "in order by making sliding moves that use the empty space."
+        "of numbered square tiles in random order with one tile missing. The object of the puzzle is to place the tiles " +
+        "in order by making sliding moves that use the empty space."
     }, {
       routerLink: "",
       imageSource: "../../assets/Arcade/InProgress.png",
@@ -63,14 +63,14 @@ export class ArcadePageComponent implements OnInit {
             for (let sib of siblings) {
               (sib as HTMLElement).classList.add("blur");
             }
-          });
+          }, { passive: true });
 
           content.addEventListener('mouseleave', e => {
 
             for (let sib of siblings) {
               (sib as HTMLElement).classList.remove("blur");
             }
-          });
+          }, { passive: true });
         })
       );
     }

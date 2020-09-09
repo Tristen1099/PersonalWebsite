@@ -217,13 +217,13 @@ export class ProjectPortfolioComponent implements OnInit {
           var y = window.scrollY;
           window.onscroll = function () { window.scrollTo(x, y); };
 
-        });
+        }, { passive: true });
 
         slider.addEventListener('mouseleave', e => {
 
           window.onscroll = function () { };
 
-        });
+        }, { passive: true });
 
         let scrollDirection;
         let scrollAmount = 0;
@@ -240,7 +240,7 @@ export class ProjectPortfolioComponent implements OnInit {
             slider.scrollLeft += scrollAmount;
           }
 
-        });
+        }, { passive: true });
       })
     );
 
