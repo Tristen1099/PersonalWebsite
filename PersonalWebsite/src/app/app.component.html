@@ -4,7 +4,8 @@
       <div class="row">
         <div class="col navbar-title">
           <a class="navbar-brand nav-link text-left" href="#heroIntro">
-            <h4><a routerLink="" routerLinkActive="active">Welcome!</a></h4>
+            <h4 *ngIf="classReference.mainPage">Welcome!</h4>
+            <h4 *ngIf="!classReference.mainPage"><a routerLink="" routerLinkActive="active" href="#/">Welcome!</a></h4>
           </a>
         </div>
         <div class="col spacer"></div>
