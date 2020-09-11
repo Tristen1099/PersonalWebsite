@@ -156,8 +156,10 @@
       left: 15px;
       bottom: 101%;
       cursor: pointer;
+      
       img {
-        width: 50px;
+        width: 55px;
+        height: auto;
         transition: 0.3s;
       }
       img:hover {

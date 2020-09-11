@@ -55,7 +55,10 @@
 
     <div id="easterEgg" *ngIf="classReference.mainPage">
       <a routerLink="/arcade-page-component" routerLinkActive="active" (click)="arcadeClick()">
-        <img src="../assets/blocks.png" alt="Secret Arcade">
+        <picture>
+          <source type="image/webp" srcset="../assets/blocks.webp">
+          <img src="../assets/blocks.png" alt="Secret Arcade">
+        </picture>
       </a>
     </div>
 
