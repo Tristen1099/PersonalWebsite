@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppComponent } from '../app.component';
 
 @Component({
@@ -6,15 +6,12 @@ import { AppComponent } from '../app.component';
   templateUrl: './main-site-data.component.html',
   styleUrls: ['./main-site-data.component.scss']
 })
-export class MainSiteDataComponent implements OnInit {
+export class MainSiteDataComponent {
 
   constructor() { }
 
-  ngOnInit() {
-    document.getElementsByTagName('body')[0].style.overflowY = "scroll";
-  }
-
   ngAfterViewInit() {
+    document.getElementsByTagName('body')[0].style.overflowY = "scroll";
     setTimeout(() => {
       AppComponent.mainPage = true;
     });

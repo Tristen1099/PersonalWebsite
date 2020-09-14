@@ -182,8 +182,21 @@ export class ProjectPortfolioComponent implements OnInit {
       name: "Secret Arcade",
       language: "HTML/SCSS/TypeScript",
       date: "August, 2020",
-      description: "",
-      images: [],
+      description: "There is an image hidden on this page that will link to " +
+      "a Secret Arcade. This arcade is filled with some of my game projects that " +
+      "I have created to help refine some of my TypeScript skills. Games include " +
+      "Block Stacker (a game like Tetris), Bomb Duster (a game like Minesweeper), and " +
+      "Picture Puzzle (a game like 15 puzzle).",
+      images: [{
+        src: "../../assets/Arcade/BlockStacker.png",
+        alt: "Block Stacker"
+      }, {
+        src: "../../assets/Arcade/BombDuster.png",
+        alt: "Bomb Duster"
+      }, {
+        src: "../../assets/Arcade/PicturePuzzle.png",
+        alt: "Picture Puzzle"
+      }],
       link: "/arcade-page-component",
       linkDescription: "Or click here to directly view the arcade"
     }];
