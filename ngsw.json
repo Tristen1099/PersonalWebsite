@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1599865191085,
+  "timestamp": 1600115190524,
   "index": "https://tristen.codes/index.html",
   "assetGroups": [
     {
@@ -12,8 +12,8 @@
         "https://tristen.codes/5-es5.13c44cb94a6d97116f01.js",
         "https://tristen.codes/favicon.ico",
         "https://tristen.codes/index.html",
-        "https://tristen.codes/main-es2015.93e38cf0045672fc159f.js",
-        "https://tristen.codes/main-es5.93e38cf0045672fc159f.js",
+        "https://tristen.codes/main-es2015.eecbf5388ded1cbf4f4f.js",
+        "https://tristen.codes/main-es5.eecbf5388ded1cbf4f4f.js",
         "https://tristen.codes/manifest.webmanifest",
         "https://tristen.codes/polyfills-es2015.09ee2f719bd21ab5c7b1.js",
         "https://tristen.codes/polyfills-es5.12b5c32d1603e35dd556.js",
@@ -292,9 +292,9 @@
     "https://tristen.codes/assets/resume-icon.png": "093f2669df999ebbc1bf2d1ee2c647558aaa8760",
     "https://tristen.codes/background-texture.d4683f063cead345b831.jpg": "6fae7601d41186044fb9be2a3c886ccca1323474",
     "https://tristen.codes/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://tristen.codes/index.html": "75d0a584d0ce6b96117df1a5671af55576043154",
-    "https://tristen.codes/main-es2015.93e38cf0045672fc159f.js": "b0629726ad45b3a018202d272dea42a332866f6d",
-    "https://tristen.codes/main-es5.93e38cf0045672fc159f.js": "ee13c3c46aa39fa3a8dd45bce917efa6bac388c6",
+    "https://tristen.codes/index.html": "31a8b63865175afa88ceb411f30350f411a274a5",
+    "https://tristen.codes/main-es2015.eecbf5388ded1cbf4f4f.js": "585d90ee61073c4883cbe05e6a0658740dd9f94e",
+    "https://tristen.codes/main-es5.eecbf5388ded1cbf4f4f.js": "f25888ed9745f7ab01802d224f2d9771ac7d7079",
     "https://tristen.codes/manifest.webmanifest": "26109a7f9f1883904a921dd206c555edcd2ff5b0",
     "https://tristen.codes/polyfills-es2015.09ee2f719bd21ab5c7b1.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "https://tristen.codes/polyfills-es5.12b5c32d1603e35dd556.js": "8aa26ea87b9958c6bd13b7c257c0e9940438e684",
