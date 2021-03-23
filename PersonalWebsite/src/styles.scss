@@ -1,3 +1,5 @@
+@import './app/mixins.scss';
+
 body {
   margin: 0;
   background-image: url("./assets/background-texture.jpg");
@@ -27,6 +29,6 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #20880e;
+  background-color: $colorScrollBar;
   outline: 1px solid white;
 }

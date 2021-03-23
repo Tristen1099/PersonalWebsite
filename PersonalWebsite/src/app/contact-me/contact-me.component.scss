@@ -8,15 +8,19 @@
       @include componentHeader(white);
 
       .fas {
-        @include componentHeaderIcon(#4a974a);
+        @include componentHeaderIcon($colorContainerIconLight);
       }
     }
   }
 
   .container {
-    background-color: #849a84;
-    box-shadow: 0.5em 0.2em 1em 0.3em #2a3e25;
+    background-color: $colorContainerBackgroundLight;
+    box-shadow: 0.5em 0.2em 1em 0.3em $colorContainerShadowLight;
     border-radius: 1em;
+    border-color: $colorContainerBorderLight $colorContainerBorderDark $colorContainerBorderDark
+      $colorContainerBorderLight;
+    border-width: 1px;
+    border-style: solid;
     width: 30%;
     margin: 3em 35%;
 
@@ -55,7 +59,7 @@
         input,
         textarea {
           border-color: black;
-          background-color: #6C9D6C;
+          background-color: $colorContainerInputBackground;
           border-radius: 5px;
           border-width: 1px;
           width: 100%;
@@ -70,7 +74,7 @@
         }
 
         .inputError {
-          color: #931818;
+          color: darkred;
           font-family: monospace;
           font-size: 18px;
           padding-top: 0.5em;
@@ -89,7 +93,7 @@
           animation-duration: 5s;
           animation-iteration-count: infinite;
           position: relative;
-          background-color: #3e593e;
+          background-color: $colorContainerButtonDark;
           border-width: 0;
           border-color: black;
           border-radius: 5px;
@@ -112,15 +116,15 @@
 
           &::before {
             border-radius: 5px;
-            border-top: 3px solid #38a123;
-            border-bottom: 3px solid #38a123;
+            border-top: 3px solid $colorContainerButtonBorder;
+            border-bottom: 3px solid $colorContainerButtonBorder;
             transform: scale3d(0, 1, 1);
           }
 
           &::after {
             border-radius: 5px;
-            border-left: 3px solid #38a123;
-            border-right: 3px solid #38a123;
+            border-left: 3px solid $colorContainerButtonBorder;
+            border-right: 3px solid $colorContainerButtonBorder;
             transform: scale3d(1, 0, 1);
           }
 
@@ -137,7 +141,7 @@
       #messageRow:focus-within {
         .inputHeader {
           transform: scale(1.1);
-          color: #061501;
+          color: $colorTextDark;
         }
       }
     }

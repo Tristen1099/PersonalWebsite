@@ -1,3 +1,24 @@
+$colorTextLight: #9dff9d;
+$colorTextDark: #081a02;
+$colorTextShadow: #21881e;
+$colorScrollBar: #20880e;
+$colorContainerBackgroundLight: #849a84;
+$colorContainerBackground: #707b70;
+$colorContainerBackgroundDark: #166024;
+$colorContainerInputBackground: #6c9d6c;
+$colorContainerShadowLight: #64855c;
+$colorContainerShadowDark: #2a3e25;
+$colorContainerInnerBorder: #687668;
+$colorContainerIconLight: #4a974a;
+$colorContainerIconDark: #114711;
+$colorContainerButtonVeryLight: #98ff9c;
+$colorContainerButtonLight: #4caf50;
+$colorContainerButtonDark: #3e593e;
+$colorContainerButtonBorder: #38a123;
+$colorContainerBorderLight: #588051;
+$colorContainerBorderDark: #2c5d23;
+
+
 @mixin componentHeader($color: black) {
     text-align: center;
     font-family: monospace;
@@ -6,7 +27,7 @@
     color: $color;
 }
 
-@mixin componentHeaderIcon($color: #165016) {
+@mixin componentHeaderIcon($color: $colorContainerIconDark) {
     font-size: 0.7em;
     color: $color;
     margin: 0.5em;
@@ -14,11 +35,14 @@
 
 @mixin articleContainer() {
     width: 60%;
-    background-color: #849a84;
+    background-color: $colorContainerBackgroundLight;
+    border-color: $colorContainerBorderLight $colorContainerBorderDark $colorContainerBorderDark $colorContainerBorderLight;
+    border-width: 1px;
+    border-style: solid;
     border-radius: 1em;
     padding: 2em;
     margin: 0 auto;
-    box-shadow: 0.5em 0.2em 1em 0.3em #64855c;
+    box-shadow: 0.5em 0.2em 1em 0.3em $colorContainerShadowLight;
     transition: transform 2s ease;
 
     article:last-of-type {
@@ -29,7 +53,7 @@
 @mixin articleContent() {
     padding: 2em 0;
     border-width: 1px 0 1px 0;
-    border-color: #687668;
+    border-color: $colorContainerInnerBorder;
     border-style: solid;
     margin-bottom: 1em;
     transition: transform 0.4s ease;
@@ -50,7 +74,7 @@
     transform: scale(1.04);
 
     .fas {
-        color: #114711;
+        color: $colorContainerIconDark;
     }
 }
 
@@ -68,7 +92,7 @@
 
     #text {
         text-align: center;
-        background-color: #166024;
+        background-color: $colorContainerBackgroundDark;
         padding: 1em;
         border-radius: 0.5em;
         position: absolute;
@@ -88,7 +112,7 @@
         button {
             color: white;
             width: 30%;
-            background-color: #3e593e;
+            background-color: $colorContainerButtonDark;
             border-color: black;
             border-radius: 5px;
             position: relative;
@@ -112,12 +136,12 @@
     cursor: pointer;
     width: 5em;
     height: 5em;
-    background-color: #4a974a;
+    background-color: $colorContainerButtonLight;
     border-radius: 2em;
     animation-name: wobble;
     animation-duration: 6s;
     animation-iteration-count: infinite;
-    box-shadow: 0.01em 0.01em 1em 0.01em #549d42;
+    box-shadow: 0.01em 0.01em 1em 0.01em $colorContainerShadowLight;
     opacity: 0;
     display: none;
 }

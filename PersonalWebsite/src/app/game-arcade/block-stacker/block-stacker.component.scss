@@ -47,16 +47,16 @@
                 }
 
                 #play-button {
-                    background-color: #4caf50;
+                    background-color: $colorContainerButtonLight;
                 }
                 #reset-button {
                     background-color: red;
                 }
                 #pause-button {
-                    background-color: #4caf50;
+                    background-color: $colorContainerButtonLight;
 
                     &.button-disabled {
-                        background-color: #cccccc;
+                        background-color: lightgrey;
                     }
                 }
             }
@@ -143,16 +143,16 @@
                 }
 
                 #mobile-play-button {
-                    background-color: #4caf50;
+                    background-color: $colorContainerButtonLight;
                 }
                 #mobile-reset-button {
                     background-color: red;
                 }
                 #mobile-pause-button {
-                    background-color: #4caf50;
+                    background-color: $colorContainerButtonLight;
 
                     &.button-disabled {
-                        background-color: #cccccc;
+                        background-color: lightgray;
                     }
                 }
             }
@@ -176,7 +176,7 @@
                     .button {
                         border: 1px solid black;
                         margin: 0 0.5em 0.5em 0.5em;
-                        background-color: #98ff9c;
+                        background-color: $colorContainerButtonVeryLight;
                         border-radius: 0.5em;
                         height: 2.5em;
                     }

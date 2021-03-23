@@ -8,7 +8,7 @@
       @include componentHeader(white);
 
       .fas {
-        @include componentHeaderIcon(#4a974a);
+        @include componentHeaderIcon($colorContainerIconLight);
       }
     }
   }
@@ -19,10 +19,14 @@
       .project-item {
         width: 80%;
         height: 80%;
-        background-color: #849a84;
+        background-color: $colorContainerBackgroundLight;
         border-radius: 1em;
+        border-color: $colorContainerBorderLight $colorContainerBorderDark $colorContainerBorderDark
+          $colorContainerBorderLight;
+        border-width: 1px;
+        border-style: solid;
         margin: 5% 10% 5% 10%;
-        box-shadow: 0.5em 0.2em 1em 0.3em #2a3e25;
+        box-shadow: 0.5em 0.2em 1em 0.3em $colorContainerShadowDark;
 
         .container {
           margin: 0;
@@ -63,7 +67,7 @@
           }
 
           .left-side::-webkit-scrollbar-thumb {
-            background-color: #20880e;
+            background-color: $colorScrollBar;
             outline: 1px solid white;
           }
 

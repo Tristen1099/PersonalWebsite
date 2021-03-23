@@ -1,3 +1,5 @@
+@import '../mixins.scss';
+
 @mixin gameHeader() {
     padding: 1em 0;
 
@@ -10,7 +12,7 @@
 
         .fas {
             font-size: 0.7em;
-            color: #4a974a;
+            color: $colorContainerIconLight;
             margin: 0.5em;
         }
     }
@@ -18,12 +20,12 @@
 
 @mixin gameContainer() {
     width: fit-content;
-    background-color: #849a84;
+    background-color: $colorContainerBackgroundLight;
     border-radius: 1em;
     padding: 1em 3em;
     margin: 0 auto 3em auto;
-    box-shadow: 0.5em 0.2em 1em 0.3em #64855c;
+    box-shadow: 0.5em 0.2em 1em 0.3em $colorContainerShadowLight;
     border-style: solid;
-    border-color: #588051 #2c5d23 #2c5d23 #588051;
+    border-color: $colorContainerBorderLight $colorContainerBorderDark $colorContainerBorderDark $colorContainerBorderLight;
     border-width: 2px;
 }
