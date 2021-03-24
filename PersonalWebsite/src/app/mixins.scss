@@ -1,22 +1,27 @@
-$colorTextLight: #9dff9d;
-$colorTextDark: #081a02;
-$colorTextShadow: #21881e;
-$colorScrollBar: #20880e;
-$colorContainerBackgroundLight: #849a84;
-$colorContainerBackground: #707b70;
-$colorContainerBackgroundDark: #166024;
-$colorContainerInputBackground: #6c9d6c;
-$colorContainerShadowLight: #64855c;
-$colorContainerShadowDark: #2a3e25;
-$colorContainerInnerBorder: #687668;
-$colorContainerIconLight: #4a974a;
-$colorContainerIconDark: #114711;
-$colorContainerButtonVeryLight: #98ff9c;
-$colorContainerButtonLight: #4caf50;
-$colorContainerButtonDark: #3e593e;
-$colorContainerButtonBorder: #38a123;
-$colorContainerBorderLight: #588051;
-$colorContainerBorderDark: #2c5d23;
+$themeColor: green;
+
+$colorThemeDark: scale-color($themeColor, $lightness: -35%);
+$colorThemeVeryDark: scale-color($themeColor, $lightness: -85%);
+$colorBorder: scale-color(desaturate($themeColor, 50), $lightness: -10%);
+$colorTextLight: scale-color($themeColor, $lightness: 74.4%);
+$colorTextDark: scale-color($themeColor, $lightness: -80%);
+$colorTextShadow: scale-color(adjust-hue($themeColor, 20deg), $lightness: 2%);
+$colorScrollBar: scale-color($themeColor, $lightness: -10%);
+$colorContainerBackgroundLight: scale-color(desaturate($themeColor, 85), $lightness: 44%);
+$colorContainerBackground: scale-color(desaturate($themeColor, 95), $lightness: 36%);
+$colorContainerBackgroundDark: scale-color(desaturate($themeColor, 65), $lightness: -3%);
+$colorContainerInputBackground: scale-color(desaturate($themeColor, 76), $lightness: 38%);
+$colorContainerShadowLight: scale-color(desaturate($themeColor, 80), $lightness: 36%);
+$colorContainerShadowDark: scale-color(desaturate($themeColor, 70), $lightness: -15%);
+$colorContainerInnerBorder: scale-color(desaturate($themeColor, 80), $lightness: 30%);
+$colorContainerIconLight: scale-color(desaturate($themeColor, 45), $lightness: 22%);
+$colorContainerIconDark: scale-color(desaturate($themeColor, 12), $lightness: -35%);
+$colorContainerButtonVeryLight: scale-color($themeColor, $lightness: 72.5%);
+$colorContainerButtonLight: scale-color(desaturate($themeColor, 55), $lightness: 30%);
+$colorContainerButtonDark: scale-color(desaturate($themeColor, 60), $lightness: -20%);
+$colorContainerButtonBorder: scale-color(saturate($themeColor, 20), $lightness: 15%);
+$colorContainerBorderLight: scale-color(desaturate($themeColor, 70), $lightness: 30%);
+$colorContainerBorderDark: scale-color(desaturate($themeColor, 55), $lightness: -10%);
 
 
 @mixin componentHeader($color: black) {
@@ -87,7 +92,7 @@ $colorContainerBorderDark: #2c5d23;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(black, 0.6);
     z-index: 2;
 
     #text {

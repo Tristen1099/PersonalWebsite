@@ -11,7 +11,7 @@
     height: 5%;
     border-style: solid;
     border-width: 0 0 2px 0;
-    border-color: rgb(0, 50, 0);
+    border-color: $colorBorder;
     padding: 1em;
     font-family: monospace;
     text-align: center;
@@ -116,7 +116,7 @@
         .navbar-toggler {
           right: 0 !important;
           position: absolute;
-          border: 1px solid green;
+          border: 1px solid $themeColor;
           border-radius: 0.5em;
           margin-top: 0.3em;
           margin-right: 3em;
@@ -149,7 +149,7 @@
     height: 5%;
     border-style: solid;
     border-width: 2px 0 0 0;
-    border-color: rgb(0, 50, 0);
+    border-color: $colorBorder;
     padding: 1em;
     font-family: monospace;
     text-align: center;
@@ -207,7 +207,7 @@
 @supports (-moz-appearance: none) {
   .page-container {
     .navbar {
-      background-color: rgba(6, 26, 6, 0.6);
+      background-color: rgba($colorThemeVeryDark, 0.6);
       .container {
         width: 100% !important;
         max-width: 100% !important;
@@ -228,7 +228,7 @@
     }
 
     footer {
-      background-color: rgba(6, 26, 6, 0.2);
+      background-color: rgba($colorThemeVeryDark, 0.2);
       #easterEgg {
         position: absolute;
         bottom: 0;
@@ -251,7 +251,7 @@
 @supports (-ms-ime-align: auto) {
   .page-container {
     .navbar {
-      background-color: rgba(6, 26, 6, 0.6) !important;
+      background-color: rgba($colorThemeVeryDark, 0.6) !important;
       backdrop-filter: unset !important;
     }
   }
