@@ -39,7 +39,8 @@ export class ContactMeComponent implements OnInit {
     $.ajax({
       url: 'https://script.google.com/macros/s/AKfycbyN4nzL1LykXY4V9SvUSbtmPX3JvlBO3ds3mKtdcVZyIag6CRI/exec',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': '*'
       },
       type: "POST",
       dataType: "json",
