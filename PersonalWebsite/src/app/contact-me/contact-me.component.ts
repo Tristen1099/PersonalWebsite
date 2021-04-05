@@ -36,26 +36,35 @@ export class ContactMeComponent implements OnInit {
 
     event.preventDefault();
 
-    $.post('https://script.google.com/macros/s/AKfycbyN4nzL1LykXY4V9SvUSbtmPX3JvlBO3ds3mKtdcVZyIag6CRI/exec', {
-      name: contactName,
-      email: contactEmail,
-      message: contactMessage
-    }).done(function () {
-      const overlay = document.getElementById("formSubmitOverlay");
-      overlay.style.display = "block";
-      document.getElementsByTagName('body')[0].style.overflow = "hidden";
-      overlay.children[0].children[0].innerHTML = "Form submitted";
-      overlay.children[0].children[1].innerHTML = "Submitted successfully! Thank you, I will respond as soon as possible at the provided email!";
-      (document.getElementById('formName') as HTMLInputElement).value = '';
-      (document.getElementById('formEmail') as HTMLInputElement).value = '';
-      (document.getElementById('formMessage') as HTMLInputElement).value = '';
-    }).fail(function () {
-      const overlay = document.getElementById("formSubmitOverlay");
-      overlay.style.display = "block";
-      document.getElementsByTagName('body')[0].style.overflow = "hidden";
-      overlay.children[0].children[0].innerHTML = "Form not submitted";
-      overlay.children[0].children[1].innerHTML = "Form submittion failed. Unfortunately the form has failed to submit. Please try again later.";
-
+    $.ajax({
+      url: 'https://script.google.com/macros/s/AKfycbyN4nzL1LykXY4V9SvUSbtmPX3JvlBO3ds3mKtdcVZyIag6CRI/exec',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      type: "POST",
+      dataType: "json",
+      data: {
+        name: contactName,
+        email: contactEmail,
+        message: contactMessage
+      },
+      success: function () {
+        const overlay = document.getElementById("formSubmitOverlay");
+        overlay.style.display = "block";
+        document.getElementsByTagName('body')[0].style.overflow = "hidden";
+        overlay.children[0].children[0].innerHTML = "Form submitted";
+        overlay.children[0].children[1].innerHTML = "Submitted successfully! Thank you, I will respond as soon as possible at the provided email!";
+        (document.getElementById('formName') as HTMLInputElement).value = '';
+        (document.getElementById('formEmail') as HTMLInputElement).value = '';
+        (document.getElementById('formMessage') as HTMLInputElement).value = '';
+      },
+      error: function () {
+        const overlay = document.getElementById("formSubmitOverlay");
+        overlay.style.display = "block";
+        document.getElementsByTagName('body')[0].style.overflow = "hidden";
+        overlay.children[0].children[0].innerHTML = "Form not submitted";
+        overlay.children[0].children[1].innerHTML = "Form submittion failed. Unfortunately the form has failed to submit. Please try again later.";
+      }
     });
   }
 
