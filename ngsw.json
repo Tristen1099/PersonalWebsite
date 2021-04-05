@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1616470340182,
+  "timestamp": 1617649243077,
   "index": "https://tristen.codes/index.html",
   "assetGroups": [
     {
@@ -8,18 +8,18 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "https://tristen.codes/5-es2015.cbcc40a8e35384afaeed.js",
-        "https://tristen.codes/5-es5.cbcc40a8e35384afaeed.js",
+        "https://tristen.codes/5-es2015.269faa9d3d624f708ebf.js",
+        "https://tristen.codes/5-es5.269faa9d3d624f708ebf.js",
         "https://tristen.codes/favicon.ico",
         "https://tristen.codes/index.html",
-        "https://tristen.codes/main-es2015.70d77cff9d493ecd99ff.js",
-        "https://tristen.codes/main-es5.70d77cff9d493ecd99ff.js",
+        "https://tristen.codes/main-es2015.a8ece43189ccd5e43171.js",
+        "https://tristen.codes/main-es5.a8ece43189ccd5e43171.js",
         "https://tristen.codes/manifest.webmanifest",
         "https://tristen.codes/polyfills-es2015.09ee2f719bd21ab5c7b1.js",
         "https://tristen.codes/polyfills-es5.12b5c32d1603e35dd556.js",
-        "https://tristen.codes/runtime-es2015.a441799dc9235d606f0a.js",
-        "https://tristen.codes/runtime-es5.a441799dc9235d606f0a.js",
-        "https://tristen.codes/styles.e02152dc75293637bf89.css"
+        "https://tristen.codes/runtime-es2015.8c64e2f732aea82208c2.js",
+        "https://tristen.codes/runtime-es5.8c64e2f732aea82208c2.js",
+        "https://tristen.codes/styles.fb795d56246ce4ba48fd.css"
       ],
       "patterns": []
     },
@@ -170,8 +170,8 @@
     }
   ],
   "hashTable": {
-    "https://tristen.codes/5-es2015.cbcc40a8e35384afaeed.js": "0907e31614b460e7a5ba35a6c1115abe1258876f",
-    "https://tristen.codes/5-es5.cbcc40a8e35384afaeed.js": "f71313a4bafd1bbcade147bad014e33cb35613e5",
+    "https://tristen.codes/5-es2015.269faa9d3d624f708ebf.js": "beda83d9cc8bfd619ccf8c6600fd3ef15437f17c",
+    "https://tristen.codes/5-es5.269faa9d3d624f708ebf.js": "ff8e0c49dc69b4d45cdb149c0e4144c781c71b65",
     "https://tristen.codes/assets/Arcade/BlockStacker.png": "ed84d663c1f09447bbe9bf7e3dfe8de365258736",
     "https://tristen.codes/assets/Arcade/BombDuster.png": "b0ce7c5990f94cd7edef4cf805b20b3af903c5a7",
     "https://tristen.codes/assets/Arcade/BombDusterAssets/GameLoser.png": "c9d83a7721d23d23506c69a7a6939f25fc9ec28b",
@@ -292,15 +292,15 @@
     "https://tristen.codes/assets/resume-icon.png": "093f2669df999ebbc1bf2d1ee2c647558aaa8760",
     "https://tristen.codes/background-texture.d4683f063cead345b831.jpg": "6fae7601d41186044fb9be2a3c886ccca1323474",
     "https://tristen.codes/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://tristen.codes/index.html": "096f5279fa48459ff3256b3cee68f46f8463ed1b",
-    "https://tristen.codes/main-es2015.70d77cff9d493ecd99ff.js": "bb67f339fdb50b57e4c355162bdae10e68d02727",
-    "https://tristen.codes/main-es5.70d77cff9d493ecd99ff.js": "295d2315c7d797b7b5ae01933599b6215500264e",
-    "https://tristen.codes/manifest.webmanifest": "26109a7f9f1883904a921dd206c555edcd2ff5b0",
+    "https://tristen.codes/index.html": "1aaa2f22b618b02b79cebc0f25b7664f74525ad7",
+    "https://tristen.codes/main-es2015.a8ece43189ccd5e43171.js": "f23f1aadd53e8fc9d73bfd3cb585636ab2ebbaec",
+    "https://tristen.codes/main-es5.a8ece43189ccd5e43171.js": "3718493716daaa52669c63348456c6029cb1cc78",
+    "https://tristen.codes/manifest.webmanifest": "98257f928e07b2564bdb52dedf0219be89c5316f",
     "https://tristen.codes/polyfills-es2015.09ee2f719bd21ab5c7b1.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "https://tristen.codes/polyfills-es5.12b5c32d1603e35dd556.js": "8aa26ea87b9958c6bd13b7c257c0e9940438e684",
-    "https://tristen.codes/runtime-es2015.a441799dc9235d606f0a.js": "eb2ea531b576e6f93e42e9f5cb6da628bdf7c77f",
-    "https://tristen.codes/runtime-es5.a441799dc9235d606f0a.js": "76917831b281065d13226f8aabf9f8b6830ab191",
-    "https://tristen.codes/styles.e02152dc75293637bf89.css": "accab78a45ce8ac3ac20e94327432f1d02691633"
+    "https://tristen.codes/runtime-es2015.8c64e2f732aea82208c2.js": "51b8dd8f42f7759755dc829e3c7a44475dbe16a5",
+    "https://tristen.codes/runtime-es5.8c64e2f732aea82208c2.js": "4f5b588d3d16b4d2db19db0fcb4a63297178501b",
+    "https://tristen.codes/styles.fb795d56246ce4ba48fd.css": "62d3805dafb36ad7c684ec78476ec03e3a7c4276"
   },
   "navigationUrls": [
     {
