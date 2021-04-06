@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as $ from 'jquery';
 
 @Component({
@@ -11,7 +12,7 @@ export class ContactMeComponent implements OnInit {
   validEmail = false;
   validMessage = false;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
@@ -36,37 +37,38 @@ export class ContactMeComponent implements OnInit {
 
     event.preventDefault();
 
-    $.ajax({
-      url: 'https://script.google.com/macros/s/AKfycbyN4nzL1LykXY4V9SvUSbtmPX3JvlBO3ds3mKtdcVZyIag6CRI/exec',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin': '*'
-      },
-      type: "POST",
-      dataType: "json",
-      data: {
-        name: contactName,
-        email: contactEmail,
-        message: contactMessage
-      },
-      success: function () {
-        const overlay = document.getElementById("formSubmitOverlay");
-        overlay.style.display = "block";
-        document.getElementsByTagName('body')[0].style.overflow = "hidden";
-        overlay.children[0].children[0].innerHTML = "Form submitted";
-        overlay.children[0].children[1].innerHTML = "Submitted successfully! Thank you, I will respond as soon as possible at the provided email!";
-        (document.getElementById('formName') as HTMLInputElement).value = '';
-        (document.getElementById('formEmail') as HTMLInputElement).value = '';
-        (document.getElementById('formMessage') as HTMLInputElement).value = '';
-      },
-      error: function () {
-        const overlay = document.getElementById("formSubmitOverlay");
-        overlay.style.display = "block";
-        document.getElementsByTagName('body')[0].style.overflow = "hidden";
-        overlay.children[0].children[0].innerHTML = "Form not submitted";
-        overlay.children[0].children[1].innerHTML = "Form submittion failed. Unfortunately the form has failed to submit. Please try again later.";
-      }
-    });
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    this.http.post('https://formspree.io/f/meqvqkrr',
+      { name: contactName, replyto: contactEmail, message: contactMessage },
+      { 'headers': headers }).subscribe(
+        data => this.formSubmitSuccess(),
+        error => this.formSumbitError()
+      );
+  }
+
+  private formSubmitSuccess() {
+    const overlay = document.getElementById("formSubmitOverlay");
+    if (overlay == null) {
+      return;
+    }
+    overlay.style.display = "block";
+    document.getElementsByTagName('body')[0].style.overflow = "hidden";
+    overlay.children[0].children[0].innerHTML = "Form submitted";
+    overlay.children[0].children[1].innerHTML = "Submitted successfully! Thank you, I will respond as soon as possible at the provided email!";
+    (document.getElementById('formName') as HTMLInputElement).value = '';
+    (document.getElementById('formEmail') as HTMLInputElement).value = '';
+    (document.getElementById('formMessage') as HTMLInputElement).value = '';
+  }
+
+  private formSumbitError() {
+    const overlay = document.getElementById("formSubmitOverlay");
+    if (overlay == null) {
+      return;
+    }
+    overlay.style.display = "block";
+    document.getElementsByTagName('body')[0].style.overflow = "hidden";
+    overlay.children[0].children[0].innerHTML = "Form not submitted";
+    overlay.children[0].children[1].innerHTML = "Form submittion failed. Unfortunately the form has failed to submit. Please try again later.";
   }
 
   nameValidation(event: any) {
