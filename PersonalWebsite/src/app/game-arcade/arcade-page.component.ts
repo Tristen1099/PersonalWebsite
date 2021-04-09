@@ -35,8 +35,8 @@ export class ArcadePageComponent implements OnInit {
     }, {
       routerLink: "",
       imageSource: "../../assets/Arcade/InProgress.png",
-      title: "IN PROGRESS",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor ligula porttitor, lacinia sapien non."
+      title: "IN PROGRESSSSSSSSSS",
+      description: "Lorem ipsum dolor blah blah blah. New game might be snake.... Might not, you'll just have to wait."
     }];
   }
 
