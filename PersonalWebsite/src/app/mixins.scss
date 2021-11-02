@@ -62,7 +62,7 @@ $colorContainerBorderDark: scale-color(desaturate($themeColor, 55), $lightness: 
 }
 
 @mixin articleContent() {
-    padding: 2em 0;
+    padding: 1.5em 0;
     border-width: 1px 0 1px 0;
     border-color: $colorContainerInnerBorder;
     border-style: solid;
