@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1624404683876,
+  "timestamp": 1635889303152,
   "index": "https://tristen.codes/index.html",
   "assetGroups": [
     {
@@ -8,17 +8,17 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "https://tristen.codes/5-es2015.44cd90199299f158412d.js",
-        "https://tristen.codes/5-es5.44cd90199299f158412d.js",
+        "https://tristen.codes/5-es2015.5da214930ecaaff01e6d.js",
+        "https://tristen.codes/5-es5.5da214930ecaaff01e6d.js",
         "https://tristen.codes/favicon.ico",
         "https://tristen.codes/index.html",
-        "https://tristen.codes/main-es2015.2b0523ec579985f5bb3c.js",
-        "https://tristen.codes/main-es5.2b0523ec579985f5bb3c.js",
+        "https://tristen.codes/main-es2015.61d68dc4e68adeaf84c3.js",
+        "https://tristen.codes/main-es5.61d68dc4e68adeaf84c3.js",
         "https://tristen.codes/manifest.webmanifest",
         "https://tristen.codes/polyfills-es2015.09ee2f719bd21ab5c7b1.js",
         "https://tristen.codes/polyfills-es5.12b5c32d1603e35dd556.js",
-        "https://tristen.codes/runtime-es2015.23648caa41fa8ac19f6e.js",
-        "https://tristen.codes/runtime-es5.23648caa41fa8ac19f6e.js",
+        "https://tristen.codes/runtime-es2015.c965b83205e9992ac713.js",
+        "https://tristen.codes/runtime-es5.c965b83205e9992ac713.js",
         "https://tristen.codes/styles.cc40e10f1a9cf8bac0ad.css"
       ],
       "patterns": []
@@ -170,8 +170,8 @@
     }
   ],
   "hashTable": {
-    "https://tristen.codes/5-es2015.44cd90199299f158412d.js": "52a767b4fc6778a423abf98f931d74d0f439b920",
-    "https://tristen.codes/5-es5.44cd90199299f158412d.js": "1c2fccedceb342b63da8bc33acc001a28095bc86",
+    "https://tristen.codes/5-es2015.5da214930ecaaff01e6d.js": "6b88170f1c9714b99573f1be5f825aa8da53802d",
+    "https://tristen.codes/5-es5.5da214930ecaaff01e6d.js": "56b8053e9a143516bbe949aaa4da92fca8d2dd82",
     "https://tristen.codes/assets/Arcade/BlockStacker.png": "ed84d663c1f09447bbe9bf7e3dfe8de365258736",
     "https://tristen.codes/assets/Arcade/BombDuster.png": "a8d4570c51895a3c41aa5b7032c1eaed0ba3987b",
     "https://tristen.codes/assets/Arcade/BombDusterAssets/GameLoser.png": "c9d83a7721d23d23506c69a7a6939f25fc9ec28b",
@@ -292,14 +292,14 @@
     "https://tristen.codes/assets/resume-icon.png": "093f2669df999ebbc1bf2d1ee2c647558aaa8760",
     "https://tristen.codes/background-texture.06207469176e9a52de3a.jpg": "265cf6c8527101b4b05ea20fdb0e599be7c7f97f",
     "https://tristen.codes/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://tristen.codes/index.html": "54b82f0f76405f58feafd0b4438c5c0d790b4256",
-    "https://tristen.codes/main-es2015.2b0523ec579985f5bb3c.js": "c45375080240c912fc247e6ed2600815fa375977",
-    "https://tristen.codes/main-es5.2b0523ec579985f5bb3c.js": "ab9790b28f8ba07df6fd4b7d0c78a5188947c7e0",
+    "https://tristen.codes/index.html": "feabf5d309d7128692a3d274449b94f70e9575c9",
+    "https://tristen.codes/main-es2015.61d68dc4e68adeaf84c3.js": "4da452a7f7e15ec48e2459e5cd1d69c740c06540",
+    "https://tristen.codes/main-es5.61d68dc4e68adeaf84c3.js": "93d384534fd951ad12a11712842ab2dd695f2634",
     "https://tristen.codes/manifest.webmanifest": "26109a7f9f1883904a921dd206c555edcd2ff5b0",
     "https://tristen.codes/polyfills-es2015.09ee2f719bd21ab5c7b1.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
     "https://tristen.codes/polyfills-es5.12b5c32d1603e35dd556.js": "442e1fb669242444ee6bc39ba65c59b2ec5c5dab",
-    "https://tristen.codes/runtime-es2015.23648caa41fa8ac19f6e.js": "3f9a734e91d3818e25855ec453f464961372abb0",
-    "https://tristen.codes/runtime-es5.23648caa41fa8ac19f6e.js": "ee7e95d7d47a8c7647f87107704c85c00d6a8f4d",
+    "https://tristen.codes/runtime-es2015.c965b83205e9992ac713.js": "552cb7587d4274655774aa6c5584426479f9d7eb",
+    "https://tristen.codes/runtime-es5.c965b83205e9992ac713.js": "e8dce9d64eb8f2a6b24af430b1ae5dd62dea31c9",
     "https://tristen.codes/styles.cc40e10f1a9cf8bac0ad.css": "455439619bc7a31b29ad1c90742b952ca6a880de"
   },
   "navigationUrls": [
