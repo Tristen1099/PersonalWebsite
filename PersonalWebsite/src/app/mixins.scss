@@ -82,7 +82,7 @@ $colorContainerBorderDark: scale-color(desaturate($themeColor, 55), $lightness: 
 }
 
 @mixin articleHover() {
-    transform: scale(1.04);
+    transform: scaleY(1.08) scaleX(1.01);
 
     .fas {
         color: $colorContainerIconDark;
