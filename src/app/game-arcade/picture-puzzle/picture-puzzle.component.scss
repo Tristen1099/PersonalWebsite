@@ -253,3 +253,16 @@
         }
     }
 }
+
+@media all and (max-width: 1000px) and (orientation: portrait){
+    .picture-puzzle-container {
+        .game-board {
+            .top-buttons {
+                .hidden-mobile {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+  

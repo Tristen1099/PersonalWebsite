@@ -27,6 +27,11 @@
                         (change)="difficultyChanged($event)">
                     <label for="hardButton">Hard</label>
                 </div>
+                <div class="col hidden-mobile">
+                    <input type="radio" id="extremeButton" name="difficulty" value="extreme"
+                        (change)="difficultyChanged($event)">
+                    <label for="hardButton">Extreme</label>
+                </div>
             </div>
         </div>
         <table id="board">

@@ -163,6 +163,11 @@ export class PicturePuzzleComponent implements OnInit {
         this.shuffleAmount = 125;
         this.setupPictureGrid();
         break;
+      case "extreme":
+        this.gridSize = 8;
+        this.shuffleAmount = 420;
+        this.setupPictureGrid();
+        break;
     }
 
   }
@@ -254,6 +259,7 @@ export class PicturePuzzleComponent implements OnInit {
   private shuffleTiles(shuffleAmount: number) {
     const that = this;
     this.shuffling = true;
+    var shuffleTime = this.gridSize != 8 ? 50 : 25;
     if (shuffleAmount > 0) {
       let y = Math.floor(Math.random() * this.tiles.length);
       let x = Math.floor(Math.random() * this.tiles[y].length);
@@ -264,7 +270,7 @@ export class PicturePuzzleComponent implements OnInit {
         shuffleAmount -= 1;
         setTimeout(function () {
           that.shuffleTiles(shuffleAmount);
-        }, 50);
+        }, shuffleTime);
       } else {
         this.shuffleTiles(shuffleAmount);
       }
