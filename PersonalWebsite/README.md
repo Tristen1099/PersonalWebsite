@@ -1,9 +1,5 @@
-WINDOWS
-    $ ng build --prod --base-href "https://tristen.codes"
+# PersonalWebsite
 
-    $ ngh --cname tristen.codes --dir dist/PersonalWebsite
-
-LINUX
-    $ ng build --prod --base-href "https://tristen.codes"
-
-    $ sudo ngh --cname tristen.codes --dir dist/PersonalWebsite
+-npm run build
+-npm run deploy
+-go to https://github.com/Tristen1099/PersonalWebsite/settings/pages and add tristen.codes as custom domain

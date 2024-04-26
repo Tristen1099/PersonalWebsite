@@ -35,7 +35,7 @@
                     [ngStyle]="{'background-image': tile.backgroundImage, 'background-size': tile.backgroundSize, 'background-position': tile.backgroundPosition, 'width': tile.width + 'px', 'height': tile.height + 'px'}"
                     [className]="gameOver ? 'active' : ''"
                     (click)="tileClick(row, col)">
-                    <h6 *ngIf="tile.backgroundImage != null && displayNumbers">{{tile.positionNumber}}</h6>
+                    <h6 *ngIf="tile.backgroundImage && displayNumbers">{{tile.positionNumber}}</h6>
                 </th>
             </tr>
         </table>
@@ -79,7 +79,7 @@
                 <div class="row user-input">
                     <div class="col-9">
                         <div class="row">
-                            <h6>* Needs to be a square image</h6>
+                            <h6>* Should be a square image</h6>
                         </div>
                         <div class="row">
                             <input type='file' id='_file' accept="image/*" />

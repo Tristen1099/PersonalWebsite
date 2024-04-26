@@ -50,6 +50,10 @@ export class ArcadePageComponent implements OnInit {
         document.querySelectorAll('.arcade-content'),
         ((content: HTMLElement) => {
 
+          if (!content.parentNode) {
+            return;
+          }
+
           let siblings = [];
           let sibling = content.parentNode.firstChild;
           for (; sibling; sibling = sibling.nextSibling) {

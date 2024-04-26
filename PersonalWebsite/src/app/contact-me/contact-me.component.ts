@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import * as $ from 'jquery';
+import jQuery from 'jquery';
 
 @Component({
   selector: 'app-contact-me',
@@ -18,7 +18,11 @@ export class ContactMeComponent implements OnInit {
   }
 
   closeOverlay() {
-    document.getElementById("formSubmitOverlay").style.display = "none";
+    var formSubmitDiv = document.getElementById("formSubmitOverlay");
+    if (formSubmitDiv) {
+      formSubmitDiv.style.display = "none";
+    }
+    
     document.getElementsByTagName('body')[0].style.overflowY = "scroll";
   }
 
@@ -39,7 +43,7 @@ export class ContactMeComponent implements OnInit {
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     this.http.post('https://formspree.io/f/meqvqkrr',
-      { name: contactName, replyto: contactEmail, message: contactMessage },
+      { FROM: "tristen.codes", NAME: contactName, EMAIL: contactEmail, MESSAGE: contactMessage },
       { 'headers': headers }).subscribe(
         data => this.formSubmitSuccess(),
         error => this.formSumbitError()
@@ -89,10 +93,10 @@ export class ContactMeComponent implements OnInit {
 
     if (!(name === '')) {
       this.validName = true;
-      $("#nameError").css("visibility", "hidden");
+      jQuery("#nameError").css("visibility", "hidden");
     } else {
       this.validName = false;
-      $("#nameError").css("visibility", "visible");
+      jQuery("#nameError").css("visibility", "visible");
     }
   }
 
@@ -108,20 +112,20 @@ export class ContactMeComponent implements OnInit {
     if (!(email === '')) {
       if (valid) {
         this.validEmail = true;
-        $("#emailError").css("visibility", "hidden");
-        $("#emailErrorWrongFormat").css("display", "none");
-        $("#emailErrorBlank").css("display", "block");
+        jQuery("#emailError").css("visibility", "hidden");
+        jQuery("#emailErrorWrongFormat").css("display", "none");
+        jQuery("#emailErrorBlank").css("display", "block");
       } else {
         this.validEmail = false;
-        $("#emailErrorBlank").css("visibility", "hidden");
-        $("#emailErrorBlank").css("display", "none");
-        $("#emailErrorWrongFormat").css("display", "block");
+        jQuery("#emailErrorBlank").css("visibility", "hidden");
+        jQuery("#emailErrorBlank").css("display", "none");
+        jQuery("#emailErrorWrongFormat").css("display", "block");
       }
     } else {
       this.validEmail = false;
-      $("#emailErrorBlank").css("visibility", "visible");
-      $("#emailErrorWrongFormat").css("display", "none");
-      $("#emailErrorBlank").css("display", "block");
+      jQuery("#emailErrorBlank").css("visibility", "visible");
+      jQuery("#emailErrorWrongFormat").css("display", "none");
+      jQuery("#emailErrorBlank").css("display", "block");
     }
   }
 
@@ -134,10 +138,10 @@ export class ContactMeComponent implements OnInit {
 
     if (!(message === '')) {
       this.validMessage = true;
-      $("#messageError").css("visibility", "hidden");
+      jQuery("#messageError").css("visibility", "hidden");
     } else {
       this.validMessage = false;
-      $("#messageError").css("visibility", "visible");
+      jQuery("#messageError").css("visibility", "visible");
     }
   }
 }

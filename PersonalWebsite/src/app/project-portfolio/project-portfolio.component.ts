@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+import jQuery from 'jquery';
+import { document } from 'ngx-bootstrap/utils';
 
 @Component({
   selector: 'app-project-portfolio',
@@ -9,8 +10,7 @@ import * as $ from 'jquery';
 export class ProjectPortfolioComponent implements OnInit {
 
   projects = new Array();
-  carouselInterval: number;
-  static carouselInterval = 0;
+  static carouselInterval = 1000;
   public carouselLoaded = false;
 
   public classReference = ProjectPortfolioComponent;
@@ -284,16 +284,25 @@ export class ProjectPortfolioComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
-  projectItemSlide(event: any) {
-    //console.log(event);
+  projectItemSlide(currentItemIndex: number) {
+    var projectItems = document.getElementsByClassName("carousel-item");
+    if(projectItems) {
+      var currentItem = projectItems[currentItemIndex];
+      setTimeout(function () {
+        currentItem.getElementsByClassName("left-side")[0].scrollRight += 5;
+        setTimeout(function () {
+          currentItem.getElementsByClassName("left-side")[0].scrollLeft += 5;
+        }, 50);
+      }, 250);
+    }
   }
 }
 
-$(document).scroll(function () {
-  var y = $(this).scrollTop();
-  var height = $(".hero-container").height();
+jQuery(document).scroll(function (this: any) {
+  var y = jQuery(this).scrollTop();
+  var height = jQuery(".hero-container").height();
 
-  if (y > height) {
+  if (y && height && y > height) {
     if (!this.carouselLoaded) {
       ProjectPortfolioComponent.carouselInterval = 10000;
       this.carouselLoaded = true;

@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hero-intro.component.scss']
 })
 export class HeroIntroComponent implements OnInit {
-  public heroTitle: string;
-  public heroDescription: string;
+  public heroTitle: string = "";
+  public heroDescription: string = "";
 
   constructor() { }
 
@@ -23,19 +23,19 @@ export class HeroIntroComponent implements OnInit {
     const that = this;
     setTimeout(function () {
       that.resetIntro();
-    }, 1500);
+    }, 1400);
   }
 
   resetIntro() {
     const that = this;
     setTimeout(function () {
       that.heroTitle = '';
-      that.displayGreeting('Hello there!', 0, 100);
+      that.displayGreeting('Hello there!', 0, 75);
     }, 500);
   }
 
 
-  displayGreeting(message, index, interval) {
+  displayGreeting(message: string, index: number, interval: number) {
     const that = this;
     if (index < message.length) {
       this.heroTitle += (message[index++]);
@@ -43,12 +43,12 @@ export class HeroIntroComponent implements OnInit {
     } else {
       const that = this;
       setTimeout(function () {
-        that.displayDescription('My name is Tristen! And I\'m a software developer!', 0, 100);
+        that.displayDescription('My name is Tristen! And I\'m a software developer!', 0, 75);
       }, 500);
     }
   }
 
-  displayDescription(message, index, interval) {
+  displayDescription(message: string, index: number, interval: number) {
     const that = this;
     if (this.heroDescription === undefined) {
       this.heroDescription = '';

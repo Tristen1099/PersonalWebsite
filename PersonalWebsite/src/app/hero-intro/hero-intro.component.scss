@@ -61,6 +61,8 @@
 
 @media all and (max-width: 1000px) {
   .hero-container {
+    height: 90vh;
+
     .container {
       .row {
         position: relative;
@@ -93,6 +95,8 @@
 
 @media all and (max-width: 800px) {
   .hero-container {
+    height: 80vh;
+
     .container {
       .row {
         .hero-text {
@@ -110,6 +114,8 @@
 
 @media all and (max-width: 600px) {
   .hero-container {
+    height: 70vh;
+
     .container {
       .row {
         .hero-text {
@@ -127,6 +133,8 @@
 
 @media all and (max-width: 400px) {
   .hero-container {
+    height: 60vh;
+
     .container {
       .row {
         .hero-text {

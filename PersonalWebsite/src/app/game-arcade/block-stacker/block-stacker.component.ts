@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
-import { AppComponent } from 'src/app/app.component';
+import { AppComponent } from '../../app.component';
 import { COLS, BLOCK_SIZE, ROWS, KEY, COLORS, LEVELS, LINES_PER_LEVEL, POINTS } from './block-stacker-constants';
 import { Piece, IPiece } from './block-stacker-piece';
 import { BlockStackerService } from './block-stacker-service';
@@ -12,26 +12,26 @@ import { BlockStackerService } from './block-stacker-service';
 export class BlockStackerComponent implements OnInit {
 
   @ViewChild('board', { static: true })
-  canvas: ElementRef<HTMLCanvasElement>;
-  canvasContext: CanvasRenderingContext2D;
+  canvas!: ElementRef<HTMLCanvasElement>;
+  canvasContext!: CanvasRenderingContext2D;
   @ViewChild('next', { static: true })
-  canvasNext: ElementRef<HTMLCanvasElement>;
-  canvasContextNext: CanvasRenderingContext2D;
+  canvasNext!: ElementRef<HTMLCanvasElement>;
+  canvasContextNext!: CanvasRenderingContext2D;
 
-  level: number;
-  score: number;
-  lines: number;
-  totalLines: number;
-  highScore: number;
+  level: number = 1;
+  score: number = 0;
+  lines: number = 0;
+  totalLines: number = 0;
+  highScore: number = 0;
 
-  currentPiece: Piece;
-  nextPiece: Piece;
-  gameBoard: number[][];
-  gameStarted: boolean;
-  paused: boolean;
+  currentPiece!: Piece;
+  nextPiece!: Piece;
+  gameBoard!: number[][];
+  gameStarted: boolean = false;
+  paused: boolean = false;
 
-  requestId: number;
-  time: { start: number; elapsed: number; level: number };
+  requestId: number = 0;
+  time!: { start: number; elapsed: number; level: number };
 
   moves = {
     [KEY.LEFT]: (p: IPiece): IPiece => ({ ...p, x: p.x - 1 }),
@@ -44,13 +44,16 @@ export class BlockStackerComponent implements OnInit {
   @HostListener('window:keydown', ['$event'])
   keyEvent(event: KeyboardEvent) {
     if (this.gameStarted) {
-      if (event.keyCode === KEY.ESC) {
+      var keyCode = event.keyCode;
+      const keyTyped = keyCode as keyof typeof this.moves;
+
+      if (keyCode === KEY.ESC) {
         this.pause();
-      } else if (event.keyCode == KEY.SWITCH) {
+      } else if (keyCode == KEY.SWITCH) {
         this.switchPiece();
-      } else if (this.moves[event.keyCode]) {
+      } else if (Object.hasOwn(this.moves, keyCode)) {
         event.preventDefault();
-        let piece = this.moves[event.keyCode](this.currentPiece);
+        let piece = this.moves[keyTyped](this.currentPiece);
         if (event.keyCode === KEY.SPACE) {
           while (this.service.valid(piece, this.gameBoard)) {
             this.currentPiece.move(piece);
@@ -83,18 +86,24 @@ export class BlockStackerComponent implements OnInit {
   }
 
   initializeBoard() {
-    this.canvasContext = this.canvas.nativeElement.getContext('2d');
-    this.canvasContext.canvas.width = COLS * BLOCK_SIZE;
-    this.canvasContext.canvas.height = ROWS * BLOCK_SIZE;
-    this.canvasContext.scale(BLOCK_SIZE, BLOCK_SIZE);
+    var context = this.canvas.nativeElement.getContext('2d');
+    if (context) {
+      this.canvasContext = context;
+      this.canvasContext.canvas.width = COLS * BLOCK_SIZE;
+      this.canvasContext.canvas.height = ROWS * BLOCK_SIZE;
+      this.canvasContext.scale(BLOCK_SIZE, BLOCK_SIZE);
+    }
   }
 
 
   initializeNext() {
-    this.canvasContextNext = this.canvasNext.nativeElement.getContext('2d');
-    this.canvasContextNext.canvas.width = 4 * BLOCK_SIZE + 2;
-    this.canvasContextNext.canvas.height = 4 * BLOCK_SIZE;
-    this.canvasContextNext.scale(BLOCK_SIZE, BLOCK_SIZE);
+    var context = this.canvasNext.nativeElement.getContext('2d');
+    if (context) {
+      this.canvasContextNext = context;
+      this.canvasContextNext.canvas.width = 4 * BLOCK_SIZE + 2;
+      this.canvasContextNext.canvas.height = 4 * BLOCK_SIZE;
+      this.canvasContextNext.scale(BLOCK_SIZE, BLOCK_SIZE);
+    }
   }
 
   play() {
@@ -116,7 +125,9 @@ export class BlockStackerComponent implements OnInit {
     this.highScore = this.score > this.highScore ? this.score : this.highScore;
 
     const overlay = document.getElementById("endGameOverlay");
-    overlay.style.display = "block";
+    if (overlay) {
+      overlay.style.display = "block";
+    }
     document.getElementsByTagName('body')[0].style.overflow = "hidden";
   }
 
@@ -124,12 +135,30 @@ export class BlockStackerComponent implements OnInit {
     if (this.gameStarted) {
       if (this.paused) {
         this.runGame();
-        document.getElementById('pause-button').innerHTML = "Pause";
-        document.getElementById('mobile-pause-button').innerHTML = "Pause";
+
+        var pauseButton = document.getElementById('pause-button');
+        var mobilePauseButton = document.getElementById('mobile-pause-button');
+
+        if (pauseButton) {
+          pauseButton.innerHTML = "Pause";
+        }
+
+        if (mobilePauseButton) {
+          mobilePauseButton.innerHTML = "Pause";
+        }
       } else {
         cancelAnimationFrame(this.requestId);
-        document.getElementById('pause-button').innerHTML = "Play";
-        document.getElementById('mobile-pause-button').innerHTML = "Play";
+        
+        var pauseButton = document.getElementById('pause-button');
+        var mobilePauseButton = document.getElementById('mobile-pause-button');
+
+        if (pauseButton) {
+          pauseButton.innerHTML = "Play";
+        }
+
+        if (mobilePauseButton) {
+          mobilePauseButton.innerHTML = "Play";
+        }
       }
 
       this.paused = !this.paused;
@@ -137,16 +166,21 @@ export class BlockStackerComponent implements OnInit {
   }
 
   closeOverlay() {
-    document.getElementById("endGameOverlay").style.display = "none";
+    var endGameDiv = document.getElementById("endGameOverlay");
+    if (endGameDiv) {
+      endGameDiv.style.display = "none";
+    }
+    
     document.getElementsByTagName('body')[0].style.overflowY = "scroll";
   }
 
   mobileButtonClick(keyCode: number) {
     if (this.gameStarted) {
+      const keyTyped = keyCode as keyof typeof this.moves;
       if (keyCode == KEY.SWITCH) {
         this.switchPiece();
-      } else if (this.moves[keyCode]) {
-        let piece = this.moves[keyCode](this.currentPiece);
+      } else if (Object.hasOwn(this.moves, keyCode)) {
+        let piece = this.moves[keyTyped](this.currentPiece);
         if (keyCode === KEY.SPACE) {
           while (this.service.valid(piece, this.gameBoard)) {
             this.currentPiece.move(piece);
@@ -237,7 +271,7 @@ export class BlockStackerComponent implements OnInit {
       if (this.lines >= LINES_PER_LEVEL) {
         this.level++;
         this.lines -= LINES_PER_LEVEL;
-        this.time.level = LEVELS[this.level];
+        this.time.level = LEVELS[this.level as keyof LEVELS];
       }
     }
   }
@@ -267,7 +301,7 @@ export class BlockStackerComponent implements OnInit {
     this.totalLines = 0;
     this.level = 1;
     this.gameBoard = this.getEmptyGameBoard();
-    this.time = { start: 0, elapsed: 0, level: LEVELS[this.level] };
+    this.time = { start: 0, elapsed: 0, level: LEVELS[this.level as keyof LEVELS]};
     this.drawGridOnCanvas();
   }
 

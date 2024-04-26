@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tile, NEIGHBORS } from './tile';
-import * as $ from 'jquery';
-import { AppComponent } from 'src/app/app.component';
+import jQuery from 'jquery';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-picture-puzzle',
@@ -20,19 +20,19 @@ export class PicturePuzzleComponent implements OnInit {
     '../../assets/Arcade/PicturePuzzleAssets/Fish.JPG'
   ];
 
-  tiles: Tile[][];
-  gridSize: number;
-  shuffleAmount: number;
-  displayNumbers: boolean;
-  windowSize: number;
-  imageSize: number;
-  shuffling: boolean;
-  previousMovedTile: number;
+  tiles!: Tile[][];
+  gridSize: number = 0;
+  shuffleAmount: number = 0;
+  displayNumbers: boolean = false;
+  windowSize: number = 0;
+  imageSize: number = 0;
+  shuffling: boolean = false;
+  previousMovedTile: number = 0;
 
-  gameStarted: boolean;
-  gameOver: boolean;
-  timeElapsed: number;
-  interval;
+  gameStarted: boolean = false;
+  gameOver: boolean = false;
+  timeElapsed: number = 0;
+  interval!: NodeJS.Timeout;
 
   constructor() {
   }
@@ -50,11 +50,15 @@ export class PicturePuzzleComponent implements OnInit {
 
     const that = this;
 
-    $('#_file').change(function (e) {
+    jQuery('#_file').change(function (e: any) {
 
       let img = new Image;
       let canvas = document.createElement("canvas");
       let ctx = canvas.getContext("2d");
+      if (!ctx) {
+        return;
+      }
+
       if (e.target.files.length == 0) {
         return;
       }
@@ -64,7 +68,7 @@ export class PicturePuzzleComponent implements OnInit {
         canvas.height = 800;
         ctx.drawImage(img, 0, 0, 800, 800);
         that.imageSrc = canvas.toDataURL("image/jpeg", 0.5);
-        $('#userImage').attr("src", that.imageSrc);
+        jQuery('#userImage').attr("src", that.imageSrc);
         that.setupPictureGrid();
       }
     });
@@ -89,7 +93,7 @@ export class PicturePuzzleComponent implements OnInit {
     this.stopClock();
     this.gameOver = false;
     this.gameStarted = false;
-    this.previousMovedTile = null;
+    this.previousMovedTile = -1;
     let numberSwitch = document.getElementById("numberSwitch");
     if (numberSwitch != null) {
       this.displayNumbers = (numberSwitch as HTMLInputElement).checked;
@@ -235,7 +239,7 @@ export class PicturePuzzleComponent implements OnInit {
     for (const peer of NEIGHBORS) {
       if (!((row + peer[0] < 0 || row + peer[0] >= this.gridSize) || (col + peer[1] < 0 || col + peer[1] >= this.gridSize))) {
         let neighbor = this.tiles[row + peer[0]][col + peer[1]];
-        if (neighbor.backgroundImage == null) {
+        if (!neighbor.backgroundImage) {
           this.previousMovedTile = this.tiles[row][col].positionNumber;
           let currentTile = this.tiles[row][col];
           this.tiles[row][col] = neighbor;

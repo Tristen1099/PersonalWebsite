@@ -12,7 +12,7 @@ export class WorkHistoryComponent implements OnInit {
   ngOnInit() {
   }
 
-  articleHover(element) {
+  articleHover(element: any) {
     let articleContent = element.getElementsByClassName("articleContent")[0];
     let subDetails = articleContent.getElementsByClassName("subDetails");
     for(let index = 0; index < subDetails.length; index++) {
@@ -23,7 +23,7 @@ export class WorkHistoryComponent implements OnInit {
     }
   }
 
-  articleLeave(element) {
+  articleLeave(element: any) {
     let articleContent = element.getElementsByClassName("articleContent")[0];
     let subDetails = articleContent.getElementsByClassName("subDetails");
     for(let index = 0; index < subDetails.length; index++) {

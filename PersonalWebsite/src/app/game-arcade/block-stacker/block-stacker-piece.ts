@@ -8,10 +8,10 @@ export interface IPiece {
 }
 
 export class Piece implements IPiece {
-    x: number;
-    y: number;
-    color: string;
-    shape: number[][];
+    x: number = 0;
+    y: number = 0;
+    color: string = "";
+    shape!: number[][];
 
     constructor(private canvasContext: CanvasRenderingContext2D) {
         this.spawn();

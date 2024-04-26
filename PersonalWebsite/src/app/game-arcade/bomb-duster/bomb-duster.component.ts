@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { AppComponent } from 'src/app/app.component';
+import { AppComponent } from '../../app.component';
 import { Cell, CellStatus, NEIGHBORS } from './cell';
 
 enum GameStatus {
@@ -15,18 +15,18 @@ enum GameStatus {
 })
 export class BombDusterComponent implements OnInit {
 
-  gameBoard: Cell[][];
-  gameStarted: boolean;
-  gameEnded: boolean;
-  gameFlags: number;
-  gameStatus: string;
+  gameBoard!: Cell[][];
+  gameStarted: boolean = false;
+  gameEnded: boolean = false;
+  gameFlags: number = 0;
+  gameStatus: string = "";
 
   @ViewChild('gameLevel', { static: true })
-  gameLevel: ElementRef<HTMLSelectElement>;
+  gameLevel!: ElementRef<HTMLSelectElement>;
 
-  firstClick: boolean;
-  timeElapsed: number;
-  interval;
+  firstClick: boolean = false;
+  timeElapsed: number = 0;
+  interval!: NodeJS.Timeout;
 
   constructor() { }
 
