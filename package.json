@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build --base-href https://tristen.codes --output-path=dist ",
     "deploy": "npm run gh-pages",
+    "gh-pages": "gh-pages -d dist",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
