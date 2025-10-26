@@ -3,6 +3,7 @@ import { AppComponent } from '../../app.component';
 import { COLS, BLOCK_SIZE, ROWS, KEY, COLORS, LEVELS, LINES_PER_LEVEL, POINTS } from './block-stacker-constants';
 import { Piece, IPiece } from './block-stacker-piece';
 import { BlockStackerService } from './block-stacker-service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-block-stacker',
@@ -70,13 +71,13 @@ export class BlockStackerComponent implements OnInit {
     }
   }
 
-  constructor(private service: BlockStackerService) {}
+  constructor(private service: BlockStackerService, private cookieService: CookieService) {}
 
   ngOnInit() {
     this.initializeBoard();
     this.initializeNext();
     this.resetGame();
-    this.highScore = 0;
+    this.highScore = this.cookieService.get('blockStackerHighScore') ? parseInt(this.cookieService.get('blockStackerHighScore')) : 0;
   }
 
   ngAfterViewInit() {
@@ -122,7 +123,11 @@ export class BlockStackerComponent implements OnInit {
   gameOver() {
     this.gameStarted = false;
     cancelAnimationFrame(this.requestId);
-    this.highScore = this.score > this.highScore ? this.score : this.highScore;
+    
+    if (this.score > this.highScore) {
+      this.highScore = this.score;
+      this.cookieService.set('blockStackerHighScore', this.highScore.toString(), 365);
+    }
 
     const overlay = document.getElementById("endGameOverlay");
     if (overlay) {
