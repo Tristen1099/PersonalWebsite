@@ -174,7 +174,7 @@ export class PicturePuzzleComponent implements OnInit {
 
   tileClick(row: number, col: number) {
     if (this.gameStarted) {
-      this.startClock();
+      this.runClock();
       this.moveTile(row, col);
       if (this.checkIfGameOver()) {
         this.displayGameWon();
@@ -227,12 +227,12 @@ export class PicturePuzzleComponent implements OnInit {
     }
   }
 
-  private startClock() {
-    this.stopClock();
-
-    this.interval = setInterval(() => {
-      this.timeElapsed += .1;
-    }, 100)
+  private runClock() {
+    if (this.timeElapsed == 0) {
+      this.interval = setInterval(() => {
+        this.timeElapsed += .1;
+      }, 100)
+    }
   }
 
   private stopClock() {
