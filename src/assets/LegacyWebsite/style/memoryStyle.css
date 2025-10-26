@@ -125,17 +125,10 @@ footer {
 	margin: auto;
 	font-size: 0;
 }
-#green {
+#green, #red, #yellow, #blue {
 	float: left;
-}
-#red {
-	float: left;
-}
-#yellow {
-	float: left;
-}
-#blue {
-	float: left;
+	height: 200px;
+	width: 200px;
 }
 #redHard {
 	float: left;
