@@ -73,6 +73,8 @@
 
           .right-side {
             .project-details-container {
+              padding-bottom: 10px;
+
               h1 {
                 padding-top: 35px;
                 font-weight: 700;
@@ -234,6 +236,9 @@
       }
     }
     #project-carousel {
+      ::ng-deep .carousel-indicators {
+        bottom: -2px;
+      }
       .carousel-item {
         .project-item {
           .container {
@@ -274,6 +279,9 @@
       }
     }
     #project-carousel {
+      ::ng-deep .carousel-indicators {
+        bottom: -4px;
+      }
       .carousel-item {
         .project-item {
           min-height: 1000px;
@@ -327,8 +335,12 @@
       }
     }
     #project-carousel {
+      ::ng-deep .carousel-indicators {
+        bottom: -6px;
+      }
       .carousel-item {
         .project-item {
+          min-height: 900px;
           .container {
             .left-side {
               .project-image-container {
@@ -367,8 +379,12 @@
       }
     }
     #project-carousel {
+      ::ng-deep .carousel-indicators {
+        bottom: -8px;
+      }
       .carousel-item {
         .project-item {
+          min-height: 825px;
           .container {
             .left-side {
               .project-image-container {
@@ -407,8 +423,13 @@
       }
     }
     #project-carousel {
+      ::ng-deep .carousel-indicators {
+        bottom: -10px;
+      }
+
       .carousel-item {
         .project-item {
+          min-height: 750px;
           .container {
             .left-side {
               .project-image-container {
