@@ -401,6 +401,8 @@
       .container {
         max-width: 98%;
         .row {
+          margin: 0;
+
           .spacer {
             width: 50% !important;
             max-width: 50% !important;
@@ -428,6 +430,12 @@
       .container {
         max-width: 100%;
         .row {
+          margin: 0;
+
+          .navbar-toggler {
+            margin-right: 2em;
+          }
+
           .col {
             h5 {
               font-size: 1.3em;
@@ -451,6 +459,12 @@
     nav {
       .container {
         .row {
+          margin: 0;
+
+          .navbar-toggler {
+            margin-right: 2em;
+          }
+
           .col {
             h4 {
               font-size: 2em;
@@ -466,4 +480,16 @@
   }
 }
 
-
+@media all and (max-width: 600px) {
+  .page-container {
+    nav {
+      .container {
+        .row {
+          .navbar-toggler {
+            margin-right: 1em;
+          }
+        }
+      }
+    }
+  }
+}
